@@ -243,3 +243,364 @@ WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
 2018-11-07T14:51:17.4667410+07:00 0HLI4GMP6GGE9:00000004 [INF] Request finished in 3203.2438ms 200 text/html; charset=utf-8 (791a596a)
 2018-11-07T14:51:17.4771990+07:00 0HLI4GMP6GGEB:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
 2018-11-07T14:51:17.4925120+07:00 0HLI4GMP6GGEB:00000001 [INF] Request finished in 21.1018ms 404  (791a596a)
+2018-11-07T16:15:20.1413690+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T16:15:20.2821970+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:15:20.8810930+07:00  [INF] Executed DbCommand ("91"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T16:15:21.0619960+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T16:15:21.2953060+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T16:15:22.5300020+07:00 0HLI4I65NDAU1:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T16:15:22.7976740+07:00 0HLI4I65NDAU1:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T16:15:22.8174300+07:00 0HLI4I65NDAU1:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:15:22.8361700+07:00 0HLI4I65NDAU1:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T16:15:22.8639160+07:00 0HLI4I65NDAU1:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:15:23.0432230+07:00 0HLI4I65NDAU1:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T16:15:23.2039230+07:00 0HLI4I65NDAU1:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T16:15:23.2661020+07:00 0HLI4I65NDAU1:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:15:23.2811810+07:00 0HLI4I65NDAU1:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 455.083ms. (50a9e262)
+2018-11-07T16:15:23.3534840+07:00 0HLI4I65NDAU1:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T16:15:23.5224020+07:00 0HLI4I65NDAU1:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:15:23.7516400+07:00 0HLI4I65NDAU1:00000001 [INF] Executed DbCommand ("11"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:15:23.9433170+07:00 0HLI4I65NDAU1:00000001 [INF] Executed ViewResult - view "Index" executed in 626.2102ms. (f66409e9)
+2018-11-07T16:15:23.9910570+07:00 0HLI4I65NDAU1:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1154.8514ms (afa2e885)
+2018-11-07T16:15:24.0111960+07:00 0HLI4I65NDAU2:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/logo.png   (ca22a1cb)
+2018-11-07T16:15:24.0942740+07:00 0HLI4I65NDAU1:00000001 [INF] Request finished in 1547.5446ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:15:24.1661480+07:00 0HLI4I65NDAU2:00000001 [INF] The file "/images/logo.png" was not modified (f1f8d725)
+2018-11-07T16:15:24.2049380+07:00 0HLI4I65NDAU2:00000001 [INF] Request finished in 189.2984ms 304 image/png (791a596a)
+2018-11-07T16:15:24.2674740+07:00 0HLI4I65NDAU1:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/button_ghost.css   (ca22a1cb)
+2018-11-07T16:15:24.2835550+07:00 0HLI4I65NDAU1:00000002 [INF] The file "/css/button_ghost.css" was not modified (f1f8d725)
+2018-11-07T16:15:24.2921740+07:00 0HLI4I65NDAU1:00000002 [INF] Request finished in 28.4755ms 304 text/css (791a596a)
+2018-11-07T16:15:24.3126050+07:00 0HLI4I65NDAU2:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/index.css   (ca22a1cb)
+2018-11-07T16:15:24.3233680+07:00 0HLI4I65NDAU2:00000002 [INF] The file "/css/product/index.css" was not modified (f1f8d725)
+2018-11-07T16:15:24.3298560+07:00 0HLI4I65NDAU2:00000002 [INF] Request finished in 31.0532ms 304 text/css (791a596a)
+2018-11-07T16:15:24.6193140+07:00 0HLI4I65NDAU1:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/profile.jpg   (ca22a1cb)
+2018-11-07T16:15:24.6264840+07:00 0HLI4I65NDAU1:00000003 [INF] The file "/images/profile.jpg" was not modified (f1f8d725)
+2018-11-07T16:15:24.6412960+07:00 0HLI4I65NDAU1:00000003 [INF] Request finished in 22.2763ms 304 image/jpeg (791a596a)
+2018-11-07T16:15:24.6579410+07:00 0HLI4I65NDAU2:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_product.png   (ca22a1cb)
+2018-11-07T16:15:24.6936710+07:00 0HLI4I65NDAU2:00000003 [INF] The file "/images/ic_product.png" was not modified (f1f8d725)
+2018-11-07T16:15:24.7061080+07:00 0HLI4I65NDAU2:00000003 [INF] Request finished in 48.3252ms 304 image/png (791a596a)
+2018-11-07T16:15:24.9107630+07:00 0HLI4I65NDAU5:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T16:15:24.9198780+07:00 0HLI4I65NDAU6:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_catagory.png   (ca22a1cb)
+2018-11-07T16:15:24.9209250+07:00 0HLI4I65NDAU2:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_new.png   (ca22a1cb)
+2018-11-07T16:15:24.9435420+07:00 0HLI4I65NDAU5:00000001 [INF] Request finished in 29.6912ms 404  (791a596a)
+2018-11-07T16:15:24.9461800+07:00 0HLI4I65NDAU6:00000001 [INF] The file "/images/ic_catagory.png" was not modified (f1f8d725)
+2018-11-07T16:15:24.9536500+07:00 0HLI4I65NDAU2:00000004 [INF] The file "/images/ic_new.png" was not modified (f1f8d725)
+2018-11-07T16:15:24.9649100+07:00 0HLI4I65NDAU3:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail.png   (ca22a1cb)
+2018-11-07T16:15:24.9650650+07:00 0HLI4I65NDAU6:00000001 [INF] Request finished in 50.6236ms 304 image/png (791a596a)
+2018-11-07T16:15:24.9713100+07:00 0HLI4I65NDAU3:00000001 [INF] The file "/images/ic_detail.png" was not modified (f1f8d725)
+2018-11-07T16:15:24.9789160+07:00 0HLI4I65NDAU3:00000001 [INF] Request finished in 27.6757ms 304 image/png (791a596a)
+2018-11-07T16:15:24.9998920+07:00 0HLI4I65NDAU1:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_out_of_stock.png   (ca22a1cb)
+2018-11-07T16:15:25.0147570+07:00 0HLI4I65NDAU2:00000004 [INF] Request finished in 61.6748ms 304 image/png (791a596a)
+2018-11-07T16:15:25.0404530+07:00 0HLI4I65NDAU1:00000004 [INF] The file "/images/ic_out_of_stock.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.0496260+07:00 0HLI4I65NDAU1:00000004 [INF] Request finished in 61.9647ms 304 image/png (791a596a)
+2018-11-07T16:15:25.1466880+07:00 0HLI4I65NDAU6:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_edit.png   (ca22a1cb)
+2018-11-07T16:15:25.1468850+07:00 0HLI4I65NDAU5:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cm_logo.png   (ca22a1cb)
+2018-11-07T16:15:25.1656820+07:00 0HLI4I65NDAU3:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_tel.png   (ca22a1cb)
+2018-11-07T16:15:25.1658080+07:00 0HLI4I65NDAU5:00000002 [INF] The file "/images/cm_logo.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.1706550+07:00 0HLI4I65NDAU3:00000002 [INF] The file "/images/ic_tel.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.1813350+07:00 0HLI4I65NDAU6:00000002 [INF] The file "/images/ic_edit.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.1814400+07:00 0HLI4I65NDAU5:00000002 [INF] Request finished in 54.4367ms 304 image/png (791a596a)
+2018-11-07T16:15:25.2111330+07:00 0HLI4I65NDAU3:00000002 [INF] Request finished in 52.5084ms 304 image/png (791a596a)
+2018-11-07T16:15:25.2290590+07:00 0HLI4I65NDAU6:00000002 [INF] Request finished in 70.0613ms 304 image/png (791a596a)
+2018-11-07T16:15:25.2366450+07:00 0HLI4I65NDAU2:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_mail.png   (ca22a1cb)
+2018-11-07T16:15:25.2829200+07:00 0HLI4I65NDAU4:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_delete.png   (ca22a1cb)
+2018-11-07T16:15:25.2837130+07:00 0HLI4I65NDAU2:00000005 [INF] The file "/images/ic_mail.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.2920960+07:00 0HLI4I65NDAU4:00000001 [INF] The file "/images/ic_delete.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.2991100+07:00 0HLI4I65NDAU2:00000005 [INF] Request finished in 62.4151ms 304 image/png (791a596a)
+2018-11-07T16:15:25.3093270+07:00 0HLI4I65NDAU4:00000001 [INF] Request finished in 226.1705ms 304 image/png (791a596a)
+2018-11-07T16:15:25.3761940+07:00 0HLI4I65NDAU1:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_facebook.png   (ca22a1cb)
+2018-11-07T16:15:25.3762740+07:00 0HLI4I65NDAU3:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_youtube.png   (ca22a1cb)
+2018-11-07T16:15:25.3812190+07:00 0HLI4I65NDAU6:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_line.png   (ca22a1cb)
+2018-11-07T16:15:25.3879470+07:00 0HLI4I65NDAU1:00000005 [INF] The file "/images/ic_facebook.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.3940630+07:00 0HLI4I65NDAU3:00000003 [INF] The file "/images/ic_youtube.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.4439970+07:00 0HLI4I65NDAU6:00000003 [INF] The file "/images/ic_line.png" was not modified (f1f8d725)
+2018-11-07T16:15:25.4513590+07:00 0HLI4I65NDAU3:00000003 [INF] Request finished in 75.8062ms 304 image/png (791a596a)
+2018-11-07T16:15:25.4516000+07:00 0HLI4I65NDAU6:00000003 [INF] Request finished in 97.7956ms 304 image/png (791a596a)
+2018-11-07T16:15:25.4635120+07:00 0HLI4I65NDAU1:00000005 [INF] Request finished in 81.7556ms 304 image/png (791a596a)
+2018-11-07T16:15:26.2729280+07:00 0HLI4I65NDAU3:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T16:15:26.2900200+07:00 0HLI4I65NDAU3:00000004 [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T16:15:26.2964400+07:00 0HLI4I65NDAU3:00000004 [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:15:26.3031340+07:00 0HLI4I65NDAU3:00000004 [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5001ms. (50a9e262)
+2018-11-07T16:15:26.3423460+07:00 0HLI4I65NDAU3:00000004 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T16:15:26.4471980+07:00 0HLI4I65NDAU3:00000004 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:15:26.4702910+07:00 0HLI4I65NDAU3:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:15:28.2863040+07:00 0HLI4I65NDAU3:00000004 [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 1991.1666ms (afa2e885)
+2018-11-07T16:15:28.3751770+07:00 0HLI4I65NDAU3:00000004 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at AspNetCore.Views_Product_Create.<>c__DisplayClass38_0.<<ExecuteAsync>b__3>d.MoveNext() in /Users/jdgprogrammer/Desktop/MyPOS/Views/Product/Create.cshtml:line 87
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Product_Create.ExecuteAsync() in /Users/jdgprogrammer/Desktop/MyPOS/Views/Product/Create.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-07T16:15:28.4243300+07:00 0HLI4I65NDAU3:00000004 [INF] Request finished in 2157.1773ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:15:28.5303810+07:00 0HLI4I65NDAU3:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon.ico   (ca22a1cb)
+2018-11-07T16:15:28.5626510+07:00 0HLI4I65NDAU3:00000005 [INF] The file "/favicon.ico" was not modified (f1f8d725)
+2018-11-07T16:15:28.5712520+07:00 0HLI4I65NDAU3:00000005 [INF] Request finished in 39.5037ms 304 image/x-icon (791a596a)
+2018-11-07T16:20:35.0223930+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T16:20:35.1310900+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:20:35.5481210+07:00  [INF] Executed DbCommand ("47"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T16:20:35.6957790+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T16:20:35.8816140+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T16:20:37.0310880+07:00 0HLI4I93FAJID:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T16:20:37.3145330+07:00 0HLI4I93FAJID:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T16:20:37.3347440+07:00 0HLI4I93FAJID:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:20:37.3557290+07:00 0HLI4I93FAJID:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T16:20:37.3649930+07:00 0HLI4I93FAJID:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:20:37.5442130+07:00 0HLI4I93FAJID:00000001 [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T16:20:37.7284000+07:00 0HLI4I93FAJID:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T16:20:37.7896920+07:00 0HLI4I93FAJID:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:20:37.8038500+07:00 0HLI4I93FAJID:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 460.7276ms. (50a9e262)
+2018-11-07T16:20:37.8817510+07:00 0HLI4I93FAJID:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T16:20:38.0255350+07:00 0HLI4I93FAJID:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:20:38.2190560+07:00 0HLI4I93FAJID:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:20:38.4724400+07:00 0HLI4I93FAJID:00000001 [INF] Executed ViewResult - view "Index" executed in 567.9402ms. (f66409e9)
+2018-11-07T16:20:38.4929500+07:00 0HLI4I93FAJID:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1170.1083ms (afa2e885)
+2018-11-07T16:20:38.5139850+07:00 0HLI4I93FAJID:00000001 [INF] Request finished in 1483.56ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:20:38.6653330+07:00 0HLI4I93FAJID:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T16:20:38.6901500+07:00 0HLI4I93FAJID:00000002 [INF] Request finished in 21.2105ms 404  (791a596a)
+2018-11-07T16:21:01.0979990+07:00 0HLI4I93FAJID:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T16:21:01.1121050+07:00 0HLI4I93FAJID:00000003 [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T16:21:01.1233330+07:00 0HLI4I93FAJID:00000003 [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:21:01.2126730+07:00 0HLI4I93FAJID:00000003 [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 48.5026ms. (50a9e262)
+2018-11-07T16:21:01.2682100+07:00 0HLI4I93FAJID:00000003 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T16:21:01.3741680+07:00 0HLI4I93FAJID:00000003 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:21:01.3932250+07:00 0HLI4I93FAJID:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:21:01.4474050+07:00 0HLI4I93FAJID:00000003 [INF] Executed ViewResult - view "Create" executed in 210.294ms. (f66409e9)
+2018-11-07T16:21:01.5200500+07:00 0HLI4I93FAJID:00000003 [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 335.6034ms (afa2e885)
+2018-11-07T16:21:01.5206520+07:00 0HLI4I93FAJIF:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-07T16:21:01.5790310+07:00 0HLI4I93FAJID:00000003 [INF] Request finished in 442.3979ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:21:01.5814650+07:00 0HLI4I93FAJIF:00000001 [INF] Request finished in 14.6927ms 404  (791a596a)
+2018-11-07T16:21:01.6490250+07:00 0HLI4I93FAJID:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/create.css   (ca22a1cb)
+2018-11-07T16:21:01.8121750+07:00 0HLI4I93FAJIF:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css   (ca22a1cb)
+2018-11-07T16:21:01.9964330+07:00 0HLI4I93FAJIG:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T16:21:02.0124640+07:00 0HLI4I93FAJIG:00000001 [INF] Request finished in 37.0107ms 404  (791a596a)
+2018-11-07T16:21:02.1104980+07:00 0HLI4I93FAJIF:00000002 [INF] Sending file. Request path: '"/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"'. Physical path: '"/Users/jdgprogrammer/Desktop/MyPOS/wwwroot/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"' (27b0a520)
+2018-11-07T16:21:02.1133280+07:00 0HLI4I93FAJID:00000004 [INF] Sending file. Request path: '"/css/product/create.css"'. Physical path: '"/Users/jdgprogrammer/Desktop/MyPOS/wwwroot/css/product/create.css"' (27b0a520)
+2018-11-07T16:21:02.1492610+07:00 0HLI4I93FAJIG:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T16:21:02.1568550+07:00 0HLI4I93FAJID:00000004 [INF] Request finished in 480.3279ms 200 text/css (791a596a)
+2018-11-07T16:21:02.1569450+07:00 0HLI4I93FAJIF:00000002 [INF] Request finished in 356.8624ms 200 text/css (791a596a)
+2018-11-07T16:21:02.2922990+07:00 0HLI4I93FAJIG:00000002 [INF] Request finished in 36.1556ms 404  (791a596a)
+2018-11-07T16:21:02.3660990+07:00 0HLI4I93FAJIF:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T16:21:02.3720770+07:00 0HLI4I93FAJID:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail_title.png   (ca22a1cb)
+2018-11-07T16:21:02.4188290+07:00 0HLI4I93FAJIF:00000003 [INF] Request finished in 70.9358ms 404  (791a596a)
+2018-11-07T16:21:02.4727220+07:00 0HLI4I93FAJIF:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T16:21:02.5049850+07:00 0HLI4I93FAJID:00000005 [INF] Sending file. Request path: '"/images/ic_detail_title.png"'. Physical path: '"/Users/jdgprogrammer/Desktop/MyPOS/wwwroot/images/ic_detail_title.png"' (27b0a520)
+2018-11-07T16:21:02.5130610+07:00 0HLI4I93FAJIF:00000004 [INF] Request finished in 30.5167ms 404  (791a596a)
+2018-11-07T16:21:02.5134810+07:00 0HLI4I93FAJID:00000005 [INF] Request finished in 209.6321ms 200 image/png (791a596a)
+2018-11-07T16:21:43.7527380+07:00 0HLI4I93FAJIF:00000005 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Product/Create application/x-www-form-urlencoded 429 (ca22a1cb)
+2018-11-07T16:21:43.7857310+07:00 0HLI4I93FAJIF:00000005 [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Create (MyPOS)" (a44c0341)
+2018-11-07T16:21:43.8839030+07:00 0HLI4I93FAJIF:00000005 [INF] Executing action method "MyPOS.Controllers.ProductController.Create (MyPOS)" with arguments (["MyPOS.ViewModels.ProductFormViewModel"]) - Validation state: Invalid (4e3479ed)
+2018-11-07T16:21:43.8901210+07:00 0HLI4I93FAJIF:00000005 [INF] Executed action method "MyPOS.Controllers.ProductController.Create (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.2065ms. (50a9e262)
+2018-11-07T16:21:43.8957630+07:00 0HLI4I93FAJIF:00000005 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T16:21:43.9097610+07:00 0HLI4I93FAJIF:00000005 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:21:43.9185560+07:00 0HLI4I93FAJIF:00000005 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:21:45.7208420+07:00 0HLI4I93FAJIF:00000005 [INF] Executed action "MyPOS.Controllers.ProductController.Create (MyPOS)" in 1908.151ms (afa2e885)
+2018-11-07T16:21:45.7934190+07:00 0HLI4I93FAJIF:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_Product_Create.<>c__DisplayClass38_0.<<ExecuteAsync>b__3>d.MoveNext() in /Users/jdgprogrammer/Desktop/MyPOS/Views/Product/Create.cshtml:line 87
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(TagHelperExecutionContext executionContext)
+   at AspNetCore.Views_Product_Create.ExecuteAsync() in /Users/jdgprogrammer/Desktop/MyPOS/Views/Product/Create.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-07T16:21:45.8398130+07:00 0HLI4I93FAJIF:00000005 [INF] Request finished in 2076.8984ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:22:43.5986560+07:00 0HLI4I93FAJIF:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T16:22:43.6052770+07:00 0HLI4I93FAJIF:00000006 [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T16:22:43.6111820+07:00 0HLI4I93FAJIF:00000006 [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:22:43.6164050+07:00 0HLI4I93FAJIF:00000006 [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0321ms. (50a9e262)
+2018-11-07T16:22:43.6217270+07:00 0HLI4I93FAJIF:00000006 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T16:22:43.6300440+07:00 0HLI4I93FAJIF:00000006 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:22:43.6376160+07:00 0HLI4I93FAJIF:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:22:43.6528170+07:00 0HLI4I93FAJIF:00000006 [INF] Executed ViewResult - view "Create" executed in 26.612ms. (f66409e9)
+2018-11-07T16:22:43.6736470+07:00 0HLI4I93FAJIF:00000006 [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 47.6167ms (afa2e885)
+2018-11-07T16:22:43.7091670+07:00 0HLI4I93FAJIF:00000006 [INF] Request finished in 84.0154ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:22:43.7582460+07:00 0HLI4I93FAJID:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/logo.png   (ca22a1cb)
+2018-11-07T16:22:43.7873370+07:00 0HLI4I93FAJIG:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-07T16:22:43.8118290+07:00 0HLI4I93FAJIG:00000003 [INF] Request finished in 17.6879ms 404  (791a596a)
+2018-11-07T16:22:43.8498650+07:00 0HLI4I93FAJIF:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/profile.jpg   (ca22a1cb)
+2018-11-07T16:22:43.9335540+07:00 0HLI4I93FAJIG:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T16:22:43.9405280+07:00 0HLI4I93FAJIG:00000004 [INF] Request finished in 30.9902ms 404  (791a596a)
+2018-11-07T16:22:43.9618350+07:00 0HLI4I93FAJID:00000006 [INF] The file "/images/logo.png" was not modified (f1f8d725)
+2018-11-07T16:22:43.9829640+07:00 0HLI4I93FAJIF:00000007 [INF] The file "/images/profile.jpg" was not modified (f1f8d725)
+2018-11-07T16:22:44.0635520+07:00 0HLI4I93FAJID:00000006 [INF] Request finished in 289.9723ms 304 image/png (791a596a)
+2018-11-07T16:22:44.0636760+07:00 0HLI4I93FAJIF:00000007 [INF] Request finished in 206.88ms 304 image/jpeg (791a596a)
+2018-11-07T16:22:44.1280140+07:00 0HLI4I93FAJIG:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T16:22:44.2420840+07:00 0HLI4I93FAJID:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cm_logo.png   (ca22a1cb)
+2018-11-07T16:22:44.2422290+07:00 0HLI4I93FAJIG:00000005 [INF] Request finished in 100.4266ms 404  (791a596a)
+2018-11-07T16:22:44.3253190+07:00 0HLI4I93FAJID:00000007 [INF] The file "/images/cm_logo.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.3387680+07:00 0HLI4I93FAJIF:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_tel.png   (ca22a1cb)
+2018-11-07T16:22:44.3676540+07:00 0HLI4I93FAJID:00000007 [INF] Request finished in 148.692ms 304 image/png (791a596a)
+2018-11-07T16:22:44.3774090+07:00 0HLI4I93FAJIF:00000008 [INF] The file "/images/ic_tel.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.3894020+07:00 0HLI4I93FAJIF:00000008 [INF] Request finished in 64.778ms 304 image/png (791a596a)
+2018-11-07T16:22:44.5093930+07:00 0HLI4I93FAJID:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_facebook.png   (ca22a1cb)
+2018-11-07T16:22:44.5331050+07:00 0HLI4I93FAJID:00000008 [INF] The file "/images/ic_facebook.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.5521470+07:00 0HLI4I93FAJID:00000008 [INF] Request finished in 113.9371ms 304 image/png (791a596a)
+2018-11-07T16:22:44.6001960+07:00 0HLI4I93FAJIF:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_line.png   (ca22a1cb)
+2018-11-07T16:22:44.6084780+07:00 0HLI4I93FAJIF:00000009 [INF] The file "/images/ic_line.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.6223220+07:00 0HLI4I93FAJIK:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_youtube.png   (ca22a1cb)
+2018-11-07T16:22:44.6322600+07:00 0HLI4I93FAJIF:00000009 [INF] Request finished in 25.0109ms 304 image/png (791a596a)
+2018-11-07T16:22:44.6438970+07:00 0HLI4I93FAJIK:00000001 [INF] The file "/images/ic_youtube.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.6562110+07:00 0HLI4I93FAJIK:00000001 [INF] Request finished in 35.8875ms 304 image/png (791a596a)
+2018-11-07T16:22:44.6728960+07:00 0HLI4I93FAJIG:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_mail.png   (ca22a1cb)
+2018-11-07T16:22:44.6863250+07:00 0HLI4I93FAJIG:00000006 [INF] The file "/images/ic_mail.png" was not modified (f1f8d725)
+2018-11-07T16:22:44.7244250+07:00 0HLI4I93FAJIG:00000006 [INF] Request finished in 48.4872ms 304 image/png (791a596a)
+2018-11-07T16:23:05.5524760+07:00 0HLI4I93FAJIG:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T16:23:05.5609810+07:00 0HLI4I93FAJIG:00000007 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T16:23:05.5670390+07:00 0HLI4I93FAJIG:00000007 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:23:05.5732710+07:00 0HLI4I93FAJIG:00000007 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:23:05.6176740+07:00 0HLI4I93FAJIG:00000007 [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T16:23:05.8547600+07:00 0HLI4I93FAJIG:00000007 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T16:23:05.8627780+07:00 0HLI4I93FAJIG:00000007 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:23:05.8683660+07:00 0HLI4I93FAJIG:00000007 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 295.9592ms. (50a9e262)
+2018-11-07T16:23:05.8736290+07:00 0HLI4I93FAJIG:00000007 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T16:23:05.9491960+07:00 0HLI4I93FAJIG:00000007 [INF] Executed DbCommand ("8"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:23:06.1985480+07:00 0HLI4I93FAJIG:00000007 [INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T16:23:06.2611730+07:00 0HLI4I93FAJIG:00000007 [INF] Executed ViewResult - view "Index" executed in 380.1547ms. (f66409e9)
+2018-11-07T16:23:06.3117470+07:00 0HLI4I93FAJIG:00000007 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 700.3726ms (afa2e885)
+2018-11-07T16:23:06.3430200+07:00 0HLI4I93FAJIG:00000007 [INF] Request finished in 790.626ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:23:06.4086490+07:00 0HLI4I93FAJIG:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T16:23:06.4160800+07:00 0HLI4I93FAJIG:00000008 [INF] Request finished in 11.7749ms 404  (791a596a)
+2018-11-07T16:23:06.4761640+07:00 0HLI4I93FAJIG:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T16:23:06.4885580+07:00 0HLI4I93FAJIG:00000009 [INF] Request finished in 17.8547ms 404  (791a596a)
+2018-11-07T16:23:08.4200850+07:00 0HLI4I93FAJIG:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T16:23:08.4286380+07:00 0HLI4I93FAJIG:0000000A [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T16:23:08.4355730+07:00 0HLI4I93FAJIG:0000000A [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T16:23:08.4428250+07:00 0HLI4I93FAJIG:0000000A [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0237ms. (50a9e262)
+2018-11-07T16:23:08.4481440+07:00 0HLI4I93FAJIG:0000000A [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T16:23:08.4566160+07:00 0HLI4I93FAJIG:0000000A [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T16:23:08.4639040+07:00 0HLI4I93FAJIG:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T16:23:08.5193230+07:00 0HLI4I93FAJIG:0000000A [INF] Executed ViewResult - view "Create" executed in 26.9163ms. (f66409e9)
+2018-11-07T16:23:08.5499260+07:00 0HLI4I93FAJIG:0000000A [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 90.7582ms (afa2e885)
+2018-11-07T16:23:08.5895870+07:00 0HLI4I93FAJIG:0000000A [INF] Request finished in 139.3334ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T16:23:08.5998990+07:00 0HLI4I93FAJIK:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-07T16:23:08.6194110+07:00 0HLI4I93FAJIF:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T16:23:08.6195000+07:00 0HLI4I93FAJID:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T16:23:08.6253460+07:00 0HLI4I93FAJIF:0000000A [INF] Request finished in 14.1411ms 404  (791a596a)
+2018-11-07T16:23:08.6309660+07:00 0HLI4I93FAJID:00000009 [INF] Request finished in 14.1411ms 404  (791a596a)
+2018-11-07T16:23:08.6436790+07:00 0HLI4I93FAJIK:00000002 [INF] Request finished in 12.2025ms 404  (791a596a)

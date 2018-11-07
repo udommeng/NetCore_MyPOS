@@ -1,0 +1,185 @@
+@model ProductFormViewModel
+
+@inject UtilService utilService
+@inject ProductService productService
+
+@{
+    ViewData["Title"] = "Create";
+    var hostfile = utilService.GetPathfile();
+    var listofCategories = productService.CreateSelectList(); 
+    
+}
+
+@* Buttons styles *@
+<link rel="stylesheet" href="~/css/upload_files.css">
+
+@* Custom styles *@
+<link rel="stylesheet" href="~/css/product/create.css">
+
+@* breadcrumb *@
+<section class="content-header">
+    <ol class="breadcrumb" style="float:none; position:unset">
+        <li>
+            <a asp-controller="Product" asp-action="Index">Products</a>
+        </li>
+        <li class="active">@ViewData["Title"]</li>
+    </ol>
+</section>
+@* ---------------------------------- *@
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body" style="margin-top:30px">
+            @* Form *@
+            <form class="form-horizontal" asp-action="Create" method="post">
+                <div class="row">
+                    <div style="margin-left:5%">
+                        <img src="~/images/ic_detail_title.png" style="width:25px;height:25px">
+                        <strong style="margin-left:5px">Detail</strong>
+                    </div>
+                </div>
+
+                @* Product Id *@
+                <div class="form-group" style="margin-top:30px">
+                    <label asp-for="@Model.ProductValidViewModel.CodeName" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="@Model.ProductValidViewModel.CodeName" class="form-control" />
+                        <span asp-validation-for="@Model.ProductValidViewModel.CodeName" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Name *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.Name" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="@Model.ProductValidViewModel.Name" class="form-control" />
+                        <span asp-validation-for="@Model.ProductValidViewModel.Name" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Detail *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.Detail" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <textarea asp-for="@Model.ProductValidViewModel.Detail" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="@Model.ProductValidViewModel.Detail" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Category *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.CategoryID" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <select asp-for="@Model.ProductValidViewModel.CategoryID" class="form-control" asp-items="@listofCategories"></select>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Quantity *@
+                <div class="form-group" style="margin-bottom:10px">
+                    <label class="col-sm-2 control-label">Quantity</label>
+                    @{
+                        var textSize = new string[] {"S", "M", "L", "XL"};
+
+                        for(int i = 0; i < Model.Size.Count(); i++){
+                            <div class="col-sm-2">
+                                <div class="input-group box-body" style="padding-left:0;padding-top:0;">
+                                    <span class="input-group-addon input-group-addon_custom">@textSize[i]</span>
+                                    <input asp-for="@Model.Size[i]" class="form-control" />
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Price *@
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Price</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input asp-for="@Model.ProductValidViewModel.Price" class="form-control" />
+                            <span class="input-group-addon input-group-addon_custom">$</span>
+                        </div>
+                        <span asp-validation-for="@Model.ProductValidViewModel.Price" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Date *@
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Date</label>
+                    <div class="col-sm-10">
+                        <input asp-for="@Model.ProductValidViewModel.Timestamp" class="datepicker" data-date-format="dd-mm-yyyy">
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+        </div>
+        <div class="box-footer" style="margin-top:20px">
+            <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+            <a asp-action="Index" type="Button" class="btn btn-default pull-right" style="margin-right:10px">Cancel</a>
+        </div>
+            </form>
+            @* ---------------------------------- *@
+    </div>
+</section>
+
+@* Modal Images *@
+<div class="modal fade popups" id="hint_brand" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content clearfix">
+            <div class="modal-body clearfix">
+                <ul id="media-list" class="clearfix">
+                    <li class="myupload">
+                        <span style="display:none">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <input type="file" click-type="type2" id="picupload" class="picupload" accept="image/*" multiple>
+                        </span>
+                    </li>
+                </ul>
+                <div class="user-post-btn-wrap clearfix">
+                    <input class="btn btn-primary pull-right" type="button" id="upload" value="Upload Selected Files" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* ---------------------------------- *@
+
+
+@section Scripts {
+
+    @* Datepicker *@
+    <link rel="stylesheet" href="~/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <script src="~/datepickerthai/js/bootstrap-datepicker-custom.js"></script>
+    <script src="~/datepickerthai/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
+
+    <script>
+        $(document).ready(function () {
+            setupCalendar()
+        });
+
+        function setupCalendar() {
+            var date = '@Model.ProductValidViewModel.Timestamp';
+            var dateLength = date.length;
+
+            if (dateLength <= 0) {
+                date = '0';
+            } else {
+                var year = (date.substring(dateLength - 4, dateLength)) - 543;
+                date = date.substring(0, dateLength - 4) + year;
+            }
+
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                language: 'th', //เปลี่ยน label ต่างของ ปฏิทิน ให้เป็น ภาษาไทย   (ต้องใช้ไฟล์ bootstrap-datepicker.th.min.js นี้ด้วย)
+                thaiyear: true //Set เป็นปี พ.ศ.
+            }).datepicker("setDate", date); //กำหนดเป็นวันปัจุบัน
+        }
+    </script>
+}

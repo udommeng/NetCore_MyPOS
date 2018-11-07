@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using MyPOS.Database;
 using MyPOS.Models;
 using MyPOS.Services;
+using MyPOS.ViewModels;
 
 namespace MyPOS.Controllers
 {
@@ -38,6 +39,7 @@ namespace MyPOS.Controllers
             return View(result);
 
         }
+
         public IActionResult Privacy()
         {
             ProductService.testLog();
@@ -54,7 +56,19 @@ namespace MyPOS.Controllers
             return BadRequest("Delete Failure");
         }
 
+        [ActionName("Create")]
+        public IActionResult CreateForm()
+        {
+            var form = new ProductFormViewModel(new ProductValidViewModel());
+            return View(form);
+        }
 
+        [HttpPost]
+        public IActionResult Create(ProductFormViewModel model)
+        {
+            
+            return View();
+        }
 
     }
 }

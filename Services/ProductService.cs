@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyPOS.Database;
@@ -92,6 +93,10 @@ namespace MyPOS.Services
             return false;
         }
 
+        public SelectList CreateSelectList()
+        {
+            return new SelectList(Context.Category, "CategoryID", "Name");
+        }
 
         public String testLog()
         {
@@ -115,7 +120,7 @@ namespace MyPOS.Services
             }
             catch (System.Exception ex)
             {
-                Logger.LogError(Group_v1,$"Can't convert to boolean: {ex.Message}");
+                Logger.LogError(Group_v1, $"Can't convert to boolean: {ex.Message}");
             }
 
             return a;

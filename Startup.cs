@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MyPOS.Database;
 using MyPOS.Extensions;
 using MyPOS.Services;
@@ -40,6 +41,10 @@ namespace MyPOS
 
             services.ConfigureDatabase(Configuration);
             services.AddTransient<ProductService>();
+            services.AddSingleton<UtilService>();
+
+            // DI HttpContext
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }
 
@@ -66,12 +71,12 @@ namespace MyPOS
                 routes.MapRoute(
                     name: "custom",
                     template: "Meng",
-                    defaults : new {Controller = "product", Action = "privacy"});
+                    defaults: new { Controller = "product", Action = "privacy" });
 
                 routes.MapRoute(
                     name: "custom_V2",
                     template: "{Controller}/Meng",
-                    defaults : new {Controller = "product", Action = "privacy"});
+                    defaults: new { Controller = "product", Action = "privacy" });
 
                 routes.MapRoute(
                     name: "default",
