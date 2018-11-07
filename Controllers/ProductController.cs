@@ -37,5 +37,12 @@ namespace MyPOS.Controllers
             return View(result);
 
         }
+        public async Task<IActionResult> Privacy()
+        {
+            return View();
+
+        }
+
+
     }
 }

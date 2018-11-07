@@ -17,6 +17,12 @@ namespace MyPOS.Services
             this.Context = Context;
         }
 
+
+        public async Task<Product> GetProduct(int id){
+            var result = await Context.Products.SingleOrDefaultAsync(m=>m.ProductID == id);
+            return result;
+        }
+        
         public async Task<(IList<Product>,int,int,int,int)> GetProduct()
         {
             IList<Product> result = await Context.Products.Include(c => c.Categories)

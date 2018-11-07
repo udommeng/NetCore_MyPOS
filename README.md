@@ -15,3 +15,15 @@
 # docker ps -a  สำหรับเช็ค Service  ทั้งหมด
 # docker start sql1 สำหรับ Start Service ชื่อ Sql1
 # docker start  ตามด้วยชื่อ Service  เช่น  docker start sql1
+
+
+# partial view  ต้องเป็น .cshtml 
+
+# @await Html.PartialAsync("_Userpartial")
+
+
+#CSS
+https://jsfiddle.net/
+https://codepen.io/
+https://www.uplabs.com/
+
