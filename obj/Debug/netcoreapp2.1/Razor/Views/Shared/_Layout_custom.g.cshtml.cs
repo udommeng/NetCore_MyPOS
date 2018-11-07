@@ -64,7 +64,7 @@ using MyPOS.Models;
             WriteLiteral("<!DOCTYPE html>\n<html>\n\n");
             EndContext();
             BeginContext(24, 2745, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2a365fe38464230a64e6fca1bd4e120", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505d17ca154e46f693b93c3bd28d7a6a", async() => {
                 BeginContext(30, 13, true);
                 WriteLiteral("\n\n    <title>");
                 EndContext();
@@ -180,12 +180,12 @@ using MyPOS.Models;
             WriteLiteral("\n\n");
             EndContext();
             BeginContext(2771, 10440, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23e0ee68c16c44c89cfa328e77cdebd9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5736dc8733f48b0bc0026b0e6279610", async() => {
                 BeginContext(2824, 104, true);
                 WriteLiteral("\n    <div class=\"wrapper\">\n\n        <header class=\"main-header\">\n\n            <!-- Logo -->\n            ");
                 EndContext();
                 BeginContext(2928, 427, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a1876c74f944d869c6359b6ff62fd9f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9043b156916e4ee8930e6bbcb35a562a", async() => {
                     BeginContext(2987, 364, true);
                     WriteLiteral(@"
                 <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -281,7 +281,7 @@ using MyPOS.Models;
                                 ");
                 EndContext();
                 BeginContext(6387, 122, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c8ec10998744421922d0f5a8b8838f9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f952bc011b94cd989049f9eba5712a3", async() => {
                     BeginContext(6434, 71, true);
                     WriteLiteral("\n                                    <i class=\"fa fa-list\"></i>Products");
                     EndContext();
@@ -305,7 +305,7 @@ using MyPOS.Models;
                 WriteLiteral("\n                            </li>\n                             <li>\n                                ");
                 EndContext();
                 BeginContext(6610, 94, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e21f5d39cce14d11a9152c36059e3f66", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fb13f16425d41dd8d0ff7e718b07ebb", async() => {
                     BeginContext(6631, 69, true);
                     WriteLiteral("\n                                    <i class=\"fa fa-print\"></i>Print");
                     EndContext();
@@ -402,7 +402,7 @@ using MyPOS.Models;
                 WriteLiteral("n>\n                        </a>\n                    </li>\n                    \n                </ul>\n            </section>\n        </aside>\n\n        ");
                 EndContext();
                 BeginContext(9926, 39, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "486a163502ba45c4a510ac3bcbbc1ae2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fe8b6926609a4fecb5944b620a019501", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

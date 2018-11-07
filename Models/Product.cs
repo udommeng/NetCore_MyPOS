@@ -19,16 +19,9 @@ namespace MyPOS.Models
 
         public int CategoryID { get; set; } // Relation [Key]
 
-        public string Image1 { get; set; }
+        public string Image { get; set; }
 
-        public string Image2 { get; set; }
-
-        public string Image3 { get; set; }
-
-        public string Image4 { get; set; }
-
-        public string Image5 { get; set; }
-
+       
         public string Timestamp { get; set; }
 
         [NotMapped]

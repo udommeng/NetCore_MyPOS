@@ -1,9 +1,224 @@
+@model IEnumerable<Product>
+
 @{
-    ViewData["Title"] = "HOME";
+    ViewData["Title"] = "Products";
 }
 
-@model Product
+@* DataTables styles *@
+<link rel="stylesheet" href="/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
-@Model.Detail <br>
-@Model.Name
+@* Buttons styles *@
+<link rel="stylesheet" href="/css/button_ghost.css">
 
+@* Custom styles *@
+<link rel="stylesheet" href="/css/product/index.css">
+
+@* Statistical *@
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon">
+                <img src="/images/ic_product.png" class="icon_head" />
+            </span>
+            <div class="info-box-content">
+                <p class="p_custom">Products</span>
+                    <h2>@ViewData["total_product"]</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon">
+                <img src="/images/ic_catagory.png" class="icon_head" />
+            </span>
+            <div class="info-box-content">
+                <p class="p_custom">Category</span>
+                    <h2>@ViewData["total_categories"]</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon">
+                <img src="/images/ic_new.png" class="icon_head" />
+            </span>
+            <div class="info-box-content">
+                <p class="p_custom">New Product</span>
+                    <h2>@ViewData["total_new_product"]</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon">
+                <img src="/images/ic_out_of_stock.png" class="icon_head" />
+            </span>
+            <div class="info-box-content">
+                <p class="p_custom">Out Stock</span>
+                    <h2>@ViewData["total_out_stock"]</h2>
+            </div>
+        </div>
+    </div>
+</div>
+@* ---------------------------------- *@
+
+<div class="box">
+    <div class="box-body">
+        <div class="row custom_box-body">
+            <div class="col-md-6">
+                <h2>Product</h2>
+            </div>
+            @* Create Button *@
+            <div class="col-md-6">
+                <a asp-action="Create" class="btn_custom btn_custom-medium btn_custom-blue btn_custom-radius btn_float_right">Create New</a>
+            </div>
+            @* ---------------------------------- *@
+        </div>
+
+        @* Begin Table *@
+        <div class="table-responsive">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:80px">ID</th>
+                        <th>NAME</th>
+                        <th style="width:80px">CATEGORY</th>
+                        <th style="width:50px">PRICE</th>
+                        <th style="width:10px">STOCK</th>
+                        <th style="width:80px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            @* Product ID *@
+                            <td>
+                                @item.CodeName
+                            </td>
+                            @* ---------------------------------- *@
+
+                            @* Product Name *@
+                            <td>
+                                <span style="width: 70px;overflow: hidden;white-space: nowrap;">
+                                    @item.Name
+                                </span>
+                            </td>
+                            @* ---------------------------------- *@
+
+                            @* Categories *@
+                            <td>
+                                @item.Categories.Name
+                            </td>
+                            @* ---------------------------------- *@
+
+                            @* Product Price *@
+                            <td>
+                                @item.Price ฿
+                            </td>
+                            @* ---------------------------------- *@
+
+                            @* Product Stock *@
+                            <td>
+                                @item.TotalStock
+                            </td>
+                            @* ---------------------------------- *@
+
+                            @* Management *@
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ProductID">
+                                    <img src="/images/ic_edit.png" alt="edit" class="icon_action icon_action_margin_left">
+                                </a>
+
+                                <a asp-action="Detail" asp-route-id="@item.ProductID">
+                                    <img src="/images/ic_detail.png" alt="detail" class="icon_action icon_action_margin_left">
+                                </a>
+
+                                <a class="delete">
+                                    <input type="hidden" asp-for="@item.ProductID"/>
+                                    <input type="hidden" asp-for="@item.Name"/>
+                                    <img src="/images/ic_delete.png" alt="delete" class="icon_action icon_action_margin_left icon_action_margin_right">
+                                </a>
+
+                            </td>
+                            @* ---------------------------------- *@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @* End Table *@
+    </div>
+</div>
+
+
+@* partial views use the .cshtml file extension. *@
+@* @await Html.PartialAsync("_userpartial") *@
+
+@* ViewComponent *@
+@* @await Component.InvokeAsync("User_database") *@
+
+@section Scripts {
+
+    @* DataTables *@
+    <script src="/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+           setupTable()
+           setupDelete()
+        });
+
+        function setupTable(){
+            $("#example1").DataTable({
+                    "sDom": '<"pull-left"f><"pull-right"l><"row datatables_custom">t<"row datatables_custom"><"pull-left"i><"pull-right"p>',
+                    language: {
+                        search: "",
+                        searchPlaceholder: "Search"
+                    },
+                    stateSave: true //save state page
+                });
+        }
+
+        function setupDelete(){
+
+             $('.delete').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).children('input:nth-child(1)').val();
+                var name = $(this).children('input:nth-child(2)').val();
+
+                swal({
+                    text: `Are you sure delete '${name}' ?`,
+                    icon: "warning",
+                    buttons: ["cancel", "ok"]
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: `/Product/Delete/${id}`,
+                            method: 'POST',
+                            dataType: 'json',
+                            success: function (response) {
+                                swal(response, {
+                                    icon: "success",
+                                    buttons: false
+                                });
+
+                                setTimeout(function(){
+                                    location.href = "@Url.Action("Index", "Product")";
+                                }, 2000);
+
+                            },
+                            error: function (response) {
+                                swal(response.responseText, {
+                                    icon: "error",
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+}
