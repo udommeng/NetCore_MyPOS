@@ -1,0 +1,45 @@
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="submit"].btn_custom,
+button.btn_custom {
+  cursor: pointer;
+}
+
+a.btn_custom {
+  margin-right: 1em; /* remove this while use*/
+  margin-bottom: 1em; /* remove this while use*/
+  display: inline-block;
+  outline: none;
+  *zoom: 1;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  border: 1px solid;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+}
+.btn_custom-radius {
+  border-radius: 3px;
+}
+.btn_custom-medium {
+  font-size: 0.9375em;
+  padding: 0.5375em 1.375em;
+}
+
+.btn_custom-blue {
+  color: #1aafd0;
+  border-color: #1aafd0;
+}
+.btn_custom-blue:hover {
+  background: #1aafd0;
+  color: #fff;
+  border-color: #1aafd0;		
+}
