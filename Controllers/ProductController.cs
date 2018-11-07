@@ -10,6 +10,7 @@ using MyPOS.Services;
 
 namespace MyPOS.Controllers
 {
+
     public class ProductController : Controller
     {
         ILogger<ProductController> _logger;
@@ -37,6 +38,7 @@ namespace MyPOS.Controllers
             return View(result);
 
         }
+
         public async Task<IActionResult> Privacy()
         {
             return View();

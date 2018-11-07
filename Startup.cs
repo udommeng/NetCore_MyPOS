@@ -64,8 +64,35 @@ namespace MyPOS
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "custom",
+                    template: "Meng",
+                    defaults : new {Controller = "product", Action = "privacy"});
+
+                routes.MapRoute(
+                    name: "custom_V2",
+                    template: "{Controller}/Meng",
+                    defaults : new {Controller = "product", Action = "privacy"});
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Product}/{action=Index}/{id?}");
+
+                // routes
+                // .MapRoute(
+                //     name: "custom",
+                //     template: "Meng",
+                //     defaults : new {Controller = "product", Action = "privacy"})
+
+                // .MapRoute(
+                //     name: "custom_V2",
+                //     template: "{Controller}/Meng",
+                //     defaults : new {Controller = "product", Action = "privacy"})
+
+                // .MapRoute(
+                //     name: "default",
+                //     template: "{controller=Product}/{action=Index}/{id?}");
+
+
             });
         }
     }
