@@ -1,0 +1,28 @@
+.input-group-addon_custom {
+    width: 40px
+}
+
+.img_custom {
+    width: 100px;
+    height: 120px;
+    display: none;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.rcorners2 {
+    border-radius: 5px;
+    border: 1px solid #00B0CD;
+    padding: 48px 0 53px 0;
+    margin-right: 10px;
+}
+
+.alert_error {
+    color: crimson;
+}
+
+.img_default {
+    display: unset;
+    padding: 15px 10px;
+    margin-right: 0;
+}
