@@ -19,6 +19,10 @@ namespace MyPOS
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .ConfigureLogging((hostingContext, builder) =>
+                {
+                    builder.AddFile("Logs/mypos-{Date}.txt");
+                })
+            .UseStartup<Startup>();
     }
 }

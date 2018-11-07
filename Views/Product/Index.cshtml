@@ -5,8 +5,7 @@
 }
 
 
-@await Component.InvokeAsync("User_database")
-@await Html.PartialAsync("_Userpartial")
+
 
 @* DataTables styles *@
 <link rel="stylesheet" href="/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
@@ -154,6 +153,8 @@
     </div>
 </div>
 
+@await Component.InvokeAsync("User_database")
+@await Html.PartialAsync("_Userpartial")
 
 @* partial views use the .cshtml file extension. *@
 @* @await Html.PartialAsync("_userpartial") *@

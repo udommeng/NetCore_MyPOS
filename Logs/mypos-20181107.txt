@@ -1,0 +1,245 @@
+2018-11-07T14:39:09.2513370+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:39:09.3618660+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:39:09.8377600+07:00  [INF] Executed DbCommand ("43"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T14:39:10.0081120+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T14:39:10.1869920+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T14:39:11.2642020+07:00 0HLI4GGDP0CSA:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T14:39:11.5109200+07:00 0HLI4GGDP0CSA:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T14:39:11.5301660+07:00 0HLI4GGDP0CSA:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:39:11.5483200+07:00 0HLI4GGDP0CSA:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:39:11.5552110+07:00 0HLI4GGDP0CSA:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:39:11.7300200+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T14:39:11.8851810+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T14:39:11.9413610+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T14:39:11.9550000+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 416.5752ms. (50a9e262)
+2018-11-07T14:39:12.0422760+07:00 0HLI4GGDP0CSA:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T14:39:12.2077780+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:39:12.4858780+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:39:12.7366820+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed ViewResult - view "Index" executed in 668.3727ms. (f66409e9)
+2018-11-07T14:39:12.7682180+07:00 0HLI4GGDP0CSA:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1240.1282ms (afa2e885)
+2018-11-07T14:39:12.8773890+07:00 0HLI4GGDP0CSA:00000001 [INF] Request finished in 1599.4428ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:39:12.9624380+07:00 0HLI4GGDP0CSA:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:39:12.9841830+07:00 0HLI4GGDP0CSA:00000002 [INF] Request finished in 18.1655ms 404  (791a596a)
+2018-11-07T14:39:41.3690660+07:00 0HLI4GGDP0CSA:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/privancy   (ca22a1cb)
+2018-11-07T14:39:41.4297330+07:00 0HLI4GGDP0CSA:00000003 [INF] Request finished in 74.8595ms 404  (791a596a)
+2018-11-07T14:40:10.7966710+07:00 0HLI4GGDP0CSA:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/privacy   (ca22a1cb)
+2018-11-07T14:40:10.8233570+07:00 0HLI4GGDP0CSA:00000004 [INF] Request finished in 45.1734ms 404  (791a596a)
+2018-11-07T14:40:17.6955200+07:00 0HLI4GGDP0CSA:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/product/privacy   (ca22a1cb)
+2018-11-07T14:40:17.7025660+07:00 0HLI4GGDP0CSA:00000005 [INF] Route matched with "{action = \"Privacy\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Privacy (MyPOS)" (a44c0341)
+2018-11-07T14:40:17.7090860+07:00 0HLI4GGDP0CSA:00000005 [INF] Executing action method "MyPOS.Controllers.ProductController.Privacy (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:40:17.7157580+07:00 0HLI4GGDP0CSA:00000005 [INF] value of log info: tanakorn (b4e90f95)
+2018-11-07T14:40:18.4919810+07:00 0HLI4GGDP0CSA:00000005 [ERR] Can't convert to boolean: String was not recognized as a valid Boolean. (1e10a19a)
+2018-11-07T14:40:18.4992650+07:00 0HLI4GGDP0CSA:00000005 [INF] Executed action method "MyPOS.Controllers.ProductController.Privacy (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 783.1252ms. (50a9e262)
+2018-11-07T14:40:18.5529780+07:00 0HLI4GGDP0CSA:00000005 [INF] Executing ViewResult, running view "Privacy". (c83d0e25)
+2018-11-07T14:40:18.5789880+07:00 0HLI4GGDP0CSA:00000005 [INF] Executed ViewResult - view "Privacy" executed in 58.7314ms. (f66409e9)
+2018-11-07T14:40:18.6168790+07:00 0HLI4GGDP0CSA:00000005 [INF] Executed action "MyPOS.Controllers.ProductController.Privacy (MyPOS)" in 876.5426ms (afa2e885)
+2018-11-07T14:40:18.6452340+07:00 0HLI4GGDP0CSA:00000005 [INF] Request finished in 934.2435ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:43:12.7093930+07:00 0HLI4GGDP0CSA:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/product/privacy   (ca22a1cb)
+2018-11-07T14:43:12.7176920+07:00 0HLI4GGDP0CSA:00000006 [INF] Route matched with "{action = \"Privacy\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Privacy (MyPOS)" (a44c0341)
+2018-11-07T14:43:12.7246180+07:00 0HLI4GGDP0CSA:00000006 [INF] Executing action method "MyPOS.Controllers.ProductController.Privacy (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:43:12.7460380+07:00 0HLI4GGDP0CSA:00000006 [INF] value of log info: tanakorn (b4e90f95)
+2018-11-07T14:43:13.1078840+07:00 0HLI4GGDP0CSA:00000006 [ERR] Can't convert to boolean: String was not recognized as a valid Boolean. (1e10a19a)
+2018-11-07T14:43:13.1399280+07:00 0HLI4GGDP0CSA:00000006 [INF] Executed action method "MyPOS.Controllers.ProductController.Privacy (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 408.3728ms. (50a9e262)
+2018-11-07T14:43:13.1465770+07:00 0HLI4GGDP0CSA:00000006 [INF] Executing ViewResult, running view "Privacy". (c83d0e25)
+2018-11-07T14:43:13.1578390+07:00 0HLI4GGDP0CSA:00000006 [INF] Executed ViewResult - view "Privacy" executed in 7.6906ms. (f66409e9)
+2018-11-07T14:43:13.2865780+07:00 0HLI4GGDP0CSA:00000006 [INF] Executed action "MyPOS.Controllers.ProductController.Privacy (MyPOS)" in 440.2131ms (afa2e885)
+2018-11-07T14:43:13.3142700+07:00 0HLI4GGDP0CSA:00000006 [INF] Request finished in 604.8419ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:47:55.7246910+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:47:55.8208700+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:47:56.2132240+07:00  [INF] Executed DbCommand ("41"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T14:47:56.3545890+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T14:47:56.5402080+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T14:47:57.7473460+07:00 0HLI4GLAL84FN:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T14:47:58.0811600+07:00 0HLI4GLAL84FN:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T14:47:58.1099300+07:00 0HLI4GLAL84FN:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:47:58.1377330+07:00 0HLI4GLAL84FN:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:47:58.1462190+07:00 0HLI4GLAL84FN:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:47:58.3615610+07:00 0HLI4GLAL84FN:00000001 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T14:47:58.4846770+07:00 0HLI4GLAL84FN:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T14:47:58.6146040+07:00 0HLI4GLAL84FN:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T14:47:58.6495660+07:00 0HLI4GLAL84FN:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 521.6845ms. (50a9e262)
+2018-11-07T14:47:58.7419410+07:00 0HLI4GLAL84FN:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T14:47:58.9352010+07:00 0HLI4GLAL84FN:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:47:59.0597880+07:00 0HLI4GLAL84FN:00000001 [INF] Executed DbCommand ("7"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:47:59.3593370+07:00 0HLI4GLAL84FN:00000001 [INF] Executed ViewResult - view "Index" executed in 600.9967ms. (f66409e9)
+2018-11-07T14:47:59.3864570+07:00 0HLI4GLAL84FN:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1285.2096ms (afa2e885)
+2018-11-07T14:47:59.4938230+07:00 0HLI4GLAL84FN:00000001 [INF] Request finished in 1662.0947ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:47:59.5255760+07:00 0HLI4GLAL84FN:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:47:59.5593670+07:00 0HLI4GLAL84FN:00000002 [INF] Request finished in 24.9299ms 404  (791a596a)
+2018-11-07T14:48:45.2046400+07:00 0HLI4GLAL84FN:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T14:48:45.2106960+07:00 0HLI4GLAL84FN:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T14:48:45.2293690+07:00 0HLI4GLAL84FN:00000003 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:48:45.2609130+07:00 0HLI4GLAL84FN:00000003 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:48:45.2789090+07:00 0HLI4GLAL84FN:00000003 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T14:48:45.5528860+07:00 0HLI4GLAL84FN:00000003 [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T14:48:45.5641260+07:00 0HLI4GLAL84FN:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T14:48:45.5706040+07:00 0HLI4GLAL84FN:00000003 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 312.8565ms. (50a9e262)
+2018-11-07T14:48:45.5800900+07:00 0HLI4GLAL84FN:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T14:48:45.6130010+07:00 0HLI4GLAL84FN:00000003 [INF] Executed DbCommand ("12"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:48:48.4952080+07:00 0HLI4GLAL84FN:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:48:48.5495670+07:00 0HLI4GLAL84FN:00000003 [INF] Executed ViewResult - view "Index" executed in 2970.9055ms. (f66409e9)
+2018-11-07T14:48:48.5999940+07:00 0HLI4GLAL84FN:00000003 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 3339.0311ms (afa2e885)
+2018-11-07T14:48:48.6527090+07:00 0HLI4GLAL84FN:00000003 [INF] Request finished in 3401.9621ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:48:48.6702830+07:00 0HLI4GLAL84FP:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:48:48.6794810+07:00 0HLI4GLAL84FP:00000001 [INF] Request finished in 10.0211ms 404  (791a596a)
+2018-11-07T14:50:31.9497540+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:50:32.0299510+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:50:32.4176800+07:00  [INF] Executed DbCommand ("43"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T14:50:32.5608710+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T14:50:32.7258330+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T14:50:33.8736600+07:00 0HLI4GMP6GGE9:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T14:50:34.1861420+07:00 0HLI4GMP6GGE9:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T14:50:34.2127100+07:00 0HLI4GMP6GGE9:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:50:34.2351330+07:00 0HLI4GMP6GGE9:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T14:50:34.2467110+07:00 0HLI4GMP6GGE9:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:50:34.5167770+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T14:50:34.6934170+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T14:50:34.7603850+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T14:50:34.7766960+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 554.7044ms. (50a9e262)
+2018-11-07T14:50:34.9237280+07:00 0HLI4GMP6GGE9:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T14:50:35.1306470+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:50:35.3930730+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed DbCommand ("33"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:50:35.6724140+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed ViewResult - view "Index" executed in 867.8248ms. (f66409e9)
+2018-11-07T14:50:35.6900350+07:00 0HLI4GMP6GGE9:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1494.7032ms (afa2e885)
+2018-11-07T14:50:35.7127010+07:00 0HLI4GMP6GGE9:00000001 [INF] Request finished in 1839.007ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:50:35.8105480+07:00 0HLI4GMP6GGE9:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:50:35.8316650+07:00 0HLI4GMP6GGE9:00000002 [INF] Request finished in 16.7435ms 404  (791a596a)
+2018-11-07T14:50:35.9341090+07:00 0HLI4GMP6GGE9:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:50:35.9482890+07:00 0HLI4GMP6GGE9:00000003 [INF] Request finished in 19.8635ms 404  (791a596a)
+2018-11-07T14:51:14.2193820+07:00 0HLI4GMP6GGE9:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T14:51:14.2386380+07:00 0HLI4GMP6GGE9:00000004 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T14:51:14.2456660+07:00 0HLI4GMP6GGE9:00000004 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T14:51:14.2576170+07:00 0HLI4GMP6GGE9:00000004 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T14:51:14.3181900+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T14:51:14.4704050+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed DbCommand ("100"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T14:51:14.5529330+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T14:51:14.5606420+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 307.4062ms. (50a9e262)
+2018-11-07T14:51:14.5668140+07:00 0HLI4GMP6GGE9:00000004 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T14:51:14.5914220+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed DbCommand ("9"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:51:17.2714330+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed DbCommand ("13"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T14:51:17.3535010+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed ViewResult - view "Index" executed in 2778.2229ms. (f66409e9)
+2018-11-07T14:51:17.4008050+07:00 0HLI4GMP6GGE9:00000004 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 3115.1038ms (afa2e885)
+2018-11-07T14:51:17.4667410+07:00 0HLI4GMP6GGE9:00000004 [INF] Request finished in 3203.2438ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T14:51:17.4771990+07:00 0HLI4GMP6GGEB:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T14:51:17.4925120+07:00 0HLI4GMP6GGEB:00000001 [INF] Request finished in 21.1018ms 404  (791a596a)

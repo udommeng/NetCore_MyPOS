@@ -38,12 +38,22 @@ namespace MyPOS.Controllers
             return View(result);
 
         }
-
-        public async Task<IActionResult> Privacy()
+        public IActionResult Privacy()
         {
+            ProductService.testLog();
             return View();
 
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await ProductService.Delete(id))
+            {
+                return Json("Delete success");
+            }
+            return BadRequest("Delete Failure");
+        }
+
 
 
     }
