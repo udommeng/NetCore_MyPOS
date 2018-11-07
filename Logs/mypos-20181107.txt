@@ -604,3 +604,373 @@ FROM [Category] AS [c]" (0723d8ff)
 2018-11-07T16:23:08.6253460+07:00 0HLI4I93FAJIF:0000000A [INF] Request finished in 14.1411ms 404  (791a596a)
 2018-11-07T16:23:08.6309660+07:00 0HLI4I93FAJID:00000009 [INF] Request finished in 14.1411ms 404  (791a596a)
 2018-11-07T16:23:08.6436790+07:00 0HLI4I93FAJIK:00000002 [INF] Request finished in 12.2025ms 404  (791a596a)
+2018-11-07T21:49:38.4434781+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T21:49:38.5347990+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:09:09.7278526+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T22:09:09.8138396+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:51:14.8181216+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T22:51:14.8988065+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:51:25.1739030+07:00  [INF] Executed DbCommand ("73"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [mypos];" (0723d8ff)
+2018-11-07T22:51:25.2099669+07:00  [INF] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [mypos] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2018-11-07T22:51:25.2613037+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Category] (
+    [Category_ID] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Category] PRIMARY KEY ([Category_ID])
+);" (0723d8ff)
+2018-11-07T22:51:25.2680824+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Products] (
+    [Product_ID] int NOT NULL IDENTITY,
+    [Code_Name] nvarchar(max) NOT NULL,
+    [Name] varchar(200) NULL DEFAULT N'unknows',
+    [Detail] nvarchar(max) NULL,
+    [Price] decimal(18, 2) NOT NULL,
+    [Category_ID] int NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [Timestamp] nvarchar(max) NULL DEFAULT (getdate()),
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Product_ID]),
+    CONSTRAINT [FK_Products_Category_Category_ID] FOREIGN KEY ([Category_ID]) REFERENCES [Category] ([Category_ID]) ON DELETE CASCADE
+);" (0723d8ff)
+2018-11-07T22:51:25.2733994+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Product_Size] (
+    [ID] int NOT NULL IDENTITY,
+    [Product_ID] int NOT NULL,
+    [Size] nvarchar(max) NULL,
+    [Count] int NOT NULL,
+    CONSTRAINT [PK_Product_Size] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Product_Size_Products_Product_ID] FOREIGN KEY ([Product_ID]) REFERENCES [Products] ([Product_ID]) ON DELETE CASCADE
+);" (0723d8ff)
+2018-11-07T22:51:25.2793707+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Product_Size_Product_ID] ON [Product_Size] ([Product_ID]);" (0723d8ff)
+2018-11-07T22:51:25.2829774+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Products_Category_ID] ON [Products] ([Category_ID]);" (0723d8ff)
+2018-11-07T22:51:25.3738774+07:00  [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T22:51:25.4579962+07:00  [INF] Executed DbCommand ("18"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DECLARE @inserted0 TABLE ([Category_ID] int, [_Position] [int]);
+MERGE [Category] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5),
+(@p12, @p13, 6)) AS i ([Description], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Description], [Name])
+VALUES (i.[Description], i.[Name])
+OUTPUT INSERTED.[Category_ID], i._Position
+INTO @inserted0;
+
+SELECT [t].[Category_ID] FROM [Category] t
+INNER JOIN @inserted0 i ON ([t].[Category_ID] = [i].[Category_ID])
+ORDER BY [i].[_Position];" (0723d8ff)
+2018-11-07T22:51:25.4928947+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 200) (DbType = AnsiString), @p5='?' (DbType = Decimal), @p6='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Products] ([Category_ID], [Code_Name], [Detail], [Image], [Name], [Price], [Timestamp])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Product_ID]
+FROM [Products]
+WHERE @@ROWCOUNT = 1 AND [Product_ID] = scope_identity();" (0723d8ff)
+2018-11-07T22:51:25.5073458+07:00  [INF] Executed DbCommand ("8"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 200) (DbType = AnsiString), @p5='?' (DbType = Decimal), @p6='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Products] ([Category_ID], [Code_Name], [Detail], [Image], [Name], [Price], [Timestamp])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Product_ID]
+FROM [Products]
+WHERE @@ROWCOUNT = 1 AND [Product_ID] = scope_identity();" (0723d8ff)
+2018-11-07T22:51:25.5111820+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 200) (DbType = AnsiString), @p5='?' (DbType = Decimal), @p6='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Products] ([Category_ID], [Code_Name], [Detail], [Image], [Name], [Price], [Timestamp])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Product_ID]
+FROM [Products]
+WHERE @@ROWCOUNT = 1 AND [Product_ID] = scope_identity();" (0723d8ff)
+2018-11-07T22:51:25.5331366+07:00  [INF] Executed DbCommand ("9"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (Size = 4000), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (Size = 4000), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (Size = 4000), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (Size = 4000), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (Size = 4000), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (Size = 4000), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DECLARE @inserted0 TABLE ([ID] int, [_Position] [int]);
+MERGE [Product_Size] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2),
+(@p9, @p10, @p11, 3),
+(@p12, @p13, @p14, 4),
+(@p15, @p16, @p17, 5),
+(@p18, @p19, @p20, 6),
+(@p21, @p22, @p23, 7),
+(@p24, @p25, @p26, 8),
+(@p27, @p28, @p29, 9),
+(@p30, @p31, @p32, 10),
+(@p33, @p34, @p35, 11)) AS i ([Count], [Product_ID], [Size], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Count], [Product_ID], [Size])
+VALUES (i.[Count], i.[Product_ID], i.[Size])
+OUTPUT INSERTED.[ID], i._Position
+INTO @inserted0;
+
+SELECT [t].[ID] FROM [Product_Size] t
+INNER JOIN @inserted0 i ON ([t].[ID] = [i].[ID])
+ORDER BY [i].[_Position];" (0723d8ff)
+2018-11-07T22:51:25.6415797+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-07T22:51:26.5247281+07:00 0HLI4P3G1BR0K:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T22:51:26.7097439+07:00 0HLI4P3G1BR0K:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T22:51:26.7263308+07:00 0HLI4P3G1BR0K:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T22:51:26.7441829+07:00 0HLI4P3G1BR0K:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T22:51:26.7484115+07:00 0HLI4P3G1BR0K:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:51:26.8839600+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T22:51:26.9444953+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T22:51:26.9776091+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T22:51:26.9890700+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 256.3024ms. (50a9e262)
+2018-11-07T22:51:27.0182042+07:00 0HLI4P3G1BR0K:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T22:51:27.1259203+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:51:27.1761406+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:51:27.2416360+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed ViewResult - view "Index" executed in 237.6969ms. (f66409e9)
+2018-11-07T22:51:27.2550416+07:00 0HLI4P3G1BR0K:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 541.0377ms (afa2e885)
+2018-11-07T22:51:27.2744473+07:00 0HLI4P3G1BR0J:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css   (ca22a1cb)
+2018-11-07T22:51:27.2779883+07:00 0HLI4P3G1BR0M:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/Ionicons/css/ionicons.min.css   (ca22a1cb)
+2018-11-07T22:51:27.2827125+07:00 0HLI4P3G1BR0O:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/dist/css/skins/_all-skins.min.css   (ca22a1cb)
+2018-11-07T22:51:27.2858512+07:00 0HLI4P3G1BR0L:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/font-awesome/css/font-awesome.min.css   (ca22a1cb)
+2018-11-07T22:51:27.2878109+07:00 0HLI4P3G1BR0N:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/dist/css/AdminLTE.min.css   (ca22a1cb)
+2018-11-07T22:51:27.2999125+07:00 0HLI4P3G1BR0K:00000001 [INF] Request finished in 776.5447ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T22:51:27.3046516+07:00 0HLI4P3G1BR0K:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css   (ca22a1cb)
+2018-11-07T22:51:27.3193927+07:00 0HLI4P3G1BR0K:00000002 [INF] Sending file. Request path: '"/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\datatables.net-bs\css\dataTables.bootstrap.min.css"' (27b0a520)
+2018-11-07T22:51:27.3247271+07:00 0HLI4P3G1BR0O:00000001 [INF] Sending file. Request path: '"/adminlte/dist/css/skins/_all-skins.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\dist\css\skins\_all-skins.min.css"' (27b0a520)
+2018-11-07T22:51:27.3328783+07:00 0HLI4P3G1BR0K:00000002 [INF] Request finished in 19.5583ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3367154+07:00 0HLI4P3G1BR0O:00000001 [INF] Request finished in 45.9884ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3407506+07:00 0HLI4P3G1BR0L:00000001 [INF] Sending file. Request path: '"/adminlte/bower_components/font-awesome/css/font-awesome.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\font-awesome\css\font-awesome.min.css"' (27b0a520)
+2018-11-07T22:51:27.3453015+07:00 0HLI4P3G1BR0K:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/logo.png   (ca22a1cb)
+2018-11-07T22:51:27.3480575+07:00 0HLI4P3G1BR0L:00000001 [INF] Request finished in 62.6435ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3516435+07:00 0HLI4P3G1BR0M:00000001 [INF] Sending file. Request path: '"/adminlte/bower_components/Ionicons/css/ionicons.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\Ionicons\css\ionicons.min.css"' (27b0a520)
+2018-11-07T22:51:27.3544069+07:00 0HLI4P3G1BR0N:00000001 [INF] Sending file. Request path: '"/adminlte/dist/css/AdminLTE.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\dist\css\AdminLTE.min.css"' (27b0a520)
+2018-11-07T22:51:27.3579805+07:00 0HLI4P3G1BR0K:00000003 [INF] Sending file. Request path: '"/images/logo.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\logo.png"' (27b0a520)
+2018-11-07T22:51:27.3597765+07:00 0HLI4P3G1BR0M:00000001 [INF] Request finished in 78.1795ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3623969+07:00 0HLI4P3G1BR0K:00000003 [INF] Request finished in 24.7673ms 200 image/png (791a596a)
+2018-11-07T22:51:27.3671202+07:00 0HLI4P3G1BR0M:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/index.css   (ca22a1cb)
+2018-11-07T22:51:27.3716345+07:00 0HLI4P3G1BR0N:00000001 [INF] Request finished in 76.1649ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3738497+07:00 0HLI4P3G1BR0J:00000001 [INF] Sending file. Request path: '"/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\bootstrap\dist\css\bootstrap.min.css"' (27b0a520)
+2018-11-07T22:51:27.3786415+07:00 0HLI4P3G1BR0N:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/profile.jpg   (ca22a1cb)
+2018-11-07T22:51:27.3805118+07:00 0HLI4P3G1BR0M:00000002 [INF] Sending file. Request path: '"/css/product/index.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\css\product\index.css"' (27b0a520)
+2018-11-07T22:51:27.3852063+07:00 0HLI4P3G1BR0J:00000001 [INF] Request finished in 103.6702ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3874014+07:00 0HLI4P3G1BR0M:00000002 [INF] Request finished in 20.5166ms 200 text/css (791a596a)
+2018-11-07T22:51:27.3900145+07:00 0HLI4P3G1BR0J:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/button_ghost.css   (ca22a1cb)
+2018-11-07T22:51:27.3937190+07:00 0HLI4P3G1BR0J:00000002 [INF] Sending file. Request path: '"/css/button_ghost.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\css\button_ghost.css"' (27b0a520)
+2018-11-07T22:51:27.3967242+07:00 0HLI4P3G1BR0J:00000002 [INF] Request finished in 8.4799ms 200 text/css (791a596a)
+2018-11-07T22:51:27.4026714+07:00 0HLI4P3G1BR0N:00000002 [INF] Sending file. Request path: '"/images/profile.jpg"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\profile.jpg"' (27b0a520)
+2018-11-07T22:51:27.4059420+07:00 0HLI4P3G1BR0N:00000002 [INF] Request finished in 30.9985ms 200 image/jpeg (791a596a)
+2018-11-07T22:51:27.4279117+07:00 0HLI4P3G1BR0N:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/jquery/dist/jquery.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4295180+07:00 0HLI4P3G1BR0J:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4331433+07:00 0HLI4P3G1BR0O:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4372682+07:00 0HLI4P3G1BR0K:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4431693+07:00 0HLI4P3G1BR0M:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4459892+07:00 0HLI4P3G1BR0J:00000003 [INF] Sending file. Request path: '"/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\bootstrap\dist\js\bootstrap.min.js"' (27b0a520)
+2018-11-07T22:51:27.4527352+07:00 0HLI4P3G1BR0L:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/fastclick/lib/fastclick.js   (ca22a1cb)
+2018-11-07T22:51:27.4560453+07:00 0HLI4P3G1BR0J:00000003 [INF] Request finished in 24.9431ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.4585063+07:00 0HLI4P3G1BR0O:00000002 [INF] Sending file. Request path: '"/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\jquery-slimscroll\jquery.slimscroll.min.js"' (27b0a520)
+2018-11-07T22:51:27.4612990+07:00 0HLI4P3G1BR0J:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/dist/js/adminlte.min.js   (ca22a1cb)
+2018-11-07T22:51:27.4689026+07:00 0HLI4P3G1BR0O:00000002 [INF] Request finished in 33.0674ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.4716508+07:00 0HLI4P3G1BR0L:00000002 [INF] Sending file. Request path: '"/adminlte/bower_components/fastclick/lib/fastclick.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\fastclick\lib\fastclick.js"' (27b0a520)
+2018-11-07T22:51:27.4745692+07:00 0HLI4P3G1BR0O:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/dist/js/demo.js   (ca22a1cb)
+2018-11-07T22:51:27.4764528+07:00 0HLI4P3G1BR0J:00000004 [INF] Sending file. Request path: '"/adminlte/dist/js/adminlte.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\dist\js\adminlte.min.js"' (27b0a520)
+2018-11-07T22:51:27.4848243+07:00 0HLI4P3G1BR0L:00000002 [INF] Request finished in 45.7255ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.4866322+07:00 0HLI4P3G1BR0O:00000003 [INF] Sending file. Request path: '"/adminlte/dist/js/demo.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\dist\js\demo.js"' (27b0a520)
+2018-11-07T22:51:27.4889537+07:00 0HLI4P3G1BR0J:00000004 [INF] Request finished in 21.5114ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.4926676+07:00 0HLI4P3G1BR0O:00000003 [INF] Request finished in 18.3975ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.4954250+07:00 0HLI4P3G1BR0J:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_catagory.png   (ca22a1cb)
+2018-11-07T22:51:27.4974136+07:00 0HLI4P3G1BR0L:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_new.png   (ca22a1cb)
+2018-11-07T22:51:27.5012951+07:00 0HLI4P3G1BR0K:00000004 [INF] Sending file. Request path: '"/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\datatables.net-bs\js\dataTables.bootstrap.min.js"' (27b0a520)
+2018-11-07T22:51:27.5054155+07:00 0HLI4P3G1BR0O:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_out_of_stock.png   (ca22a1cb)
+2018-11-07T22:51:27.5086548+07:00 0HLI4P3G1BR0J:00000005 [INF] Sending file. Request path: '"/images/ic_catagory.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_catagory.png"' (27b0a520)
+2018-11-07T22:51:27.5115309+07:00 0HLI4P3G1BR0M:00000003 [INF] Sending file. Request path: '"/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\datatables.net\js\jquery.dataTables.min.js"' (27b0a520)
+2018-11-07T22:51:27.5134906+07:00 0HLI4P3G1BR0J:00000005 [INF] Request finished in 18.7714ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5174067+07:00 0HLI4P3G1BR0M:00000003 [INF] Request finished in 87.9143ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.5195133+07:00 0HLI4P3G1BR0J:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_delete.png   (ca22a1cb)
+2018-11-07T22:51:27.5236022+07:00 0HLI4P3G1BR0M:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail.png   (ca22a1cb)
+2018-11-07T22:51:27.5259358+07:00 0HLI4P3G1BR0O:00000004 [INF] Sending file. Request path: '"/images/ic_out_of_stock.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_out_of_stock.png"' (27b0a520)
+2018-11-07T22:51:27.5293037+07:00 0HLI4P3G1BR0N:00000003 [INF] Sending file. Request path: '"/adminlte/bower_components/jquery/dist/jquery.min.js"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\jquery\dist\jquery.min.js"' (27b0a520)
+2018-11-07T22:51:27.5329067+07:00 0HLI4P3G1BR0O:00000004 [INF] Request finished in 28.135ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5361976+07:00 0HLI4P3G1BR0N:00000003 [INF] Request finished in 108.113ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.5380681+07:00 0HLI4P3G1BR0O:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:51:27.5421247+07:00 0HLI4P3G1BR0N:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cm_logo.png   (ca22a1cb)
+2018-11-07T22:51:27.5438637+07:00 0HLI4P3G1BR0J:00000006 [INF] Sending file. Request path: '"/images/ic_delete.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_delete.png"' (27b0a520)
+2018-11-07T22:51:27.5464460+07:00 0HLI4P3G1BR0M:00000004 [INF] Sending file. Request path: '"/images/ic_detail.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_detail.png"' (27b0a520)
+2018-11-07T22:51:27.5492976+07:00 0HLI4P3G1BR0J:00000006 [INF] Request finished in 29.9706ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5520846+07:00 0HLI4P3G1BR0M:00000004 [INF] Request finished in 29.8806ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5548217+07:00 0HLI4P3G1BR0N:00000004 [INF] Sending file. Request path: '"/images/cm_logo.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\cm_logo.png"' (27b0a520)
+2018-11-07T22:51:27.5575277+07:00 0HLI4P3G1BR0O:00000005 [INF] Request finished in 20.0542ms 404  (791a596a)
+2018-11-07T22:51:27.5601368+07:00 0HLI4P3G1BR0N:00000004 [INF] Request finished in 19.504ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5634241+07:00 0HLI4P3G1BR0O:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_line.png   (ca22a1cb)
+2018-11-07T22:51:27.5652329+07:00 0HLI4P3G1BR0N:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_facebook.png   (ca22a1cb)
+2018-11-07T22:51:27.5697321+07:00 0HLI4P3G1BR0J:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_mail.png   (ca22a1cb)
+2018-11-07T22:51:27.5716365+07:00 0HLI4P3G1BR0M:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_tel.png   (ca22a1cb)
+2018-11-07T22:51:27.5763359+07:00 0HLI4P3G1BR0O:00000006 [INF] Sending file. Request path: '"/images/ic_line.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_line.png"' (27b0a520)
+2018-11-07T22:51:27.5791210+07:00 0HLI4P3G1BR0N:00000005 [INF] Sending file. Request path: '"/images/ic_facebook.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_facebook.png"' (27b0a520)
+2018-11-07T22:51:27.5812257+07:00 0HLI4P3G1BR0O:00000006 [INF] Request finished in 17.8048ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5866337+07:00 0HLI4P3G1BR0N:00000005 [INF] Request finished in 18.1111ms 200 image/png (791a596a)
+2018-11-07T22:51:27.5892705+07:00 0HLI4P3G1BR0O:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_youtube.png   (ca22a1cb)
+2018-11-07T22:51:27.5910740+07:00 0HLI4P3G1BR0J:00000007 [INF] Sending file. Request path: '"/images/ic_mail.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_mail.png"' (27b0a520)
+2018-11-07T22:51:27.5940287+07:00 0HLI4P3G1BR0M:00000005 [INF] Sending file. Request path: '"/images/ic_tel.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_tel.png"' (27b0a520)
+2018-11-07T22:51:27.5977427+07:00 0HLI4P3G1BR0O:00000007 [INF] Sending file. Request path: '"/images/ic_youtube.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_youtube.png"' (27b0a520)
+2018-11-07T22:51:27.6005494+07:00 0HLI4P3G1BR0J:00000007 [INF] Request finished in 41.6185ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6033148+07:00 0HLI4P3G1BR0O:00000007 [INF] Request finished in 15.5428ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6057947+07:00 0HLI4P3G1BR0M:00000005 [INF] Request finished in 42.0462ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6083292+07:00 0HLI4P3G1BR0L:00000003 [INF] Sending file. Request path: '"/images/ic_new.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_new.png"' (27b0a520)
+2018-11-07T22:51:27.6115912+07:00 0HLI4P3G1BR0O:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:51:27.6133103+07:00 0HLI4P3G1BR0L:00000003 [INF] Request finished in 124.1622ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6166324+07:00 0HLI4P3G1BR0O:00000008 [INF] Request finished in 5.1826ms 404  (791a596a)
+2018-11-07T22:51:27.6200455+07:00 0HLI4P3G1BR0L:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_edit.png   (ca22a1cb)
+2018-11-07T22:51:27.6217498+07:00 0HLI4P3G1BR0K:00000004 [INF] Request finished in 73.6544ms 200 application/javascript (791a596a)
+2018-11-07T22:51:27.6261282+07:00 0HLI4P3G1BR0K:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_product.png   (ca22a1cb)
+2018-11-07T22:51:27.6291542+07:00 0HLI4P3G1BR0L:00000004 [INF] Sending file. Request path: '"/images/ic_edit.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_edit.png"' (27b0a520)
+2018-11-07T22:51:27.6322555+07:00 0HLI4P3G1BR0O:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2018-11-07T22:51:27.6357208+07:00 0HLI4P3G1BR0L:00000004 [INF] Request finished in 14.9087ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6375752+07:00 0HLI4P3G1BR0K:00000005 [INF] Sending file. Request path: '"/images/ic_product.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_product.png"' (27b0a520)
+2018-11-07T22:51:27.6403224+07:00 0HLI4P3G1BR0K:00000005 [INF] Request finished in 15.586ms 200 image/png (791a596a)
+2018-11-07T22:51:27.6429581+07:00 0HLI4P3G1BR0O:00000009 [INF] Sending file. Request path: '"/adminlte/bower_components/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2018-11-07T22:51:27.6457656+07:00 0HLI4P3G1BR0O:00000009 [INF] Request finished in 19.6344ms 200 font/woff2 (791a596a)
+2018-11-07T22:51:27.8942964+07:00 0HLI4P3G1BR0O:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2018-11-07T22:51:27.8983145+07:00 0HLI4P3G1BR0O:0000000A [INF] Sending file. Request path: '"/adminlte/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2"' (27b0a520)
+2018-11-07T22:51:27.9018167+07:00 0HLI4P3G1BR0O:0000000A [INF] Request finished in 7.8511ms 200 font/woff2 (791a596a)
+2018-11-07T22:51:28.1349894+07:00 0HLI4P3G1BR0O:0000000B [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cmdev_logo.png   (ca22a1cb)
+2018-11-07T22:51:28.1391973+07:00 0HLI4P3G1BR0O:0000000B [INF] Sending file. Request path: '"/images/cmdev_logo.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\cmdev_logo.png"' (27b0a520)
+2018-11-07T22:51:28.1429647+07:00 0HLI4P3G1BR0O:0000000B [INF] Request finished in 8.822ms 200 image/png (791a596a)
+2018-11-07T22:51:38.2824433+07:00 0HLI4P3G1BR0O:0000000C [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T22:51:38.2936561+07:00 0HLI4P3G1BR0O:0000000C [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T22:51:38.2983276+07:00 0HLI4P3G1BR0O:0000000C [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T22:51:38.3019615+07:00 0HLI4P3G1BR0O:0000000C [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6185ms. (50a9e262)
+2018-11-07T22:51:38.3086923+07:00 0HLI4P3G1BR0O:0000000C [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T22:51:38.3625638+07:00 0HLI4P3G1BR0O:0000000C [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:51:38.3730395+07:00 0HLI4P3G1BR0O:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T22:51:38.4013338+07:00 0HLI4P3G1BR0O:0000000C [INF] Executed ViewResult - view "Create" executed in 96.3857ms. (f66409e9)
+2018-11-07T22:51:38.4044855+07:00 0HLI4P3G1BR0O:0000000C [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 107.7755ms (afa2e885)
+2018-11-07T22:51:38.4084749+07:00 0HLI4P3G1BR0O:0000000C [INF] Request finished in 126.241ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T22:51:38.4278545+07:00 0HLI4P3G1BR0O:0000000D [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-07T22:51:38.4349581+07:00 0HLI4P3G1BR0K:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/create.css   (ca22a1cb)
+2018-11-07T22:51:38.4376760+07:00 0HLI4P3G1BR0M:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T22:51:38.4408916+07:00 0HLI4P3G1BR0L:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css   (ca22a1cb)
+2018-11-07T22:51:38.4437179+07:00 0HLI4P3G1BR0M:00000006 [INF] Request finished in 5.0771ms 404  (791a596a)
+2018-11-07T22:51:38.4469560+07:00 0HLI4P3G1BR0J:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail_title.png   (ca22a1cb)
+2018-11-07T22:51:38.4491810+07:00 0HLI4P3G1BR0K:00000006 [INF] Sending file. Request path: '"/css/product/create.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\css\product\create.css"' (27b0a520)
+2018-11-07T22:51:38.4554424+07:00 0HLI4P3G1BR0L:00000005 [INF] Sending file. Request path: '"/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\adminlte\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css"' (27b0a520)
+2018-11-07T22:51:38.4574250+07:00 0HLI4P3G1BR0K:00000006 [INF] Request finished in 21.6706ms 200 text/css (791a596a)
+2018-11-07T22:51:38.4600935+07:00 0HLI4P3G1BR0J:00000008 [INF] Sending file. Request path: '"/images/ic_detail_title.png"'. Physical path: '"E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\wwwroot\images\ic_detail_title.png"' (27b0a520)
+2018-11-07T22:51:38.4630565+07:00 0HLI4P3G1BR0L:00000005 [INF] Request finished in 24.959ms 200 text/css (791a596a)
+2018-11-07T22:51:38.4656693+07:00 0HLI4P3G1BR0J:00000008 [INF] Request finished in 27.3835ms 200 image/png (791a596a)
+2018-11-07T22:51:38.4684982+07:00 0HLI4P3G1BR0O:0000000D [INF] Request finished in 6.4184ms 404  (791a596a)
+2018-11-07T22:51:38.4721564+07:00 0HLI4P3G1BR0J:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T22:51:38.4748942+07:00 0HLI4P3G1BR0J:00000009 [INF] Request finished in 3.8606ms 404  (791a596a)
+2018-11-07T22:51:38.5383884+07:00 0HLI4P3G1BR0J:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T22:51:38.5421189+07:00 0HLI4P3G1BR0J:0000000A [INF] Request finished in 3.7392ms 404  (791a596a)
+2018-11-07T22:51:38.5472653+07:00 0HLI4P3G1BR0J:0000000B [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T22:51:38.5504040+07:00 0HLI4P3G1BR0J:0000000B [INF] Request finished in 3.6877ms 404  (791a596a)
+2018-11-07T22:52:42.4174779+07:00 0HLI4P3G1BR0J:0000000C [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T22:52:42.4202030+07:00 0HLI4P3G1BR0J:0000000C [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T22:52:42.4235460+07:00 0HLI4P3G1BR0J:0000000C [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T22:52:42.4270380+07:00 0HLI4P3G1BR0J:0000000C [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:52:42.4404109+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T22:52:42.4492363+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T22:52:42.4536627+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T22:52:42.4558980+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 30.1954ms. (50a9e262)
+2018-11-07T22:52:42.4580964+07:00 0HLI4P3G1BR0J:0000000C [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T22:52:42.4652777+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:52:42.4713390+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:52:42.4749451+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed ViewResult - view "Index" executed in 16.4436ms. (f66409e9)
+2018-11-07T22:52:42.4777618+07:00 0HLI4P3G1BR0J:0000000C [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 54.8244ms (afa2e885)
+2018-11-07T22:52:42.4810145+07:00 0HLI4P3G1BR0J:0000000C [INF] Request finished in 63.0828ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T22:52:42.5951340+07:00 0HLI4P3G1BR0J:0000000D [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:52:42.5992881+07:00 0HLI4P3G1BR0J:0000000D [INF] Request finished in 2.903ms 404  (791a596a)
+2018-11-07T22:52:42.6230083+07:00 0HLI4P3G1BR0J:0000000E [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:52:42.6259682+07:00 0HLI4P3G1BR0J:0000000E [INF] Request finished in 3.5436ms 404  (791a596a)
+2018-11-07T22:52:46.8917551+07:00 0HLI4P3G1BR0J:0000000F [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T22:52:46.8949392+07:00 0HLI4P3G1BR0J:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T22:52:46.8985465+07:00 0HLI4P3G1BR0J:0000000F [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T22:52:46.9014952+07:00 0HLI4P3G1BR0J:0000000F [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T22:52:46.9089592+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T22:52:46.9136280+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T22:52:46.9187190+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T22:52:46.9220340+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 20.3298ms. (50a9e262)
+2018-11-07T22:52:46.9244062+07:00 0HLI4P3G1BR0J:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T22:52:46.9313896+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:52:46.9371681+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T22:52:46.9402754+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed ViewResult - view "Index" executed in 15.698ms. (f66409e9)
+2018-11-07T22:52:46.9431597+07:00 0HLI4P3G1BR0J:0000000F [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 45.3885ms (afa2e885)
+2018-11-07T22:52:46.9464792+07:00 0HLI4P3G1BR0J:0000000F [INF] Request finished in 54.3897ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T22:52:46.9777981+07:00 0HLI4P3G1BR0J:00000010 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:52:46.9807131+07:00 0HLI4P3G1BR0J:00000010 [INF] Request finished in 6.9548ms 404  (791a596a)
+2018-11-07T22:52:47.0244049+07:00 0HLI4P3G1BR0J:00000011 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T22:52:47.0270483+07:00 0HLI4P3G1BR0J:00000011 [INF] Request finished in 3.0245ms 404  (791a596a)
+2018-11-07T22:53:16.7252352+07:00 0HLI4P3G1BR0J:00000012 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Home/Contact   (ca22a1cb)
+2018-11-07T22:53:16.7281784+07:00 0HLI4P3G1BR0J:00000012 [INF] Request finished in 2.9481ms 404  (791a596a)

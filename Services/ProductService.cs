@@ -17,6 +17,7 @@ namespace MyPOS.Services
         private const int Group_v1 = 9999;
 
         private readonly ILogger<ProductService> Logger;
+
         public ProductService(DatabaseContext Context, ILogger<ProductService> Logger)
         {
             this.Logger = Logger;
@@ -66,8 +67,8 @@ namespace MyPOS.Services
 
             return (result, totalProduct, totalCategories, totalNewProduct, totalOutStock);
         }
-
         public async Task<Boolean> Delete(int id)
+
         {
             try
             {
@@ -93,12 +94,13 @@ namespace MyPOS.Services
             return false;
         }
 
+        //-- ข้อมูลสำหรับ DropdownList --
         public SelectList CreateSelectList()
         {
             return new SelectList(Context.Category, "CategoryID", "Name");
         }
 
-        public String testLog()
+        public String testLog() //สำหรับการ ใช้งาน Logger 
         {
             var a = "tanakorn";
 
