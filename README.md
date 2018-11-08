@@ -55,8 +55,6 @@
 # Attention for VS
 1. Debugger for Chrome  สำหรับการ Debug ในหน้า cshtml สามารถ debug  JS ได้
 
-
-
 # ความรู้ทั่วไป 
 1. command + Shipt + O  สำหรับ หาชื่อ Function
 2. services.AddTransient<ProductService>(); new ทุกครั้งที่ รีเฟชร หน้า
