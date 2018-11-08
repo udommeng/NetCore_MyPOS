@@ -1584,3 +1584,449 @@ FROM \"Category\" AS \"c\"" (0723d8ff)
 2018-11-08T12:00:01.8353840+07:00 0HLI56S3F80IL:00000001 [INF] Request finished in 201.7342ms 304 application/javascript (791a596a)
 2018-11-08T12:00:01.8616990+07:00 0HLI56S3F80IK:00000004 [INF] Request finished in 464.7309ms 304 text/css (791a596a)
 2018-11-08T12:00:01.9027770+07:00 0HLI56S3F80IJ:00000001 [INF] Request finished in 487.6281ms 304 text/css (791a596a)
+2018-11-08T13:11:35.2685790+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:35.5499400+07:00  [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:35.5620970+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:35.5740110+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-08T13:11:35.6526180+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:35.6643130+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-08T13:11:35.8496130+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-08T13:11:37.0362600+07:00 0HLI584546206:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-08T13:11:37.3016060+07:00 0HLI584546206:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-08T13:11:37.3244850+07:00 0HLI584546206:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-08T13:11:37.3450720+07:00 0HLI584546206:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:37.4874520+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:37.5185540+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Product_ID\", \"c\".\"Category_ID\", \"c\".\"Code_Name\", \"c\".\"Detail\", \"c\".\"Image\", \"c\".\"Name\", \"c\".\"Price\", \"c\".\"Timestamp\", \"c.Categories\".\"Category_ID\", \"c.Categories\".\"Description\", \"c.Categories\".\"Name\"
+FROM \"Products\" AS \"c\"
+INNER JOIN \"Category\" AS \"c.Categories\" ON \"c\".\"Category_ID\" = \"c.Categories\".\"Category_ID\"
+ORDER BY \"c\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:37.6034180+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c.ProductsSizeList\".\"ID\", \"c.ProductsSizeList\".\"Count\", \"c.ProductsSizeList\".\"Product_ID\", \"c.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"c.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"c0\".\"Product_ID\"
+    FROM \"Products\" AS \"c0\"
+    INNER JOIN \"Category\" AS \"c.Categories0\" ON \"c0\".\"Category_ID\" = \"c.Categories0\".\"Category_ID\"
+) AS \"t\" ON \"c.ProductsSizeList\".\"Product_ID\" = \"t\".\"Product_ID\"
+ORDER BY \"t\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:37.6341960+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:37.6401640+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:11:37.6530060+07:00 0HLI584546206:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 319.9857ms. (50a9e262)
+2018-11-08T13:11:37.7252850+07:00 0HLI584546206:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-08T13:11:37.8710840+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:37.8858400+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:37.9489040+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:37.9547420+07:00 0HLI584546206:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:38.0627300+07:00 0HLI584546206:00000001 [INF] Executed ViewResult - view "Index" executed in 396.1326ms. (f66409e9)
+2018-11-08T13:11:38.1709300+07:00 0HLI584546206:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 761.2665ms (afa2e885)
+2018-11-08T13:11:38.2166760+07:00 0HLI584546206:00000001 [INF] Request finished in 1176.4876ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:11:38.3595770+07:00 0HLI584546206:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-08T13:11:38.3848930+07:00 0HLI584546206:00000002 [INF] Request finished in 44.206ms 404  (791a596a)
+2018-11-08T13:11:38.4175940+07:00 0HLI584546206:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-08T13:11:38.4246970+07:00 0HLI584546206:00000003 [INF] Request finished in 6.6406ms 404  (791a596a)
+2018-11-08T13:11:44.9702290+07:00 0HLI584546206:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Edit/5   (ca22a1cb)
+2018-11-08T13:11:44.9957620+07:00 0HLI584546206:00000004 [INF] Route matched with "{action = \"Edit\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Edit (MyPOS)" (a44c0341)
+2018-11-08T13:11:45.0224830+07:00 0HLI584546206:00000004 [INF] Executing action method "MyPOS.Controllers.ProductController.Edit (MyPOS)" with arguments (["5"]) - Validation state: Valid (4e3479ed)
+2018-11-08T13:11:45.0344810+07:00 0HLI584546206:00000004 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:45.0581980+07:00 0HLI584546206:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:45.0645900+07:00 0HLI584546206:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p\".\"Product_ID\", \"p\".\"Category_ID\", \"p\".\"Code_Name\", \"p\".\"Detail\", \"p\".\"Image\", \"p\".\"Name\", \"p\".\"Price\", \"p\".\"Timestamp\", \"p.Categories\".\"Category_ID\", \"p.Categories\".\"Description\", \"p.Categories\".\"Name\"
+FROM \"Products\" AS \"p\"
+INNER JOIN \"Category\" AS \"p.Categories\" ON \"p\".\"Category_ID\" = \"p.Categories\".\"Category_ID\"
+WHERE \"p\".\"Product_ID\" = @__Id_0
+ORDER BY \"p\".\"Product_ID\"
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:45.0751960+07:00 0HLI584546206:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p.ProductsSizeList\".\"ID\", \"p.ProductsSizeList\".\"Count\", \"p.ProductsSizeList\".\"Product_ID\", \"p.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"p.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"t\".*
+    FROM (
+        SELECT \"p0\".\"Product_ID\"
+        FROM \"Products\" AS \"p0\"
+        INNER JOIN \"Category\" AS \"p.Categories0\" ON \"p0\".\"Category_ID\" = \"p.Categories0\".\"Category_ID\"
+        WHERE \"p0\".\"Product_ID\" = @__Id_0
+        ORDER BY \"p0\".\"Product_ID\"
+        LIMIT 1
+    ) AS \"t\"
+) AS \"t0\" ON \"p.ProductsSizeList\".\"Product_ID\" = \"t0\".\"Product_ID\"
+ORDER BY \"t0\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:45.0815980+07:00 0HLI584546206:00000004 [INF] Executed action method "MyPOS.Controllers.ProductController.Edit (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 54.2168ms. (50a9e262)
+2018-11-08T13:11:45.1133380+07:00 0HLI584546206:00000004 [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2018-11-08T13:11:45.2121200+07:00 0HLI584546206:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:45.2181180+07:00 0HLI584546206:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Category_ID\", \"c\".\"Description\", \"c\".\"Name\"
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:11:45.2542900+07:00 0HLI584546206:00000004 [INF] Executed ViewResult - view "Edit" executed in 162.6859ms. (f66409e9)
+2018-11-08T13:11:45.2879770+07:00 0HLI584546206:00000004 [INF] Executed action "MyPOS.Controllers.ProductController.Edit (MyPOS)" in 258.6734ms (afa2e885)
+2018-11-08T13:11:45.3130100+07:00 0HLI584546206:00000004 [INF] Request finished in 325.3528ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:11:45.3488520+07:00 0HLI584546205:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-08T13:11:45.3830850+07:00 0HLI584546206:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/upload_files.js   (ca22a1cb)
+2018-11-08T13:11:45.4018240+07:00 0HLI584546206:00000005 [INF] The file "/js/upload_files.js" was not modified (f1f8d725)
+2018-11-08T13:11:45.4019000+07:00 0HLI584546205:00000001 [INF] The file "/css/upload_files.css" was not modified (f1f8d725)
+2018-11-08T13:11:45.4260050+07:00 0HLI584546205:00000001 [INF] Request finished in 87.0954ms 304 text/css (791a596a)
+2018-11-08T13:11:45.4260790+07:00 0HLI584546206:00000005 [INF] Request finished in 51.5801ms 304 application/javascript (791a596a)
+2018-11-08T13:11:52.8078260+07:00 0HLI584546206:00000006 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Product/UploadFilesAjax multipart/form-data; boundary=----WebKitFormBoundaryLaZOXdIEXL2JvdBU 44355 (ca22a1cb)
+2018-11-08T13:11:52.8217420+07:00 0HLI584546206:00000006 [INF] Route matched with "{action = \"UploadFilesAjax\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.UploadFilesAjax (MyPOS)" (a44c0341)
+2018-11-08T13:11:52.8291290+07:00 0HLI584546206:00000006 [INF] Executing action method "MyPOS.Controllers.ProductController.UploadFilesAjax (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-08T13:11:52.9499310+07:00 0HLI584546206:00000006 [INF] Executed action method "MyPOS.Controllers.ProductController.UploadFilesAjax (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 93.8527ms. (50a9e262)
+2018-11-08T13:11:52.9827270+07:00 0HLI584546206:00000006 [INF] Executing JsonResult, writing value of type '"System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (2f513669)
+2018-11-08T13:11:53.1179420+07:00 0HLI584546206:00000006 [INF] Executed action "MyPOS.Controllers.ProductController.UploadFilesAjax (MyPOS)" in 287.5225ms (afa2e885)
+2018-11-08T13:11:53.1271520+07:00 0HLI584546206:00000006 [INF] Request finished in 319.7929ms 200 application/json; charset=utf-8 (791a596a)
+2018-11-08T13:11:53.1462980+07:00 0HLI584546206:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg   (ca22a1cb)
+2018-11-08T13:11:53.1900190+07:00 0HLI584546206:00000007 [INF] Sending file. Request path: '"/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg"'. Physical path: '"/Users/jdgprogrammer/_Learn_MVC_Core/CodeMobile/MyPOS/wwwroot/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg"' (27b0a520)
+2018-11-08T13:11:53.1971930+07:00 0HLI584546206:00000007 [INF] Request finished in 55.0344ms 200 image/jpeg (791a596a)
+2018-11-08T13:11:54.7498460+07:00 0HLI584546206:00000008 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Product/Edit/5 application/x-www-form-urlencoded 660 (ca22a1cb)
+2018-11-08T13:11:54.7784440+07:00 0HLI584546206:00000008 [INF] Route matched with "{action = \"Edit\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Edit (MyPOS)" (a44c0341)
+2018-11-08T13:11:54.8368810+07:00 0HLI584546206:00000008 [INF] Executing action method "MyPOS.Controllers.ProductController.Edit (MyPOS)" with arguments (["MyPOS.ViewModels.ProductFormViewModel", "5"]) - Validation state: Valid (4e3479ed)
+2018-11-08T13:11:54.8460360+07:00 0HLI584546206:00000008 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:54.8520940+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:54.8580000+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:54.8824640+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:54.9373340+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("5"ms) [Parameters=["@p7='?', @p0='?', @p1='?' (Size = 6), @p2='?' (Size = 5), @p3='?' (Size = 40), @p4='?' (Size = 8), @p5='?', @p6='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"Products\" SET \"Category_ID\" = @p0, \"Code_Name\" = @p1, \"Detail\" = @p2, \"Image\" = @p3, \"Name\" = @p4, \"Price\" = @p5, \"Timestamp\" = @p6
+WHERE \"Product_ID\" = @p7;
+SELECT changes();" (0723d8ff)
+2018-11-08T13:11:54.9586680+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:54.9856330+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (Size = 1), @__8__locals1_productID_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"ID\", \"m\".\"Count\", \"m\".\"Product_ID\", \"m\".\"Size\"
+FROM \"Product_Size\" AS \"m\"
+WHERE (\"m\".\"Size\" = @__p_0) AND (\"m\".\"Product_ID\" = @__8__locals1_productID_1)
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:54.9958870+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.0052670+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (Size = 1), @__8__locals1_productID_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"ID\", \"m\".\"Count\", \"m\".\"Product_ID\", \"m\".\"Size\"
+FROM \"Product_Size\" AS \"m\"
+WHERE (\"m\".\"Size\" = @__p_0) AND (\"m\".\"Product_ID\" = @__8__locals1_productID_1)
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:55.0116880+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.0171530+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (Size = 1), @__8__locals1_productID_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"ID\", \"m\".\"Count\", \"m\".\"Product_ID\", \"m\".\"Size\"
+FROM \"Product_Size\" AS \"m\"
+WHERE (\"m\".\"Size\" = @__p_0) AND (\"m\".\"Product_ID\" = @__8__locals1_productID_1)
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:55.0234440+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.0290910+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (Size = 2), @__8__locals1_productID_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"ID\", \"m\".\"Count\", \"m\".\"Product_ID\", \"m\".\"Size\"
+FROM \"Product_Size\" AS \"m\"
+WHERE (\"m\".\"Size\" = @__p_0) AND (\"m\".\"Product_ID\" = @__8__locals1_productID_1)
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:55.0397830+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.0513670+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@p3='?', @p0='?', @p1='?', @p2='?' (Size = 1)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"Product_Size\" SET \"Count\" = @p0, \"Product_ID\" = @p1, \"Size\" = @p2
+WHERE \"ID\" = @p3;
+SELECT changes();" (0723d8ff)
+2018-11-08T13:11:55.0572960+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@p3='?', @p0='?', @p1='?', @p2='?' (Size = 1)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"Product_Size\" SET \"Count\" = @p0, \"Product_ID\" = @p1, \"Size\" = @p2
+WHERE \"ID\" = @p3;
+SELECT changes();" (0723d8ff)
+2018-11-08T13:11:55.0628340+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@p3='?', @p0='?', @p1='?', @p2='?' (Size = 1)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"Product_Size\" SET \"Count\" = @p0, \"Product_ID\" = @p1, \"Size\" = @p2
+WHERE \"ID\" = @p3;
+SELECT changes();" (0723d8ff)
+2018-11-08T13:11:55.0695270+07:00 0HLI584546206:00000008 [INF] Executed DbCommand ("0"ms) [Parameters=["@p3='?', @p0='?', @p1='?', @p2='?' (Size = 2)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"Product_Size\" SET \"Count\" = @p0, \"Product_ID\" = @p1, \"Size\" = @p2
+WHERE \"ID\" = @p3;
+SELECT changes();" (0723d8ff)
+2018-11-08T13:11:55.0779280+07:00 0HLI584546206:00000008 [INF] Executed action method "MyPOS.Controllers.ProductController.Edit (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 235.9604ms. (50a9e262)
+2018-11-08T13:11:55.0849070+07:00 0HLI584546206:00000008 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-11-08T13:11:55.0903130+07:00 0HLI584546206:00000008 [INF] Executed action "MyPOS.Controllers.ProductController.Edit (MyPOS)" in 306.7305ms (afa2e885)
+2018-11-08T13:11:55.0958870+07:00 0HLI584546206:00000008 [INF] Request finished in 349.5993ms 302  (791a596a)
+2018-11-08T13:11:55.1067520+07:00 0HLI584546206:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-08T13:11:55.1381200+07:00 0HLI584546206:00000009 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-08T13:11:55.1448100+07:00 0HLI584546206:00000009 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-08T13:11:55.1507590+07:00 0HLI584546206:00000009 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:55.1563840+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.1616320+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Product_ID\", \"c\".\"Category_ID\", \"c\".\"Code_Name\", \"c\".\"Detail\", \"c\".\"Image\", \"c\".\"Name\", \"c\".\"Price\", \"c\".\"Timestamp\", \"c.Categories\".\"Category_ID\", \"c.Categories\".\"Description\", \"c.Categories\".\"Name\"
+FROM \"Products\" AS \"c\"
+INNER JOIN \"Category\" AS \"c.Categories\" ON \"c\".\"Category_ID\" = \"c.Categories\".\"Category_ID\"
+ORDER BY \"c\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:55.1676110+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c.ProductsSizeList\".\"ID\", \"c.ProductsSizeList\".\"Count\", \"c.ProductsSizeList\".\"Product_ID\", \"c.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"c.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"c0\".\"Product_ID\"
+    FROM \"Products\" AS \"c0\"
+    INNER JOIN \"Category\" AS \"c.Categories0\" ON \"c0\".\"Category_ID\" = \"c.Categories0\".\"Category_ID\"
+) AS \"t\" ON \"c.ProductsSizeList\".\"Product_ID\" = \"t\".\"Product_ID\"
+ORDER BY \"t\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:55.1744150+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.1795740+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:11:55.1851370+07:00 0HLI584546206:00000009 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 35.0451ms. (50a9e262)
+2018-11-08T13:11:55.1906230+07:00 0HLI584546206:00000009 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-08T13:11:55.1998010+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.2050140+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:55.2109810+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:55.2168210+07:00 0HLI584546206:00000009 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:55.2264570+07:00 0HLI584546206:00000009 [INF] Executed ViewResult - view "Index" executed in 32.757ms. (f66409e9)
+2018-11-08T13:11:55.2678320+07:00 0HLI584546206:00000009 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 88.3501ms (afa2e885)
+2018-11-08T13:11:55.3450620+07:00 0HLI584546206:00000009 [INF] Request finished in 171.8741ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:11:55.3976820+07:00 0HLI584546206:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-08T13:11:55.4039050+07:00 0HLI584546206:0000000A [INF] Request finished in 6.3121ms 404  (791a596a)
+2018-11-08T13:11:57.7843080+07:00 0HLI584546206:0000000B [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Edit/1   (ca22a1cb)
+2018-11-08T13:11:57.7911730+07:00 0HLI584546206:0000000B [INF] Route matched with "{action = \"Edit\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Edit (MyPOS)" (a44c0341)
+2018-11-08T13:11:57.7964470+07:00 0HLI584546206:0000000B [INF] Executing action method "MyPOS.Controllers.ProductController.Edit (MyPOS)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2018-11-08T13:11:57.8026930+07:00 0HLI584546206:0000000B [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:11:57.8083020+07:00 0HLI584546206:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:57.8136740+07:00 0HLI584546206:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p\".\"Product_ID\", \"p\".\"Category_ID\", \"p\".\"Code_Name\", \"p\".\"Detail\", \"p\".\"Image\", \"p\".\"Name\", \"p\".\"Price\", \"p\".\"Timestamp\", \"p.Categories\".\"Category_ID\", \"p.Categories\".\"Description\", \"p.Categories\".\"Name\"
+FROM \"Products\" AS \"p\"
+INNER JOIN \"Category\" AS \"p.Categories\" ON \"p\".\"Category_ID\" = \"p.Categories\".\"Category_ID\"
+WHERE \"p\".\"Product_ID\" = @__Id_0
+ORDER BY \"p\".\"Product_ID\"
+LIMIT 2" (0723d8ff)
+2018-11-08T13:11:57.8197080+07:00 0HLI584546206:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p.ProductsSizeList\".\"ID\", \"p.ProductsSizeList\".\"Count\", \"p.ProductsSizeList\".\"Product_ID\", \"p.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"p.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"t\".*
+    FROM (
+        SELECT \"p0\".\"Product_ID\"
+        FROM \"Products\" AS \"p0\"
+        INNER JOIN \"Category\" AS \"p.Categories0\" ON \"p0\".\"Category_ID\" = \"p.Categories0\".\"Category_ID\"
+        WHERE \"p0\".\"Product_ID\" = @__Id_0
+        ORDER BY \"p0\".\"Product_ID\"
+        LIMIT 1
+    ) AS \"t\"
+) AS \"t0\" ON \"p.ProductsSizeList\".\"Product_ID\" = \"t0\".\"Product_ID\"
+ORDER BY \"t0\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:11:57.8250490+07:00 0HLI584546206:0000000B [INF] Executed action method "MyPOS.Controllers.ProductController.Edit (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 23.6478ms. (50a9e262)
+2018-11-08T13:11:57.8302660+07:00 0HLI584546206:0000000B [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2018-11-08T13:11:57.8409080+07:00 0HLI584546206:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:11:57.8466880+07:00 0HLI584546206:0000000B [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Category_ID\", \"c\".\"Description\", \"c\".\"Name\"
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:11:57.8619380+07:00 0HLI584546206:0000000B [INF] Executed ViewResult - view "Edit" executed in 26.9071ms. (f66409e9)
+2018-11-08T13:11:57.8964520+07:00 0HLI584546206:0000000B [INF] Executed action "MyPOS.Controllers.ProductController.Edit (MyPOS)" in 70.7958ms (afa2e885)
+2018-11-08T13:11:57.9115330+07:00 0HLI584546206:0000000B [INF] Request finished in 129.4566ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:11:57.9357900+07:00 0HLI584546205:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/files/pa1.jpg   (ca22a1cb)
+2018-11-08T13:11:57.9452680+07:00 0HLI584546205:00000002 [INF] Request finished in 13.5167ms 404  (791a596a)
+2018-11-08T13:12:01.2456730+07:00 0HLI584546205:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-08T13:12:01.2517580+07:00 0HLI584546205:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-08T13:12:01.2569450+07:00 0HLI584546205:00000003 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-08T13:12:01.2623800+07:00 0HLI584546205:00000003 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:12:01.2683420+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:01.2744020+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Product_ID\", \"c\".\"Category_ID\", \"c\".\"Code_Name\", \"c\".\"Detail\", \"c\".\"Image\", \"c\".\"Name\", \"c\".\"Price\", \"c\".\"Timestamp\", \"c.Categories\".\"Category_ID\", \"c.Categories\".\"Description\", \"c.Categories\".\"Name\"
+FROM \"Products\" AS \"c\"
+INNER JOIN \"Category\" AS \"c.Categories\" ON \"c\".\"Category_ID\" = \"c.Categories\".\"Category_ID\"
+ORDER BY \"c\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:01.2800110+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c.ProductsSizeList\".\"ID\", \"c.ProductsSizeList\".\"Count\", \"c.ProductsSizeList\".\"Product_ID\", \"c.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"c.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"c0\".\"Product_ID\"
+    FROM \"Products\" AS \"c0\"
+    INNER JOIN \"Category\" AS \"c.Categories0\" ON \"c0\".\"Category_ID\" = \"c.Categories0\".\"Category_ID\"
+) AS \"t\" ON \"c.ProductsSizeList\".\"Product_ID\" = \"t\".\"Product_ID\"
+ORDER BY \"t\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:01.2871070+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:01.2929210+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:12:01.2980800+07:00 0HLI584546205:00000003 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 36.1844ms. (50a9e262)
+2018-11-08T13:12:01.3036420+07:00 0HLI584546205:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-08T13:12:01.3117630+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:01.3175070+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:01.3238010+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:01.3291960+07:00 0HLI584546205:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:01.3394470+07:00 0HLI584546205:00000003 [INF] Executed ViewResult - view "Index" executed in 31.9952ms. (f66409e9)
+2018-11-08T13:12:01.3805130+07:00 0HLI584546205:00000003 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 87.8237ms (afa2e885)
+2018-11-08T13:12:01.4174240+07:00 0HLI584546205:00000003 [INF] Request finished in 162.5957ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:12:01.4511900+07:00 0HLI584546205:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-08T13:12:01.4579270+07:00 0HLI584546205:00000004 [INF] Request finished in 7.4215ms 404  (791a596a)
+2018-11-08T13:12:03.4893250+07:00 0HLI584546205:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Edit/5   (ca22a1cb)
+2018-11-08T13:12:03.4949140+07:00 0HLI584546205:00000005 [INF] Route matched with "{action = \"Edit\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Edit (MyPOS)" (a44c0341)
+2018-11-08T13:12:03.5011430+07:00 0HLI584546205:00000005 [INF] Executing action method "MyPOS.Controllers.ProductController.Edit (MyPOS)" with arguments (["5"]) - Validation state: Valid (4e3479ed)
+2018-11-08T13:12:03.5067550+07:00 0HLI584546205:00000005 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:12:03.5124860+07:00 0HLI584546205:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:03.5178370+07:00 0HLI584546205:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p\".\"Product_ID\", \"p\".\"Category_ID\", \"p\".\"Code_Name\", \"p\".\"Detail\", \"p\".\"Image\", \"p\".\"Name\", \"p\".\"Price\", \"p\".\"Timestamp\", \"p.Categories\".\"Category_ID\", \"p.Categories\".\"Description\", \"p.Categories\".\"Name\"
+FROM \"Products\" AS \"p\"
+INNER JOIN \"Category\" AS \"p.Categories\" ON \"p\".\"Category_ID\" = \"p.Categories\".\"Category_ID\"
+WHERE \"p\".\"Product_ID\" = @__Id_0
+ORDER BY \"p\".\"Product_ID\"
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:03.5434890+07:00 0HLI584546205:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p.ProductsSizeList\".\"ID\", \"p.ProductsSizeList\".\"Count\", \"p.ProductsSizeList\".\"Product_ID\", \"p.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"p.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"t\".*
+    FROM (
+        SELECT \"p0\".\"Product_ID\"
+        FROM \"Products\" AS \"p0\"
+        INNER JOIN \"Category\" AS \"p.Categories0\" ON \"p0\".\"Category_ID\" = \"p.Categories0\".\"Category_ID\"
+        WHERE \"p0\".\"Product_ID\" = @__Id_0
+        ORDER BY \"p0\".\"Product_ID\"
+        LIMIT 1
+    ) AS \"t\"
+) AS \"t0\" ON \"p.ProductsSizeList\".\"Product_ID\" = \"t0\".\"Product_ID\"
+ORDER BY \"t0\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:03.5512910+07:00 0HLI584546205:00000005 [INF] Executed action method "MyPOS.Controllers.ProductController.Edit (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 43.1226ms. (50a9e262)
+2018-11-08T13:12:03.5575870+07:00 0HLI584546205:00000005 [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2018-11-08T13:12:03.5686990+07:00 0HLI584546205:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:03.5746100+07:00 0HLI584546205:00000005 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Category_ID\", \"c\".\"Description\", \"c\".\"Name\"
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:12:03.5881690+07:00 0HLI584546205:00000005 [INF] Executed ViewResult - view "Edit" executed in 28.2848ms. (f66409e9)
+2018-11-08T13:12:03.6072580+07:00 0HLI584546205:00000005 [INF] Executed action "MyPOS.Controllers.ProductController.Edit (MyPOS)" in 93.2656ms (afa2e885)
+2018-11-08T13:12:03.6552410+07:00 0HLI584546205:00000005 [INF] Request finished in 152.6544ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:12:03.6979020+07:00 0HLI584546206:0000000C [INF] Request starting HTTP/1.1 GET https://localhost:5001/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg   (ca22a1cb)
+2018-11-08T13:12:03.7071130+07:00 0HLI584546206:0000000C [INF] The file "/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg" was not modified (f1f8d725)
+2018-11-08T13:12:03.7140010+07:00 0HLI584546206:0000000C [INF] Request finished in 15.5259ms 304 image/jpeg (791a596a)
+2018-11-08T13:12:08.6547080+07:00 0HLI584546206:0000000D [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-08T13:12:08.6604240+07:00 0HLI584546206:0000000D [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-08T13:12:08.6658210+07:00 0HLI584546206:0000000D [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-08T13:12:08.6725930+07:00 0HLI584546206:0000000D [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:12:08.6788630+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:08.6843590+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Product_ID\", \"c\".\"Category_ID\", \"c\".\"Code_Name\", \"c\".\"Detail\", \"c\".\"Image\", \"c\".\"Name\", \"c\".\"Price\", \"c\".\"Timestamp\", \"c.Categories\".\"Category_ID\", \"c.Categories\".\"Description\", \"c.Categories\".\"Name\"
+FROM \"Products\" AS \"c\"
+INNER JOIN \"Category\" AS \"c.Categories\" ON \"c\".\"Category_ID\" = \"c.Categories\".\"Category_ID\"
+ORDER BY \"c\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:08.6906820+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c.ProductsSizeList\".\"ID\", \"c.ProductsSizeList\".\"Count\", \"c.ProductsSizeList\".\"Product_ID\", \"c.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"c.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"c0\".\"Product_ID\"
+    FROM \"Products\" AS \"c0\"
+    INNER JOIN \"Category\" AS \"c.Categories0\" ON \"c0\".\"Category_ID\" = \"c.Categories0\".\"Category_ID\"
+) AS \"t\" ON \"c.ProductsSizeList\".\"Product_ID\" = \"t\".\"Product_ID\"
+ORDER BY \"t\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:08.6967440+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:08.7023100+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:12:08.7085480+07:00 0HLI584546206:0000000D [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 36.7429ms. (50a9e262)
+2018-11-08T13:12:08.7146510+07:00 0HLI584546206:0000000D [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-08T13:12:08.7249110+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:08.7308660+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:08.7374770+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:08.7433040+07:00 0HLI584546206:0000000D [INF] Executed DbCommand ("0"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"m\".\"Product_ID\", \"m\".\"Category_ID\", \"m\".\"Code_Name\", \"m\".\"Detail\", \"m\".\"Image\", \"m\".\"Name\", \"m\".\"Price\", \"m\".\"Timestamp\"
+FROM \"Products\" AS \"m\"
+WHERE \"m\".\"Product_ID\" = @__id_0
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:08.7516590+07:00 0HLI584546206:0000000D [INF] Executed ViewResult - view "Index" executed in 35.8795ms. (f66409e9)
+2018-11-08T13:12:08.7903360+07:00 0HLI584546206:0000000D [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 91.4266ms (afa2e885)
+2018-11-08T13:12:08.8435510+07:00 0HLI584546206:0000000D [INF] Request finished in 168.3738ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:12:08.8881260+07:00 0HLI584546206:0000000E [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-08T13:12:08.9001390+07:00 0HLI584546206:0000000E [INF] Request finished in 9.2572ms 404  (791a596a)
+2018-11-08T13:12:17.2807570+07:00 0HLI584546206:0000000F [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Edit/5   (ca22a1cb)
+2018-11-08T13:12:17.2898720+07:00 0HLI584546206:0000000F [INF] Route matched with "{action = \"Edit\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Edit (MyPOS)" (a44c0341)
+2018-11-08T13:12:17.2964700+07:00 0HLI584546206:0000000F [INF] Executing action method "MyPOS.Controllers.ProductController.Edit (MyPOS)" with arguments (["5"]) - Validation state: Valid (4e3479ed)
+2018-11-08T13:12:17.3020810+07:00 0HLI584546206:0000000F [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-08T13:12:17.3082530+07:00 0HLI584546206:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:17.3135770+07:00 0HLI584546206:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p\".\"Product_ID\", \"p\".\"Category_ID\", \"p\".\"Code_Name\", \"p\".\"Detail\", \"p\".\"Image\", \"p\".\"Name\", \"p\".\"Price\", \"p\".\"Timestamp\", \"p.Categories\".\"Category_ID\", \"p.Categories\".\"Description\", \"p.Categories\".\"Name\"
+FROM \"Products\" AS \"p\"
+INNER JOIN \"Category\" AS \"p.Categories\" ON \"p\".\"Category_ID\" = \"p.Categories\".\"Category_ID\"
+WHERE \"p\".\"Product_ID\" = @__Id_0
+ORDER BY \"p\".\"Product_ID\"
+LIMIT 2" (0723d8ff)
+2018-11-08T13:12:17.3199650+07:00 0HLI584546206:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=["@__Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"p.ProductsSizeList\".\"ID\", \"p.ProductsSizeList\".\"Count\", \"p.ProductsSizeList\".\"Product_ID\", \"p.ProductsSizeList\".\"Size\"
+FROM \"Product_Size\" AS \"p.ProductsSizeList\"
+INNER JOIN (
+    SELECT DISTINCT \"t\".*
+    FROM (
+        SELECT \"p0\".\"Product_ID\"
+        FROM \"Products\" AS \"p0\"
+        INNER JOIN \"Category\" AS \"p.Categories0\" ON \"p0\".\"Category_ID\" = \"p.Categories0\".\"Category_ID\"
+        WHERE \"p0\".\"Product_ID\" = @__Id_0
+        ORDER BY \"p0\".\"Product_ID\"
+        LIMIT 1
+    ) AS \"t\"
+) AS \"t0\" ON \"p.ProductsSizeList\".\"Product_ID\" = \"t0\".\"Product_ID\"
+ORDER BY \"t0\".\"Product_ID\"" (0723d8ff)
+2018-11-08T13:12:17.3253550+07:00 0HLI584546206:0000000F [INF] Executed action method "MyPOS.Controllers.ProductController.Edit (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 23.9309ms. (50a9e262)
+2018-11-08T13:12:17.3304690+07:00 0HLI584546206:0000000F [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2018-11-08T13:12:17.3393660+07:00 0HLI584546206:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-08T13:12:17.3448960+07:00 0HLI584546206:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"c\".\"Category_ID\", \"c\".\"Description\", \"c\".\"Name\"
+FROM \"Category\" AS \"c\"" (0723d8ff)
+2018-11-08T13:12:17.3600610+07:00 0HLI584546206:0000000F [INF] Executed ViewResult - view "Edit" executed in 25.1457ms. (f66409e9)
+2018-11-08T13:12:17.3909690+07:00 0HLI584546206:0000000F [INF] Executed action "MyPOS.Controllers.ProductController.Edit (MyPOS)" in 70.2042ms (afa2e885)
+2018-11-08T13:12:17.4182900+07:00 0HLI584546206:0000000F [INF] Request finished in 119.6186ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-08T13:12:17.4248140+07:00 0HLI584546205:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg   (ca22a1cb)
+2018-11-08T13:12:17.4323100+07:00 0HLI584546205:00000006 [INF] The file "/files/7635d446-b7c3-437b-9b4d-2d18ade2a708.jpg" was not modified (f1f8d725)
+2018-11-08T13:12:17.4639960+07:00 0HLI584546205:00000006 [INF] Request finished in 15.5536ms 304 image/jpeg (791a596a)

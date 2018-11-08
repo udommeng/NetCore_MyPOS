@@ -73,9 +73,26 @@ namespace MyPOS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ProductFormViewModel model)
+        public async Task<IActionResult> Edit(ProductFormViewModel model, int id)
         {
-            return null;
+            if (model.ProductValidViewModel.ID != id)
+            {
+                return NotFound();
+            }
+
+
+            if (ModelState.IsValid)
+            {
+                if (await ProductService.Edit(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            return View(model);
         }
 
         [ActionName("Create")]
@@ -100,7 +117,7 @@ namespace MyPOS.Controllers
                     return BadRequest();
                 }
             }
-            return View();
+            return View(model);
         }
 
 
