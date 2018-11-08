@@ -9,7 +9,8 @@ namespace MyPOS.ViewModels
     {
 
         public ProductValidViewModel ProductValidViewModel { get; set; }
-        public SelectList CategoryItem { get; set; }
+
+        // public SelectList CategoryItem { get; set; }
         public int[] Size { get; set; }
 
         // Require default constructor
@@ -21,9 +22,9 @@ namespace MyPOS.ViewModels
             this.ProductValidViewModel = ProductValidViewModel;
         }
 
-        public void createSelectList(DatabaseContext Context)
-        {
-            CategoryItem = new SelectList(Context.Category, "CategoryID", "Name");
-        }
+        // public void createSelectList(DatabaseContext Context)
+        // {
+        //     CategoryItem = new SelectList(Context.Category, "CategoryID", "Name");
+        // }
     }
 }

@@ -64,9 +64,17 @@ namespace MyPOS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductFormViewModel model)
+        public async Task<IActionResult> Create(ProductFormViewModel model)
         {
-            
+            if (ModelState.IsValid)
+            {
+                if (await ProductService.Insert(model))
+                {
+                    return RedirectToAction("Index");
+                }else{
+                    return BadRequest();
+                }
+            }
             return View();
         }
 

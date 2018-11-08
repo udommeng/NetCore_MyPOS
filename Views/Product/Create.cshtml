@@ -6,15 +6,14 @@
 @{
     ViewData["Title"] = "Create";
     var hostfile = utilService.GetPathfile();
-    var listofCategories = productService.CreateSelectList(); 
-    
+    var listofCategories = productService.CreateSelectList();
 }
 
 @* Buttons styles *@
-<link rel="stylesheet" href="~/css/upload_files.css">
+<link rel="stylesheet" href="/css/upload_files.css">
 
 @* Custom styles *@
-<link rel="stylesheet" href="~/css/product/create.css">
+<link rel="stylesheet" href="/css/product/create.css">
 
 @* breadcrumb *@
 <section class="content-header">
@@ -32,12 +31,6 @@
         <div class="box-body" style="margin-top:30px">
             @* Form *@
             <form class="form-horizontal" asp-action="Create" method="post">
-                <div class="row">
-                    <div style="margin-left:5%">
-                        <img src="~/images/ic_detail_title.png" style="width:25px;height:25px">
-                        <strong style="margin-left:5px">Detail</strong>
-                    </div>
-                </div>
 
                 @* Product Id *@
                 <div class="form-group" style="margin-top:30px">
@@ -118,6 +111,35 @@
                 </div>
                 @* ---------------------------------- *@
 
+                @* Product Image *@
+                <div class="form-group" style="margin-top:15px">
+                    <div class="col-sm-12 col-sm-offset-2">
+                        <div class="wrap-upload-buttons control-label">
+                            <div class="row" style="text-align:left;margin:15px 0;">
+                                @if(@Model.ProductValidViewModel.Image != null){
+                                    var url = hostfile + Model.ProductValidViewModel.Image;
+                                    <img src="@url" class="img_custom_visible" id="image">
+                                }else{
+                                    <img src="/images/no_photo.jpg" class="img_custom_visible" style="border: 1px solid #D3D3D3;" id="image">
+                                }
+                               
+                            </div>
+                            <ul class="btn-nav row" id="rcorners">
+                                <li>
+                                    <span style="margin-left:2px;">
+                                        <img src="/images/ic_photo.png" style="width:25px;height:20px" />
+                                        <span style="color:#00B0CD;margin-left:10px;">Add Picture</span>
+                                        <input type="file" name="" click-type="type1" class="picupload" multiple accept="image/*" id="files" style="padding: 20px 0;"/>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        @* id ref. javascript upload *@
+                        <input id="image_value" asp-for="@Model.ProductValidViewModel.Image" class="form-control">
+                    </div>
+                </div>
+                @* ---------------------------------- *@
         </div>
         <div class="box-footer" style="margin-top:20px">
             <input type="submit" value="Submit" class="btn btn-primary pull-right" />
@@ -153,15 +175,51 @@
 
 @section Scripts {
 
+    @* Upload Files *@
+    <script src="/js/upload_files.js"></script>
+
     @* Datepicker *@
-    <link rel="stylesheet" href="~/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <script src="~/datepickerthai/js/bootstrap-datepicker-custom.js"></script>
-    <script src="~/datepickerthai/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <script src="/datepickerthai/js/bootstrap-datepicker-custom.js"></script>
+    <script src="/datepickerthai/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
 
     <script>
         $(document).ready(function () {
+            setupUpload()
             setupCalendar()
         });
+
+        function setupUpload() {
+            limitFiles = 1;
+
+            $("#upload").click(function (evt) {
+                var data = new FormData();
+
+                for (var i = 0; i < uploadFileArray.length; i++) {
+                    data.append(uploadFileArray[i].name, FileArray[i]);
+                }
+
+                $.ajax({
+                    method: "POST",
+                    url: "/Product/UploadFilesAjax",
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (response) {
+
+                        $('#image').attr("src", '@hostfile' + response).show();
+                        $('#image_value').attr("value", response);
+
+                        $('#hint_brand').modal('toggle');
+                    },
+                    error: function () {
+                        swal("There was error uploading files!", {
+                            icon: "error",
+                        });
+                    }
+                });
+            });
+        }
 
         function setupCalendar() {
             var date = '@Model.ProductValidViewModel.Timestamp';

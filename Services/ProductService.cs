@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyPOS.Database;
 using MyPOS.Models;
+using MyPOS.ViewModels;
 
 namespace MyPOS.Services
 {
     public class ProductService
     {
+        private readonly String[] SIZE_PRODUCT = { "S", "M", "L", "XL" };
+
         private readonly DatabaseContext Context;
         private const int Group_v1 = 9999;
 
@@ -127,5 +130,55 @@ namespace MyPOS.Services
 
             return a;
         }
+
+        public async Task<bool> Insert(ProductFormViewModel Data)
+        {
+            try
+            {
+                // insert table product
+                ProductValidViewModel productValidViewModel = Data.ProductValidViewModel;
+
+                Product product = new Product
+                {
+                    CodeName = productValidViewModel.CodeName,
+                    Name = productValidViewModel.Name,
+                    Detail = productValidViewModel.Detail,
+                    Price = productValidViewModel.Price,
+                    CategoryID = productValidViewModel.CategoryID,
+                    Image = productValidViewModel.Image,
+                    Timestamp = productValidViewModel.Timestamp
+                };
+
+                await Context.Products.AddAsync(product);
+                await Context.SaveChangesAsync();
+
+                // insert table product size
+                List<ProductSize> productSize = new List<ProductSize>();
+
+                for (int i = 0; i < SIZE_PRODUCT.Count(); i++)
+                {
+                    var item = new ProductSize
+                    {
+                        ProductID = product.ProductID,
+                        Size = SIZE_PRODUCT[i],
+                        Count = Data.Size[i]
+                    };
+
+                    productSize.Add(item);
+                }
+
+                await Context.ProductSize.AddRangeAsync(productSize);
+                await Context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"Insert failure: {ex.Message}");
+            }
+
+            return false;
+        }
+
     }
 }

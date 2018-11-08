@@ -974,3 +974,174 @@ WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
 2018-11-07T22:52:47.0270483+07:00 0HLI4P3G1BR0J:00000011 [INF] Request finished in 3.0245ms 404  (791a596a)
 2018-11-07T22:53:16.7252352+07:00 0HLI4P3G1BR0J:00000012 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Home/Contact   (ca22a1cb)
 2018-11-07T22:53:16.7281784+07:00 0HLI4P3G1BR0J:00000012 [INF] Request finished in 2.9481ms 404  (791a596a)
+2018-11-07T23:19:20.2684790+07:00  [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T23:19:20.3564190+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T23:19:20.7547160+07:00  [INF] Executed DbCommand ("49"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2018-11-07T23:19:20.8953570+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Category] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-07T23:19:21.0506730+07:00  [INF] User profile is available. Using '"/Users/jdgprogrammer/.aspnet/DataProtection-Keys"' as key repository; keys will not be encrypted at rest. (a162847e)
+2018-11-07T23:19:36.4950760+07:00 0HLI4PJ7KKIG7:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T23:19:37.4773440+07:00 0HLI4PJ7KKIG7:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T23:19:37.5402170+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T23:19:37.6104030+07:00 0HLI4PJ7KKIG7:00000001 [WRN] No type was specified for the decimal column '"Price"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'. (b5b4253a)
+2018-11-07T23:19:37.6405300+07:00 0HLI4PJ7KKIG7:00000001 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T23:19:37.9948960+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T23:19:38.1383370+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T23:19:38.1997980+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T23:19:38.2153500+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 665.1332ms. (50a9e262)
+2018-11-07T23:19:38.3349650+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T23:19:38.5541390+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed DbCommand ("23"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T23:19:38.8665800+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed DbCommand ("31"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T23:19:39.0540010+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed ViewResult - view "Index" executed in 796.4372ms. (f66409e9)
+2018-11-07T23:19:39.2449970+07:00 0HLI4PJ7KKIG8:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/logo.png   (ca22a1cb)
+2018-11-07T23:19:39.3689390+07:00 0HLI4PJ7KKIG8:00000001 [INF] The file "/images/logo.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.3728830+07:00 0HLI4PJ7KKIG7:00000001 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 1842.2075ms (afa2e885)
+2018-11-07T23:19:39.4287940+07:00 0HLI4PJ7KKIG8:00000001 [INF] Request finished in 175.1591ms 304 image/png (791a596a)
+2018-11-07T23:19:39.4894760+07:00 0HLI4PJ7KKIG9:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/index.css   (ca22a1cb)
+2018-11-07T23:19:39.4950600+07:00 0HLI4PJ7KKIG8:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/button_ghost.css   (ca22a1cb)
+2018-11-07T23:19:39.5001710+07:00 0HLI4PJ7KKIG9:00000001 [INF] The file "/css/product/index.css" was not modified (f1f8d725)
+2018-11-07T23:19:39.5261220+07:00 0HLI4PJ7KKIG8:00000002 [INF] The file "/css/button_ghost.css" was not modified (f1f8d725)
+2018-11-07T23:19:39.5338160+07:00 0HLI4PJ7KKIG8:00000002 [INF] Request finished in 42.6094ms 304 text/css (791a596a)
+2018-11-07T23:19:39.5468300+07:00 0HLI4PJ7KKIG9:00000001 [INF] Request finished in 41.5256ms 304 text/css (791a596a)
+2018-11-07T23:19:39.5675400+07:00 0HLI4PJ7KKIG7:00000001 [INF] Request finished in 3070.2469ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T23:19:39.6587370+07:00 0HLI4PJ7KKIG7:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_product.png   (ca22a1cb)
+2018-11-07T23:19:39.6667910+07:00 0HLI4PJ7KKIGC:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/profile.jpg   (ca22a1cb)
+2018-11-07T23:19:39.6730770+07:00 0HLI4PJ7KKIG7:00000002 [INF] The file "/images/ic_product.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.6847140+07:00 0HLI4PJ7KKIG9:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_new.png   (ca22a1cb)
+2018-11-07T23:19:39.6851660+07:00 0HLI4PJ7KKIG7:00000002 [INF] Request finished in 30.128ms 304 image/png (791a596a)
+2018-11-07T23:19:39.6932830+07:00 0HLI4PJ7KKIG9:00000002 [INF] The file "/images/ic_new.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.7007480+07:00 0HLI4PJ7KKIGC:00000001 [INF] The file "/images/profile.jpg" was not modified (f1f8d725)
+2018-11-07T23:19:39.7297470+07:00 0HLI4PJ7KKIG8:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_out_of_stock.png   (ca22a1cb)
+2018-11-07T23:19:39.7302260+07:00 0HLI4PJ7KKIG9:00000002 [INF] Request finished in 33.6176ms 304 image/png (791a596a)
+2018-11-07T23:19:39.7521980+07:00 0HLI4PJ7KKIGC:00000001 [INF] Request finished in 51.4288ms 304 image/jpeg (791a596a)
+2018-11-07T23:19:39.7616530+07:00 0HLI4PJ7KKIG8:00000003 [INF] The file "/images/ic_out_of_stock.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.7676710+07:00 0HLI4PJ7KKIG8:00000003 [INF] Request finished in 69.341ms 304 image/png (791a596a)
+2018-11-07T23:19:39.8627970+07:00 0HLI4PJ7KKIG7:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail.png   (ca22a1cb)
+2018-11-07T23:19:39.8924250+07:00 0HLI4PJ7KKIG9:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_delete.png   (ca22a1cb)
+2018-11-07T23:19:39.9258590+07:00 0HLI4PJ7KKIG7:00000003 [INF] The file "/images/ic_detail.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.9330470+07:00 0HLI4PJ7KKIG7:00000003 [INF] Request finished in 79.6785ms 304 image/png (791a596a)
+2018-11-07T23:19:39.9553030+07:00 0HLI4PJ7KKIG9:00000003 [INF] The file "/images/ic_delete.png" was not modified (f1f8d725)
+2018-11-07T23:19:39.9554180+07:00 0HLI4PJ7KKIGC:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T23:19:39.9608820+07:00 0HLI4PJ7KKIG9:00000003 [INF] Request finished in 104.9152ms 304 image/png (791a596a)
+2018-11-07T23:19:39.9657300+07:00 0HLI4PJ7KKIG8:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_edit.png   (ca22a1cb)
+2018-11-07T23:19:39.9923100+07:00 0HLI4PJ7KKIG8:00000004 [INF] The file "/images/ic_edit.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.0245290+07:00 0HLI4PJ7KKIG8:00000004 [INF] Request finished in 37.1254ms 304 image/png (791a596a)
+2018-11-07T23:19:40.0370640+07:00 0HLI4PJ7KKIGB:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cm_logo.png   (ca22a1cb)
+2018-11-07T23:19:40.0433120+07:00 0HLI4PJ7KKIGB:00000001 [INF] The file "/images/cm_logo.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.0480320+07:00 0HLI4PJ7KKIGA:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_catagory.png   (ca22a1cb)
+2018-11-07T23:19:40.0595820+07:00 0HLI4PJ7KKIGB:00000001 [INF] Request finished in 15.5358ms 304 image/png (791a596a)
+2018-11-07T23:19:40.0596790+07:00 0HLI4PJ7KKIGC:00000002 [INF] Request finished in 110.5313ms 404  (791a596a)
+2018-11-07T23:19:40.1178430+07:00 0HLI4PJ7KKIGA:00000001 [INF] The file "/images/ic_catagory.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.1355950+07:00 0HLI4PJ7KKIG9:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_mail.png   (ca22a1cb)
+2018-11-07T23:19:40.1356550+07:00 0HLI4PJ7KKIG7:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_tel.png   (ca22a1cb)
+2018-11-07T23:19:40.1414950+07:00 0HLI4PJ7KKIGA:00000001 [INF] Request finished in 86.3499ms 304 image/png (791a596a)
+2018-11-07T23:19:40.1498540+07:00 0HLI4PJ7KKIG7:00000004 [INF] The file "/images/ic_tel.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.1544130+07:00 0HLI4PJ7KKIG9:00000004 [INF] The file "/images/ic_mail.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.1750510+07:00 0HLI4PJ7KKIG8:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_facebook.png   (ca22a1cb)
+2018-11-07T23:19:40.2008460+07:00 0HLI4PJ7KKIG7:00000004 [INF] Request finished in 36.6717ms 304 image/png (791a596a)
+2018-11-07T23:19:40.2117770+07:00 0HLI4PJ7KKIG9:00000004 [INF] Request finished in 36.713ms 304 image/png (791a596a)
+2018-11-07T23:19:40.2179670+07:00 0HLI4PJ7KKIGB:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_line.png   (ca22a1cb)
+2018-11-07T23:19:40.2309090+07:00 0HLI4PJ7KKIGC:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_youtube.png   (ca22a1cb)
+2018-11-07T23:19:40.2346110+07:00 0HLI4PJ7KKIGB:00000002 [INF] The file "/images/ic_line.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.2405230+07:00 0HLI4PJ7KKIGC:00000003 [INF] The file "/images/ic_youtube.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.2456480+07:00 0HLI4PJ7KKIGB:00000002 [INF] Request finished in 29.1068ms 304 image/png (791a596a)
+2018-11-07T23:19:40.2612670+07:00 0HLI4PJ7KKIGC:00000003 [INF] Request finished in 27.7805ms 304 image/png (791a596a)
+2018-11-07T23:19:40.2771090+07:00 0HLI4PJ7KKIG8:00000005 [INF] The file "/images/ic_facebook.png" was not modified (f1f8d725)
+2018-11-07T23:19:40.2933610+07:00 0HLI4PJ7KKIG8:00000005 [INF] Request finished in 122.8178ms 304 image/png (791a596a)
+2018-11-07T23:19:42.6565930+07:00 0HLI4PJ7KKIG8:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Create   (ca22a1cb)
+2018-11-07T23:19:42.6681390+07:00 0HLI4PJ7KKIG8:00000006 [INF] Route matched with "{action = \"Create\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" (a44c0341)
+2018-11-07T23:19:42.6739460+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executing action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T23:19:42.6806080+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executed action method "MyPOS.Controllers.ProductController.CreateForm (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6633ms. (50a9e262)
+2018-11-07T23:19:42.7230370+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executing ViewResult, running view "Create". (c83d0e25)
+2018-11-07T23:19:42.8228810+07:00 0HLI4PJ7KKIG8:00000006 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T23:19:42.8454060+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Category_ID], [c].[Description], [c].[Name]
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T23:19:42.9009640+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executed ViewResult - view "Create" executed in 201.6571ms. (f66409e9)
+2018-11-07T23:19:42.9333800+07:00 0HLI4PJ7KKIG8:00000006 [INF] Executed action "MyPOS.Controllers.ProductController.CreateForm (MyPOS)" in 232.9599ms (afa2e885)
+2018-11-07T23:19:42.9586590+07:00 0HLI4PJ7KKIG8:00000006 [INF] Request finished in 282.1948ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T23:19:42.9723980+07:00 0HLI4PJ7KKIGB:00000003 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/upload_files.css   (ca22a1cb)
+2018-11-07T23:19:42.9958320+07:00 0HLI4PJ7KKIGB:00000003 [INF] Request finished in 20.5322ms 404  (791a596a)
+2018-11-07T23:19:43.0133190+07:00 0HLI4PJ7KKIG9:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/ic_detail_title.png   (ca22a1cb)
+2018-11-07T23:19:43.0921770+07:00 0HLI4PJ7KKIGC:00000004 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/product/create.css   (ca22a1cb)
+2018-11-07T23:19:43.0982350+07:00 0HLI4PJ7KKIG9:00000005 [INF] The file "/images/ic_detail_title.png" was not modified (f1f8d725)
+2018-11-07T23:19:43.1094340+07:00 0HLI4PJ7KKIG8:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T23:19:43.1099580+07:00 0HLI4PJ7KKIG7:00000005 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T23:19:43.1152830+07:00 0HLI4PJ7KKIGC:00000004 [INF] The file "/css/product/create.css" was not modified (f1f8d725)
+2018-11-07T23:19:43.1270450+07:00 0HLI4PJ7KKIG9:00000005 [INF] Request finished in 137.2403ms 304 image/png (791a596a)
+2018-11-07T23:19:43.1312190+07:00 0HLI4PJ7KKIG8:00000007 [INF] Request finished in 58.2837ms 404  (791a596a)
+2018-11-07T23:19:43.1313250+07:00 0HLI4PJ7KKIG7:00000005 [INF] Request finished in 57.1579ms 404  (791a596a)
+2018-11-07T23:19:43.1361730+07:00 0HLI4PJ7KKIGC:00000004 [INF] Request finished in 179.4559ms 304 text/css (791a596a)
+2018-11-07T23:20:08.7399520+07:00 0HLI4PJ7KKIG7:00000006 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/js/bootstrap-datepicker-custom.js   (ca22a1cb)
+2018-11-07T23:20:08.7484060+07:00 0HLI4PJ7KKIG7:00000006 [INF] Request finished in 12.0536ms 404  (791a596a)
+2018-11-07T23:20:08.7564940+07:00 0HLI4PJ7KKIG7:00000007 [INF] Request starting HTTP/1.1 GET https://localhost:5001/datepickerthai/locales/bootstrap-datepicker.th.min.js   (ca22a1cb)
+2018-11-07T23:20:08.7710320+07:00 0HLI4PJ7KKIG7:00000007 [INF] Request finished in 9.6267ms 404  (791a596a)
+2018-11-07T23:20:08.8686090+07:00 0HLI4PJ7KKIG7:00000008 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/cmdev_logo.png   (ca22a1cb)
+2018-11-07T23:20:08.8970490+07:00 0HLI4PJ7KKIG7:00000008 [INF] Sending file. Request path: '"/images/cmdev_logo.png"'. Physical path: '"/Users/jdgprogrammer/_Learn_MVC_Core/CodeMobile/MyPOS/wwwroot/images/cmdev_logo.png"' (27b0a520)
+2018-11-07T23:20:08.9023930+07:00 0HLI4PJ7KKIG7:00000008 [INF] Request finished in 35.4246ms 200 image/png (791a596a)
+2018-11-07T23:20:10.9070040+07:00 0HLI4PJ7KKIG7:00000009 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-07T23:20:10.9120840+07:00 0HLI4PJ7KKIG7:00000009 [INF] Route matched with "{action = \"Index\", controller = \"Product\"}". Executing action "MyPOS.Controllers.ProductController.Index (MyPOS)" (a44c0341)
+2018-11-07T23:20:10.9168470+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executing action method "MyPOS.Controllers.ProductController.Index (MyPOS)" - Validation state: Valid (dad538d7)
+2018-11-07T23:20:10.9229880+07:00 0HLI4PJ7KKIG7:00000009 [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-11-07T23:20:10.9470500+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Product_ID], [c].[Category_ID], [c].[Code_Name], [c].[Detail], [c].[Image], [c].[Name], [c].[Price], [c].[Timestamp], [c.Categories].[Category_ID], [c.Categories].[Description], [c.Categories].[Name]
+FROM [Products] AS [c]
+INNER JOIN [Category] AS [c.Categories] ON [c].[Category_ID] = [c.Categories].[Category_ID]
+ORDER BY [c].[Product_ID]" (0723d8ff)
+2018-11-07T23:20:11.1114300+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c.ProductsSizeList].[ID], [c.ProductsSizeList].[Count], [c.ProductsSizeList].[Product_ID], [c.ProductsSizeList].[Size]
+FROM [Product_Size] AS [c.ProductsSizeList]
+INNER JOIN (
+    SELECT DISTINCT [c0].[Product_ID]
+    FROM [Products] AS [c0]
+    INNER JOIN [Category] AS [c.Categories0] ON [c0].[Category_ID] = [c.Categories0].[Category_ID]
+) AS [t] ON [c.ProductsSizeList].[Product_ID] = [t].[Product_ID]
+ORDER BY [t].[Product_ID]" (0723d8ff)
+2018-11-07T23:20:11.1983830+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed DbCommand ("79"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Category] AS [c]" (0723d8ff)
+2018-11-07T23:20:11.2049050+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed action method "MyPOS.Controllers.ProductController.Index (MyPOS)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 281.7352ms. (50a9e262)
+2018-11-07T23:20:11.2100550+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2018-11-07T23:20:11.2568100+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed DbCommand ("8"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T23:20:11.3846700+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed DbCommand ("15"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [m].[Product_ID], [m].[Category_ID], [m].[Code_Name], [m].[Detail], [m].[Image], [m].[Name], [m].[Price], [m].[Timestamp]
+FROM [Products] AS [m]
+WHERE [m].[Product_ID] = @__id_0" (0723d8ff)
+2018-11-07T23:20:11.4805350+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed ViewResult - view "Index" executed in 212.0651ms. (f66409e9)
+2018-11-07T23:20:11.4941270+07:00 0HLI4PJ7KKIG7:00000009 [INF] Executed action "MyPOS.Controllers.ProductController.Index (MyPOS)" in 568.528ms (afa2e885)
+2018-11-07T23:20:11.5031080+07:00 0HLI4PJ7KKIG7:00000009 [INF] Request finished in 597.8794ms 200 text/html; charset=utf-8 (791a596a)
+2018-11-07T23:20:11.5846420+07:00 0HLI4PJ7KKIG7:0000000A [INF] Request starting HTTP/1.1 GET https://localhost:5001/dist/img/user1-128x128.jpg   (ca22a1cb)
+2018-11-07T23:20:11.5948880+07:00 0HLI4PJ7KKIG7:0000000A [INF] Request finished in 17.7138ms 404  (791a596a)
+2018-11-07T23:20:22.9628600+07:00 0HLI4PJ7KKIG7:0000000B [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Edit/2   (ca22a1cb)
+2018-11-07T23:20:22.9683870+07:00 0HLI4PJ7KKIG7:0000000B [INF] Request finished in 14.9375ms 404  (791a596a)
+2018-11-07T23:20:49.5595740+07:00 0HLI4PJ7KKIG7:0000000C [INF] Request starting HTTP/1.1 GET https://localhost:5001/Product/Detail/2   (ca22a1cb)
+2018-11-07T23:20:49.5666190+07:00 0HLI4PJ7KKIG7:0000000C [INF] Request finished in 7.3342ms 404  (791a596a)
