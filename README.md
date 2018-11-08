@@ -52,6 +52,10 @@
 # อย่าลืมเรื่อง Using ไฟล์ที่  _ViewImports.cshtml
 1. ให้ Using ตามชื่อ Folder เลย
 
+# Attention for VS
+1. Debugger for Chrome  สำหรับการ Debug ในหน้า cshtml สามารถ debug  JS ได้
+
+
 
 # ความรู้ทั่วไป 
 1. command + Shipt + O  สำหรับ หาชื่อ Function

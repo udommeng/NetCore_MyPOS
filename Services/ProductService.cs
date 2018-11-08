@@ -180,5 +180,100 @@ namespace MyPOS.Services
             return false;
         }
 
+        public async Task<ProductFormViewModel> EditForm(int Id)
+        {
+            try
+            {
+                var product = await Context.Products.Include(p => p.ProductsSizeList).Include(c => c.Categories)
+                                    .SingleOrDefaultAsync(m => m.ProductID == Id);
+
+                if (product == null)
+                {
+                    return null;
+                }
+
+                // Product Data
+                ProductValidViewModel _data = new ProductValidViewModel();
+                _data.ID = product.ProductID;
+                _data.CodeName = product.CodeName;
+                _data.Name = product.Name;
+                _data.Detail = product.Detail;
+                _data.Price = product.Price;
+                _data.CategoryID = product.CategoryID;
+                _data.Image = product.Image;
+                _data.Timestamp = product.Timestamp;
+                _data.Categories = new Category();
+                _data.Categories.Name = product.Categories.Name;
+
+                // Product Size Data
+                int[] size = new int[4];
+                int i = 0;
+                foreach (var item in product.ProductsSizeList)
+                {
+                    size[i] = item.Count;
+                    i++;
+                }
+
+                // Create ViewModel
+                var productFormViewModel = new ProductFormViewModel(_data);
+                productFormViewModel.Size = size;
+
+                return (productFormViewModel);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"Failed insert: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        public async Task<bool> Edit(ProductFormViewModel Data)
+        {
+            try
+            {
+                ProductValidViewModel productValidViewModel = Data.ProductValidViewModel;
+                int productID = productValidViewModel.ID;
+
+                Product data = await GetProduct(productID);
+
+                if (data != null)
+                {
+                    // Update Product
+                    data.CodeName = productValidViewModel.CodeName;
+                    data.Name = productValidViewModel.Name;
+                    data.Detail = productValidViewModel.Detail;
+                    data.Price = productValidViewModel.Price;
+                    data.CategoryID = productValidViewModel.CategoryID;
+                    data.Image = productValidViewModel.Image;
+                    data.Timestamp = productValidViewModel.Timestamp;
+
+                    Context.Update(data);
+                    await Context.SaveChangesAsync();
+
+                    // Update Product Size
+                    List<ProductSize> productSize = new List<ProductSize>();
+
+                    for (int i = 0; i < SIZE_PRODUCT.Count(); i++)
+                    {
+                        ProductSize temp = await Context.ProductSize.SingleOrDefaultAsync(m => m.Size == SIZE_PRODUCT[i] && m.ProductID == productID);
+                        temp.Count = Data.Size[i];
+
+                        productSize.Add(temp);
+                    }
+
+                    Context.ProductSize.UpdateRange(productSize);
+                    await Context.SaveChangesAsync();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"Failed insert: {ex.Message}");
+            }
+            return false;
+        }
+
     }
 }

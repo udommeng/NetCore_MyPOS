@@ -16,8 +16,11 @@ namespace MyPOS.Controllers
     {
         ILogger<ProductController> _logger;
         private readonly ProductService ProductService;
-        public ProductController(ILogger<ProductController> logger, ProductService ProductService)
+        private readonly UtilService UtilService;
+        public ProductController(ILogger<ProductController> logger
+                                , ProductService ProductService, UtilService UtilService)
         {
+            this.UtilService = UtilService;
             this.ProductService = ProductService;
 
             _logger = logger;
@@ -56,6 +59,25 @@ namespace MyPOS.Controllers
             return BadRequest("Delete Failure");
         }
 
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            ProductFormViewModel result = await ProductService.EditForm(id);
+
+            if (result != null)
+            {
+                return View(result);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ProductFormViewModel model)
+        {
+            return null;
+        }
+
         [ActionName("Create")]
         public IActionResult CreateForm()
         {
@@ -64,6 +86,7 @@ namespace MyPOS.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductFormViewModel model)
         {
             if (ModelState.IsValid)
@@ -71,12 +94,21 @@ namespace MyPOS.Controllers
                 if (await ProductService.Insert(model))
                 {
                     return RedirectToAction("Index");
-                }else{
+                }
+                else
+                {
                     return BadRequest();
                 }
             }
             return View();
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> UploadFilesAjax()
+        {
+            var dataImages = await UtilService.UploadFilesAjax();
+            return Json(dataImages);
+        }
     }
 }

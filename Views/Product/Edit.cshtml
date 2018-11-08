@@ -1,0 +1,264 @@
+@model ProductFormViewModel
+
+@inject UtilService utilService
+
+@inject ProductService productService
+
+@{
+    ViewData["Title"] = "Edit";
+    var hostfile = utilService.GetPathfile();
+    var listofCategories = productService.CreateSelectList();
+}
+
+@* Buttons styles *@
+<link rel="stylesheet" href="/css/upload_files.css">
+
+@* Custom styles *@
+<link rel="stylesheet" href="/css/product/create.css">
+
+@* breadcrumb *@
+<section class="content-header">
+    <ol class="breadcrumb" style="float:none; position:unset">
+        <li>
+            <a asp-controller="Product" asp-action="Index">Products</a>
+        </li>
+        <li class="active">@ViewData["Title"]</li>
+    </ol>
+</section>
+@* ---------------------------------- *@
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body" style="margin-top:30px;">
+            <form class="form-horizontal" asp-action="Edit" method="Post">
+                @* product id *@
+                <input asp-for="@Model.ProductValidViewModel.ID" />
+                @* date *@
+                <input type="hidden" asp-for="@Model.ProductValidViewModel.Timestamp" />
+
+                @* Product ID *@
+                <div class="form-group" style="margin-top:30px">
+                    <label asp-for="@Model.ProductValidViewModel.CodeName" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="@Model.ProductValidViewModel.CodeName" class="form-control" />
+                        <span asp-validation-for="@Model.ProductValidViewModel.CodeName" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Name *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.Name" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="@Model.ProductValidViewModel.Name" class="form-control" />
+                        <span asp-validation-for="@Model.ProductValidViewModel.Name" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Detail *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.Detail" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <textarea asp-for="@Model.ProductValidViewModel.Detail" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="@Model.ProductValidViewModel.Detail" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Category *@
+                <div class="form-group">
+                    <label asp-for="@Model.ProductValidViewModel.CategoryID" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-8">
+                        <select asp-for="@Model.ProductValidViewModel.CategoryID" class="form-control" asp-items="@listofCategories"></select>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+
+                @* Product Quantity *@
+                <div class="form-group" style="margin-bottom:10px">
+                    <label class="col-sm-2 control-label">Quantity</label>
+                    @{
+                        var textSize = new string[] {"S", "M", "L", "XL"};
+
+                        for(int i = 0; i < Model.Size.Count(); i++){
+                            <div class="col-sm-2">
+                                <div class="input-group box-body" style="padding-left:0;padding-top:0;">
+                                    <span class="input-group-addon input-group-addon_custom">@textSize[i]</span>
+                                    <input asp-for="@Model.Size[i]" class="form-control" />
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Price *@
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Price</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input asp-for="@Model.ProductValidViewModel.Price" class="form-control" />
+                            <span class="input-group-addon input-group-addon_custom">$</span>
+                        </div>
+                        <span asp-validation-for="@Model.ProductValidViewModel.Price" class="alert_error"></span>
+                    </div>
+                </div>
+                @* ---------------------------------- *@
+
+                @* Product Image *@
+
+                <div class="form-group" style="margin-top:15px">
+                    <div class="col-sm-12 col-sm-offset-2">
+                        <div class="wrap-upload-buttons control-label">
+                            <div class="row" style="text-align:left;margin:15px 0;">
+                                @if(@Model.ProductValidViewModel.Image != null){
+                                    var url = hostfile + Model.ProductValidViewModel.Image;
+                                    <img src="@url" class="img_custom_visible" id="image">
+                                }else{
+                                    <img src="/images/no_photo.jpg" class="img_custom_visible" style="border: 1px solid #D3D3D3;" id="image">
+                                }
+                            </div>
+                            <ul class="btn-nav row" id="rcorners">
+                                <li>
+                                    <span style="margin-left:2px;">
+                                        <img src="/images/ic_photo.png" style="width:25px;height:20px" />
+                                        <span style="color:#00B0CD;margin-left:10px;">Add Picture</span>
+                                        <input type="file" name="" click-type="type1" class="picupload" multiple accept="image/*" id="files" style="padding: 20px 0;"/>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        @* id ref. javascript upload *@
+                        <input id="image_value" asp-for="@Model.ProductValidViewModel.Image" class="form-control">
+                    </div>
+                </div>
+
+                @* ---------------------------------- *@
+        </div>
+        <div class="box-footer" style="margin-top:20px">
+             <a id="delete" class="btn btn-default" type="Button">
+                <input type="hidden" asp-for="@Model.ProductValidViewModel.ID"/>
+                <input type="hidden" asp-for="@Model.ProductValidViewModel.Name"/>
+                 Delete
+            </a>
+            <input type="submit" value="Submit" class="btn btn-primary pull-right" />
+            <a asp-action="index" type="Button" class="btn btn-default pull-right" style="margin-right:10px">Cancel</a>
+        </div>
+        </form>
+    </div>
+</section>
+
+@* Modal Images *@
+<div class="modal fade popups" id="hint_brand" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content clearfix">
+            <div class="modal-body clearfix">
+                <ul id="media-list" class="clearfix">
+                    <li class="myupload">
+                        <span style="display:none">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <input type="file" click-type="type2" id="picupload" class="picupload" accept="image/*" multiple>
+                        </span>
+                    </li>
+                </ul>
+                <div class="user-post-btn-wrap clearfix">
+                    <input class="btn btn-primary pull-right" type="button" id="upload" value="Upload Selected Files" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* ---------------------------------- *@
+
+
+@section Scripts {
+
+    <script src="/js/upload_files.js"></script>
+
+    <script>
+        limitFiles = 1;
+        var indexImage;
+
+        $(document).ready(function () {
+            setupUpload()
+            setupDelete()
+        });
+
+         function setupUpload() {
+            limitFiles = 1;
+
+            $("#upload").click(function (evt) {
+                var data = new FormData();
+
+                for (var i = 0; i < uploadFileArray.length; i++) {
+                    data.append(uploadFileArray[i].name, FileArray[i]);
+                }
+
+                $.ajax({
+                    method: "POST",
+                    url: "/Product/UploadFilesAjax",
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (response) {
+
+                        $('#image').attr("src", '@hostfile' + response).show();
+                        $('#image_value').attr("value", response);
+
+                        $('#hint_brand').modal('toggle');
+                    },
+                    error: function () {
+                        swal("There was error uploading files!", {
+                            icon: "error",
+                        });
+                    }
+                });
+            });
+        }
+
+        function setupDelete(){
+
+             $('#delete').click(function (e) { 
+                e.preventDefault();
+
+                var id = $(this).children('input:nth-child(1)').val();
+                var name = $(this).children('input:nth-child(2)').val();
+
+                swal({
+                    text: `Are you sure delete '${name}' ?`,
+                    icon: "warning",
+                    buttons: ["cancel", "ok"]
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: `/Product/Delete/${id}`,
+                            method: 'POST',
+                            dataType: 'json',
+                            success: function (response) {
+                                swal(response, {
+                                    icon: "success",
+                                    buttons: false
+                                });
+                                
+                                setTimeout(function(){
+                                    location.href = "@Url.Action("Index", "Product")";
+                                }, 2000);
+                                
+                            },
+                            error: function (response) {
+                                swal(response.responseText, {
+                                    icon: "error",
+                                });
+                            }
+                        });
+                    } 
+                });
+            });
+        }
+
+    </script>
+}
