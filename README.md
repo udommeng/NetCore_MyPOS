@@ -5,6 +5,7 @@
 . สนใจ ไฟล์ DabaseContext กับ DBinitialize 
 
 # Docker
+1. docker images 
 1. docker pull microsoft/mssql-server-linux
 2. sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Meng1234!'  -p 1433:1433 --name sql1 -d 4095d6d460cd
 3. docker ps -a  สำหรับเช็ค Service  ทั้งหมด
@@ -12,7 +13,26 @@
 5. docker start  ตามด้วยชื่อ Service  เช่น  docker start sql1
 6. docker hub
 7. windows 10  home,Edu  ให้ลง Toolsbox เพราะ ไม่มี HT ตัว ToolsBox  Run ภายใต้ VM ware
+8. google  :  .net core deploy docker
 
+9. การ Build docker
+``` 
+docker build -t mypos . 
+```
+หากต้องการ สร้าง images โดยใส่ Version
+```
+docker build -t:1.0 mypos . 
+```
+
+11. การเข้าไปใช้ คำสั่งใน Contrainner
+```
+docker exec -it myapp pash
+```
+
+12. การ Run Docker  
+```
+docker run -d -p 1112:80 --name mypos_v2  bf5aae61f2dc 
+```
 
 
 # partial view  
