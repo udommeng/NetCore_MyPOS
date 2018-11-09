@@ -10,6 +10,9 @@
 3. docker ps -a  สำหรับเช็ค Service  ทั้งหมด
 4. docker start sql1 สำหรับ Start Service ชื่อ Sql1
 5. docker start  ตามด้วยชื่อ Service  เช่น  docker start sql1
+6. docker hub
+7. windows 10  home,Edu  ให้ลง Toolsbox เพราะ ไม่มี HT ตัว ToolsBox  Run ภายใต้ VM ware
+
 
 
 # partial view  
@@ -55,6 +58,11 @@
 # Attention for VS
 1. Debugger for Chrome  สำหรับการ Debug ในหน้า cshtml สามารถ debug  JS ได้
 
+
+# การ Deploy
+1. dotnet publish -c Release -o ./deploy_app
+
+
 # ความรู้ทั่วไป 
 1. command + Shipt + O  สำหรับ หาชื่อ Function
 2. services.AddTransient<ProductService>(); new ทุกครั้งที่ รีเฟชร หน้า
@@ -62,5 +70,9 @@
 4. การจัด format code ไฟล์ \.cs กด shift+option+f สำหรับ mac
 5. การลบ ช่องว่าง ให้ f1 เลือก tralling space delete
 6. error massage ใช้ span เท่านั้น
+
     ``` <span asp-validation-for="@Model.ProductValidViewModel.Detail" class="alert_error"></span> ```
-7. 
+
+7. [วิธี Debug JavaScript & C# in Visual Studio Code] (https://www.youtube.com/watch?v=dKpIE0pq8VQ&feature=youtu.be&fbclid=IwAR3Qe7mWvFgYuRgAQmw8et4fY0XnAXw3wXF_PvA-kajVCzUqfUEOF2V3_ZY)
+
+
