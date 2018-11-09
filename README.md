@@ -16,7 +16,10 @@
 8. google  :  .net core deploy docker
 
 9. การ Build docker
+
 ``` 
+docker build -t ชื่อ images . คือเลือกไฟล์ทั้งหมด 
+
 docker build -t mypos . 
 ```
 หากต้องการ สร้าง images โดยใส่ Version
@@ -26,11 +29,13 @@ docker build -t:1.0 mypos .
 
 11. การเข้าไปใช้ คำสั่งใน Contrainner
 ```
-docker exec -it myapp pash
+docker exec -it [ชื่อ Contrainner ที่กำลัง Run] bash
+docker exec -it mypos_v4 bash
 ```
 
 12. การ Run Docker  
 ```
+docker run -d -p [portClient:portDocker] --name [ชื่อที่ใช้ Run] [รหัส images]
 docker run -d -p 1112:80 --name mypos_v2  bf5aae61f2dc 
 ```
 
