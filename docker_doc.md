@@ -97,3 +97,9 @@ docker save -o ./mypos.tar mypos
 ```
 docker load -i ./mypos.tar
 ```
+
+## การ copy images ที่กำลังใช้งานอยู่
+```
+docker commit  [container id] [ชื่อ container ที่ต้องการ]
+docker commit 0ff12 net_core_ezschool
+```
