@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using MyPOS.Database;
 using MyPOS.Extensions;
+using MyPOS.Middlewares;
 using MyPOS.Services;
 
 namespace MyPOS
@@ -61,6 +62,8 @@ namespace MyPOS
                 app.UseHsts();
             }
 
+
+            app.UseCustomMiddleware();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
