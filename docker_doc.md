@@ -1,7 +1,15 @@
 # Docker
-1. docker images  -- หาชื่อ images ในเครื่อง 
-2. docker pull microsoft/mssql-server-linux
-3. sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Meng1234!'  -p 1433:1433 --name sql1 -d 4095d6d460cd
+```
+docker images  -- หาชื่อ images ในเครื่อง 
+```
+```
+docker pull microsoft/mssql-server-linux
+```
+```
+sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Meng1234!'  -p 1433:1433 --name sql1 -d 4095d6d460cd
+```
+
+
 4. docker ps -a  สำหรับเช็ค Service  ทั้งหมด
 5. docker start sql1 สำหรับ Start Service ชื่อ Sql1
 6. docker start  ตามด้วยชื่อ Service  เช่น  docker start sql1
