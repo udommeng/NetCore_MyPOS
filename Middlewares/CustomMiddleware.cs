@@ -24,17 +24,22 @@ namespace MyPOS.Middlewares
 
             // Logging
             Console.WriteLine(path);
-            
-
-            
+         
             Logger.LogInformation($"value of log info: {path}");
 
 
             if (!path.StartsWithSegments("/api"))
             {
                 // General error handling
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                await context.Response.WriteAsync("Invalid Path");
+                //context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                //await context.Response.WriteAsync("Invalid Path");
+                Console.WriteLine(context.Request.Host.ToString());
+                Console.WriteLine(context.Request.Path.ToString());
+
+                string Url = $"https://{context.Request.Host.ToString()}/Product/index";
+
+                context.Response.Redirect(Url, true);
+                context.Response.StatusCode = 302;
             }
             else
             {

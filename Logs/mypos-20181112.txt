@@ -1,0 +1,1050 @@
+2018-11-12T17:10:08.5857867+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:10:08.7700998+07:00  [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:10:08.7780457+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:10:08.7845144+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:10:08.8504238+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:10:08.8598015+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:10:08.9804333+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:10:09.8594923+07:00 0HLI8GS3H7VS8:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:10:09.8741968+07:00 0HLI8GS3H7VS8:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:10:26.1055513+07:00 0HLI8GS3H7VS9:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:10:26.1100823+07:00 0HLI8GS3H7VS9:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:10:31.5281406+07:00 0HLI8GS3H7VS8:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:10:31.5281406+07:00 0HLI8GS3H7VS9:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:10:31.5324520+07:00 0HLI8GS3H7VS8:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:10:31.5347231+07:00 0HLI8GS3H7VS9:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:10:31.5514338+07:00 0HLI8GS3H7VS8:00000001 [ERR] Connection id ""0HLI8GS3H7VS8"", Request id ""0HLI8GS3H7VS8:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:10:31.5514228+07:00 0HLI8GS3H7VS9:00000001 [ERR] Connection id ""0HLI8GS3H7VS9"", Request id ""0HLI8GS3H7VS9:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:10:31.5589833+07:00 0HLI8GS3H7VS9:00000001 [INF] Request finished in 5473.4162ms 500  (791a596a)
+2018-11-12T17:10:31.5589833+07:00 0HLI8GS3H7VS8:00000001 [INF] Request finished in 21697.039ms 500  (791a596a)
+2018-11-12T17:10:31.7200323+07:00 0HLI8GS3H7VSA:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:10:34.7564089+07:00 0HLI8GS3H7VSA:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:10:36.5550643+07:00 0HLI8GS3H7VSA:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:10:36.5594268+07:00 0HLI8GS3H7VSA:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:10:36.5687691+07:00 0HLI8GS3H7VSA:00000001 [ERR] Connection id ""0HLI8GS3H7VSA"", Request id ""0HLI8GS3H7VSA:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at Microsoft.AspNetCore.Http.HttpResponse.Redirect(String location)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:10:36.5723834+07:00 0HLI8GS3H7VSA:00000001 [INF] Request finished in 4855.0327ms 500  (791a596a)
+2018-11-12T17:10:41.6255479+07:00 0HLI8GS3H7VSB:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:10:41.6335854+07:00 0HLI8GS3H7VSB:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:11:27.3077247+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:11:27.4592226+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:11:27.4679497+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:11:27.4739861+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:11:27.5338018+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:11:27.5428552+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:11:27.6580436+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:11:28.5430004+07:00 0HLI8GSQVJ2I6:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:11:28.5574469+07:00 0HLI8GSQVJ2I6:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:11:32.0177960+07:00 0HLI8GSQVJ2I6:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:11:32.0219657+07:00 0HLI8GSQVJ2I6:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:11:32.0314593+07:00 0HLI8GSQVJ2I6:00000001 [ERR] Connection id ""0HLI8GSQVJ2I6"", Request id ""0HLI8GSQVJ2I6:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:11:32.0359205+07:00 0HLI8GSQVJ2I6:00000001 [INF] Request finished in 3493.5333ms 500  (791a596a)
+2018-11-12T17:11:32.1224451+07:00 0HLI8GSQVJ2I5:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:11:32.1281104+07:00 0HLI8GSQVJ2I5:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:11:34.5994172+07:00 0HLI8GSQVJ2I5:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:11:34.6027426+07:00 0HLI8GSQVJ2I5:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:11:34.6101902+07:00 0HLI8GSQVJ2I5:00000001 [ERR] Connection id ""0HLI8GSQVJ2I5"", Request id ""0HLI8GSQVJ2I5:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:11:34.6130495+07:00 0HLI8GSQVJ2I5:00000001 [INF] Request finished in 2494.0116ms 500  (791a596a)
+2018-11-12T17:11:39.6739703+07:00 0HLI8GSQVJ2I7:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:11:44.5961654+07:00 0HLI8GSQVJ2I7:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:11:52.9416272+07:00 0HLI8GSQVJ2I7:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:11:52.9446729+07:00 0HLI8GSQVJ2I7:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:11:52.9526393+07:00 0HLI8GSQVJ2I7:00000001 [ERR] Connection id ""0HLI8GSQVJ2I7"", Request id ""0HLI8GSQVJ2I7:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:11:52.9551340+07:00 0HLI8GSQVJ2I7:00000001 [INF] Request finished in 13283.1255ms 500  (791a596a)
+2018-11-12T17:12:28.0775291+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:12:28.2368136+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:12:28.2451316+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:12:28.2515320+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:12:28.3223788+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:12:28.3338805+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:12:28.4697374+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:12:29.3800433+07:00 0HLI8GTD3VCE9:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:12:29.3946556+07:00 0HLI8GTD3VCE9:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:12:32.7464383+07:00 0HLI8GTD3VCE9:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:12:32.7502477+07:00 0HLI8GTD3VCE9:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:12:32.7593271+07:00 0HLI8GTD3VCE9:00000001 [ERR] Connection id ""0HLI8GTD3VCE9"", Request id ""0HLI8GTD3VCE9:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:12:32.7635373+07:00 0HLI8GTD3VCE9:00000001 [INF] Request finished in 3383.782ms 500  (791a596a)
+2018-11-12T17:12:32.8239503+07:00 0HLI8GTD3VCE8:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:12:32.8281134+07:00 0HLI8GTD3VCE8:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:12:35.2682281+07:00 0HLI8GTD3VCE8:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:12:35.2716363+07:00 0HLI8GTD3VCE8:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:12:35.2796001+07:00 0HLI8GTD3VCE8:00000001 [ERR] Connection id ""0HLI8GTD3VCE8"", Request id ""0HLI8GTD3VCE8:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:12:35.2831593+07:00 0HLI8GTD3VCE8:00000001 [INF] Request finished in 2459.625ms 500  (791a596a)
+2018-11-12T17:12:37.4770660+07:00 0HLI8GTD3VCEA:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:12:37.4817066+07:00 0HLI8GTD3VCEA:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:12:43.9708014+07:00 0HLI8GTD3VCEA:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:12:43.9737058+07:00 0HLI8GTD3VCEA:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:12:43.9785329+07:00 0HLI8GTD3VCEA:00000001 [ERR] Connection id ""0HLI8GTD3VCEA"", Request id ""0HLI8GTD3VCEA:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:12:43.9813092+07:00 0HLI8GTD3VCEA:00000001 [INF] Request finished in 6508.0475ms 500  (791a596a)
+2018-11-12T17:13:14.7663047+07:00 0HLI8GTD3VCED:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:13:17.1736963+07:00 0HLI8GTD3VCED:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:13:22.2804538+07:00 0HLI8GTD3VCED:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:13:22.2843611+07:00 0HLI8GTD3VCED:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:13:22.2931395+07:00 0HLI8GTD3VCED:00000001 [ERR] Connection id ""0HLI8GTD3VCED"", Request id ""0HLI8GTD3VCED:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:13:22.2958163+07:00 0HLI8GTD3VCED:00000001 [INF] Request finished in 7533.9474ms 500  (791a596a)
+2018-11-12T17:13:22.3534118+07:00 0HLI8GTD3VCEC:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:13:23.8801320+07:00 0HLI8GTD3VCEC:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:13:24.8872872+07:00 0HLI8GTD3VCEC:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:13:24.8904456+07:00 0HLI8GTD3VCEC:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:13:24.8996365+07:00 0HLI8GTD3VCEC:00000001 [ERR] Connection id ""0HLI8GTD3VCEC"", Request id ""0HLI8GTD3VCEC:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:13:24.9029015+07:00 0HLI8GTD3VCEC:00000001 [INF] Request finished in 2552.2921ms 500  (791a596a)
+2018-11-12T17:13:29.9553737+07:00 0HLI8GTD3VCEE:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:13:34.3236804+07:00 0HLI8GTD3VCEE:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:13:35.1811049+07:00 0HLI8GTD3VCEE:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:13:35.1849934+07:00 0HLI8GTD3VCEE:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:13:35.1918740+07:00 0HLI8GTD3VCEE:00000001 [ERR] Connection id ""0HLI8GTD3VCEE"", Request id ""0HLI8GTD3VCEE:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:13:35.1951969+07:00 0HLI8GTD3VCEE:00000001 [INF] Request finished in 5243.1488ms 500  (791a596a)
+2018-11-12T17:13:41.7181027+07:00 0HLI8GTD3VCEG:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:13:41.7272342+07:00 0HLI8GTD3VCEG:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:13:49.1140597+07:00 0HLI8GTD3VCEG:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:13:49.1175000+07:00 0HLI8GTD3VCEG:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:13:49.1256733+07:00 0HLI8GTD3VCEG:00000001 [ERR] Connection id ""0HLI8GTD3VCEG"", Request id ""0HLI8GTD3VCEG:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:13:49.1316190+07:00 0HLI8GTD3VCEG:00000001 [INF] Request finished in 7413.9908ms 500  (791a596a)
+2018-11-12T17:14:46.0420970+07:00 0HLI8GTD3VCEI:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:14:46.0463817+07:00 0HLI8GTD3VCEI:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:14:47.6653827+07:00 0HLI8GTD3VCEI:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:14:47.6684799+07:00 0HLI8GTD3VCEI:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:14:47.6728555+07:00 0HLI8GTD3VCEI:00000001 [ERR] Connection id ""0HLI8GTD3VCEI"", Request id ""0HLI8GTD3VCEI:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:14:47.6754448+07:00 0HLI8GTD3VCEI:00000001 [INF] Request finished in 1635.2554ms 500  (791a596a)
+2018-11-12T17:14:59.1295988+07:00 0HLI8GTD3VCEK:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:14:59.1333371+07:00 0HLI8GTD3VCEK:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:15:02.9594212+07:00 0HLI8GTD3VCEK:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:15:02.9623279+07:00 0HLI8GTD3VCEK:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:15:02.9705092+07:00 0HLI8GTD3VCEK:00000001 [ERR] Connection id ""0HLI8GTD3VCEK"", Request id ""0HLI8GTD3VCEK:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:15:02.9740260+07:00 0HLI8GTD3VCEK:00000001 [INF] Request finished in 3846.0696ms 500  (791a596a)
+2018-11-12T17:15:07.0774366+07:00 0HLI8GTD3VCEL:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:15:07.0820161+07:00 0HLI8GTD3VCEL:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:15:10.1691962+07:00 0HLI8GTD3VCEL:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:15:10.1725100+07:00 0HLI8GTD3VCEL:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:15:10.1805722+07:00 0HLI8GTD3VCEL:00000001 [ERR] Connection id ""0HLI8GTD3VCEL"", Request id ""0HLI8GTD3VCEL:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:15:10.1835995+07:00 0HLI8GTD3VCEL:00000001 [INF] Request finished in 3107.611ms 500  (791a596a)
+2018-11-12T17:15:15.9109770+07:00 0HLI8GTD3VCEM:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:15:15.9142080+07:00 0HLI8GTD3VCEM:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:15:32.9565511+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:15:33.1396494+07:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:33.1468182+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:33.1536582+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:15:33.2397030+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:33.2494322+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:15:33.3587312+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:15:34.2786098+07:00 0HLI8GV470417:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:15:34.4223134+07:00 0HLI8GV470417:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: logger
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:15:34.4942988+07:00 0HLI8GV470417:00000001 [INF] Request finished in 214.1856ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-12T17:15:34.8305284+07:00 0HLI8GV470417:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon.ico   (ca22a1cb)
+2018-11-12T17:15:34.8606683+07:00 0HLI8GV470417:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: logger
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:15:34.8690470+07:00 0HLI8GV470417:00000002 [INF] Request finished in 36.3137ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-12T17:15:53.3590340+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:15:53.4994738+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:53.5083146+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:53.5164732+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:15:53.5771734+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:15:53.5866369+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:15:53.6932854+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:15:54.5686382+07:00 0HLI8GVA8FEU4:00000001 [INF] Request starting HTTP/1.1 GET https://localhost:5001/   (ca22a1cb)
+2018-11-12T17:16:02.8578080+07:00 0HLI8GVA8FEU4:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: logger
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:16:02.9297938+07:00 0HLI8GVA8FEU4:00000001 [INF] Request finished in 8360.3483ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-12T17:16:03.2986097+07:00 0HLI8GVA8FEU4:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon.ico   (ca22a1cb)
+2018-11-12T17:16:05.9761020+07:00 0HLI8GVA8FEU4:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: logger
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 33
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:16:05.9835427+07:00 0HLI8GVA8FEU4:00000002 [INF] Request finished in 2684.6751ms 500 text/html; charset=utf-8 (791a596a)
+2018-11-12T17:26:38.8510189+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:26:39.0505303+07:00  [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:26:39.0611715+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:26:39.0687072+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:26:39.1559131+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:26:39.1668156+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:26:39.3106992+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:26:40.0205822+07:00 0HLI8H5AL8FLD:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:26:40.0205823+07:00 0HLI8H5AL8FLE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:26:40.0669374+07:00 0HLI8H5AL8FLE:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:26:40.0737410+07:00 0HLI8H5AL8FLD:00000001 [INF] Request finished in 63.8781ms 200  (791a596a)
+2018-11-12T17:26:40.2051620+07:00 0HLI8H5AL8FLE:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:26:40.2105500+07:00 0HLI8H5AL8FLE:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:26:40.2225344+07:00 0HLI8H5AL8FLE:00000001 [ERR] Connection id ""0HLI8H5AL8FLE"", Request id ""0HLI8H5AL8FLE:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:26:40.2257851+07:00 0HLI8H5AL8FLE:00000001 [INF] Request finished in 218.1834ms 500  (791a596a)
+2018-11-12T17:26:40.4640476+07:00 0HLI8H5AL8FLD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:26:40.4674569+07:00 0HLI8H5AL8FLD:00000002 [INF] value of log info: / (170581f0)
+2018-11-12T17:26:40.5104857+07:00 0HLI8H5AL8FLD:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:26:40.5145253+07:00 0HLI8H5AL8FLD:00000002 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:26:40.5238757+07:00 0HLI8H5AL8FLD:00000002 [ERR] Connection id ""0HLI8H5AL8FLD"", Request id ""0HLI8H5AL8FLD:00000002"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:26:40.5310332+07:00 0HLI8H5AL8FLD:00000002 [INF] Request finished in 63.3387ms 500  (791a596a)
+2018-11-12T17:26:45.1039997+07:00 0HLI8H5AL8FLF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:26:50.2811437+07:00 0HLI8H5AL8FLF:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:27:02.0961496+07:00 0HLI8H5AL8FLF:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:27:02.0998442+07:00 0HLI8H5AL8FLF:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:27:02.1121620+07:00 0HLI8H5AL8FLF:00000001 [ERR] Connection id ""0HLI8H5AL8FLF"", Request id ""0HLI8H5AL8FLF:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:27:02.1156855+07:00 0HLI8H5AL8FLF:00000001 [INF] Request finished in 17011.5104ms 500  (791a596a)
+2018-11-12T17:27:07.5274066+07:00 0HLI8H5AL8FLG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:27:19.4171215+07:00 0HLI8H5AL8FLG:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:27:41.7031056+07:00 0HLI8H5AL8FLG:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:27:41.7060383+07:00 0HLI8H5AL8FLG:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:27:41.7110154+07:00 0HLI8H5AL8FLG:00000001 [ERR] Connection id ""0HLI8H5AL8FLG"", Request id ""0HLI8H5AL8FLG:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:27:41.7137151+07:00 0HLI8H5AL8FLG:00000001 [INF] Request finished in 34193.7242ms 500  (791a596a)
+2018-11-12T17:27:45.4341747+07:00 0HLI8H5AL8FLH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:27:53.0801276+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:27:53.1779516+07:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:27:53.1852646+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:27:53.1895240+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:27:53.2720594+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:27:53.2809530+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:27:53.3359111+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:27:53.8282138+07:00 0HLI8H60LNBCA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:27:53.8424010+07:00 0HLI8H60LNBCA:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:27:53.8660047+07:00 0HLI8H60LNBCA:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-11-12T17:27:53.8661346+07:00 0HLI8H60LNBCA:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2018-11-12T17:27:53.8688313+07:00 0HLI8H60LNBCA:00000001 [ERR] Connection id ""0HLI8H60LNBCA"", Request id ""0HLI8H60LNBCA:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.Microsoft.AspNetCore.Http.Features.IHttpResponseFeature.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MyPOS.Middlewares.CustomMiddleware.Invoke(HttpContext context) in E:\_Learn_WEB\_Learn_CodeMobile_MVC_Core\MyPos\Middlewares\CustomMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2018-11-12T17:27:53.8693719+07:00 0HLI8H60LNBCA:00000001 [INF] Request finished in 41.7758ms 500  (791a596a)
+2018-11-12T17:28:02.7121483+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:28:02.8794359+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:02.8872249+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:02.8934544+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:28:02.9586243+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:02.9689262+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:28:03.1157852+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:28:03.7977266+07:00 0HLI8H63KGHS8:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:28:03.7977265+07:00 0HLI8H63KGHS9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:28:05.4373521+07:00 0HLI8H63KGHS8:00000001 [INF] Request finished in 1611.7441ms 200  (791a596a)
+2018-11-12T17:28:05.4373375+07:00 0HLI8H63KGHS9:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:28:09.7891886+07:00 0HLI8H63KGHS9:00000001 [INF] Request finished in 5996.489ms 302  (791a596a)
+2018-11-12T17:28:09.7979042+07:00 0HLI8H63KGHS8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:11.1390460+07:00 0HLI8H63KGHS8:00000002 [INF] value of log info: /~/Product/index (12256fcc)
+2018-11-12T17:28:14.0611844+07:00 0HLI8H63KGHS8:00000002 [INF] Request finished in 4263.5864ms 302  (791a596a)
+2018-11-12T17:28:14.0726066+07:00 0HLI8H63KGHS9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:16.3054201+07:00 0HLI8H63KGHS9:00000002 [INF] value of log info: /~/Product/~/Product/index (86cc49b8)
+2018-11-12T17:28:21.2707491+07:00 0HLI8H63KGHS9:00000002 [INF] Request finished in 7198.2513ms 302  (791a596a)
+2018-11-12T17:28:21.2780839+07:00 0HLI8H63KGHS8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:22.2760441+07:00 0HLI8H63KGHS8:00000003 [INF] value of log info: /~/Product/~/Product/~/Product/index (5b7c6957)
+2018-11-12T17:28:27.3959205+07:00 0HLI8H63KGHS8:00000003 [INF] Request finished in 6118.2675ms 302  (791a596a)
+2018-11-12T17:28:27.4018981+07:00 0HLI8H63KGHS9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:28.3032971+07:00 0HLI8H63KGHS9:00000003 [INF] value of log info: /~/Product/~/Product/~/Product/~/Product/index (1b32db87)
+2018-11-12T17:28:29.6551592+07:00 0HLI8H63KGHS9:00000003 [INF] Request finished in 2252.1703ms 302  (791a596a)
+2018-11-12T17:28:29.6613225+07:00 0HLI8H63KGHS8:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:31.2274803+07:00 0HLI8H63KGHS8:00000004 [INF] value of log info: /~/Product/~/Product/~/Product/~/Product/~/Product/index (2cee05a4)
+2018-11-12T17:28:39.1722638+07:00 0HLI8H63KGHS8:00000004 [INF] Request finished in 9511.1729ms 301  (791a596a)
+2018-11-12T17:28:39.1788696+07:00 0HLI8H63KGHS9:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:28:53.2769791+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:28:53.3705697+07:00  [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:53.3776290+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:53.3826300+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:28:53.4451923+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:28:53.4540310+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:28:53.5027244+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:28:53.7538246+07:00 0HLI8H6IHCUQA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:28:53.7671186+07:00 0HLI8H6IHCUQA:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:28:53.7716866+07:00 0HLI8H6IHCUQA:00000001 [INF] Request finished in 18.5169ms 302  (791a596a)
+2018-11-12T17:29:34.7892032+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:29:34.9655851+07:00  [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:29:34.9748523+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:29:34.9814569+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:29:35.0678162+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:29:35.0794249+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:29:35.2197238+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:29:35.6588662+07:00 0HLI8H6V0EL3H:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:29:35.6588662+07:00 0HLI8H6V0EL3I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:29:38.3794283+07:00 0HLI8H6V0EL3H:00000001 [INF] Request finished in 2687.4873ms 200  (791a596a)
+2018-11-12T17:29:38.3809598+07:00 0HLI8H6V0EL3I:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:29:42.0748643+07:00 0HLI8H6V0EL3I:00000001 [INF] Request finished in 6419.7437ms 302  (791a596a)
+2018-11-12T17:29:42.0829261+07:00 0HLI8H6V0EL3H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/index   (ca22a1cb)
+2018-11-12T17:29:44.4590710+07:00 0HLI8H6V0EL3H:00000002 [INF] value of log info: /~/Product/index (12256fcc)
+2018-11-12T17:29:51.9186461+07:00 0HLI8H6V0EL3H:00000002 [INF] Request finished in 9833.0251ms 302  (791a596a)
+2018-11-12T17:29:51.9289546+07:00 0HLI8H6V0EL3I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:29:52.9591865+07:00 0HLI8H6V0EL3I:00000002 [INF] value of log info: /~/Product/~/Product/index (86cc49b8)
+2018-11-12T17:29:52.9628335+07:00 0HLI8H6V0EL3I:00000002 [INF] Request finished in 1034.9931ms 302  (791a596a)
+2018-11-12T17:29:52.9819367+07:00 0HLI8H6V0EL3H:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:29:54.2332142+07:00 0HLI8H6V0EL3H:00000003 [INF] value of log info: /~/Product/~/Product/~/Product/index (5b7c6957)
+2018-11-12T17:29:54.2360013+07:00 0HLI8H6V0EL3H:00000003 [INF] Request finished in 1254.8311ms 302  (791a596a)
+2018-11-12T17:29:54.2423536+07:00 0HLI8H6V0EL3I:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:29:55.3224792+07:00 0HLI8H6V0EL3I:00000003 [INF] value of log info: /~/Product/~/Product/~/Product/~/Product/index (1b32db87)
+2018-11-12T17:29:55.3300277+07:00 0HLI8H6V0EL3I:00000003 [INF] Request finished in 1083.2329ms 302  (791a596a)
+2018-11-12T17:29:55.3411416+07:00 0HLI8H6V0EL3H:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:29:56.6184246+07:00 0HLI8H6V0EL3H:00000004 [INF] value of log info: /~/Product/~/Product/~/Product/~/Product/~/Product/index (2cee05a4)
+2018-11-12T17:29:56.6224424+07:00 0HLI8H6V0EL3H:00000004 [INF] Request finished in 1281.394ms 302  (791a596a)
+2018-11-12T17:29:56.6336039+07:00 0HLI8H6V0EL3I:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/~/Product/~/Product/~/Product/~/Product/~/Product/~/Product/index   (ca22a1cb)
+2018-11-12T17:30:03.9301809+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:30:04.0208353+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:30:04.0260859+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:30:04.0295673+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:30:04.0819817+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:30:04.0890058+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:30:04.1276967+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:30:04.3793425+07:00 0HLI8H77IUNOU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:30:04.3926294+07:00 0HLI8H77IUNOU:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:30:04.3978710+07:00 0HLI8H77IUNOU:00000001 [INF] Request finished in 19.1811ms 302  (791a596a)
+2018-11-12T17:37:32.1872052+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:37:32.3674343+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:37:32.3771297+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:37:32.3842704+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:37:32.4593413+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:37:32.4698411+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:37:32.5966777+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:37:33.1729286+07:00 0HLI8HBDAHE86:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:37:33.1729286+07:00 0HLI8HBDAHE85:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:37:34.7580632+07:00 0HLI8HBDAHE85:00000001 [INF] Request finished in 1039.4095ms 200  (791a596a)
+2018-11-12T17:37:34.7617003+07:00 0HLI8HBDAHE86:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:37:39.3932174+07:00 0HLI8HBDAHE86:00000001 [INF] Request finished in 6224.8098ms 302  (791a596a)
+2018-11-12T17:38:19.0434446+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:38:19.2070987+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:38:19.2146918+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:38:19.2215569+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:38:19.2860038+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:38:19.2957697+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:38:19.4225332+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:38:19.9599266+07:00 0HLI8HBR8NEDU:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:38:19.9599266+07:00 0HLI8HBR8NEDV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:38:24.4805412+07:00 0HLI8HBR8NEDV:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:38:24.4809212+07:00 0HLI8HBR8NEDU:00000001 [INF] Request finished in 4465.4216ms 200  (791a596a)
+2018-11-12T17:38:33.3022369+07:00 0HLI8HBR8NEDV:00000001 [INF] Request finished in 13340.3541ms 302  (791a596a)
+2018-11-12T17:39:03.8991026+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:39:04.0608002+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:39:04.0691758+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:39:04.0763481+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:39:04.1687205+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:39:04.1810837+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:39:04.3017303+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:39:04.9341890+07:00 0HLI8HC8LFKK7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:39:04.9341890+07:00 0HLI8HC8LFKK8:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:39:09.3162773+07:00 0HLI8HC8LFKK7:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:39:09.3255770+07:00 0HLI8HC8LFKK8:00000001 [INF] Request finished in 4386.2855ms 200  (791a596a)
+2018-11-12T17:39:09.3284167+07:00 0HLI8HC8LFKK7:00000001 [INF] Request finished in 4398.906ms 302  (791a596a)
+2018-11-12T17:39:09.3460179+07:00 0HLI8HC8LFKK8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/Index   (ca22a1cb)
+2018-11-12T17:39:14.3483279+07:00 0HLI8HC8LFKK8:00000002 [INF] value of log info: /Product/Index (f906e42f)
+2018-11-12T17:39:18.4630199+07:00 0HLI8HC8LFKK8:00000002 [INF] Request finished in 9110.5277ms 302  (791a596a)
+2018-11-12T17:39:18.4771530+07:00 0HLI8HC8LFKK7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/Index   (ca22a1cb)
+2018-11-12T17:39:20.5183280+07:00 0HLI8HC8LFKK7:00000002 [INF] value of log info: /Product/Index (f906e42f)
+2018-11-12T17:39:20.5247096+07:00 0HLI8HC8LFKK7:00000002 [INF] Request finished in 2046.9745ms 302  (791a596a)
+2018-11-12T17:39:20.5317110+07:00 0HLI8HC8LFKK8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/Index   (ca22a1cb)
+2018-11-12T17:39:45.4731306+07:00 0HLI8HC8LFKK8:00000003 [INF] value of log info: /Product/Index (f906e42f)
+2018-11-12T17:39:45.4867502+07:00 0HLI8HC8LFKK8:00000003 [INF] Request finished in 24954.0516ms 302  (791a596a)
+2018-11-12T17:39:45.4997166+07:00 0HLI8HC8LFKK7:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/Index   (ca22a1cb)
+2018-11-12T17:39:46.3948230+07:00 0HLI8HC8LFKK7:00000003 [INF] value of log info: /Product/Index (f906e42f)
+2018-11-12T17:39:46.4004550+07:00 0HLI8HC8LFKK7:00000003 [INF] Request finished in 899.8411ms 302  (791a596a)
+2018-11-12T17:39:46.4092098+07:00 0HLI8HC8LFKK8:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/Index   (ca22a1cb)
+2018-11-12T17:39:48.8046167+07:00 0HLI8HC8LFKK8:00000004 [INF] value of log info: /Product/Index (f906e42f)
+2018-11-12T17:40:03.0632470+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:40:03.1528000+07:00  [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:03.1580781+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:03.1615790+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:40:03.2207261+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:03.2292066+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:40:03.2732164+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:40:03.7118430+07:00 0HLI8HCQ6KN35:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:40:03.7252936+07:00 0HLI8HCQ6KN35:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:40:03.7304556+07:00 0HLI8HCQ6KN35:00000001 [INF] Request finished in 19.2148ms 302  (791a596a)
+2018-11-12T17:40:14.3786792+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:40:14.5503409+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:14.5606338+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:14.5687807+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:40:14.6426258+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:14.6547344+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:40:14.7893187+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:40:15.2437954+07:00 0HLI8HCTK4374:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:40:15.2437954+07:00 0HLI8HCTK4375:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:40:17.6857344+07:00 0HLI8HCTK4375:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:40:17.6857349+07:00 0HLI8HCTK4374:00000001 [INF] Request finished in 2392.9155ms 200  (791a596a)
+2018-11-12T17:40:23.6649338+07:00 0HLI8HCTK4375:00000001 [INF] Request finished in 8425.4224ms 301  (791a596a)
+2018-11-12T17:40:23.6732787+07:00 0HLI8HCTK4374:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:40:24.9078765+07:00 0HLI8HCTK4374:00000002 [INF] value of log info: / (170581f0)
+2018-11-12T17:40:26.9432330+07:00 0HLI8HCTK4374:00000002 [INF] Request finished in 3268.1977ms 301  (791a596a)
+2018-11-12T17:40:26.9468428+07:00 0HLI8HCTK4375:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:40:28.3125347+07:00 0HLI8HCTK4375:00000002 [INF] value of log info: / (170581f0)
+2018-11-12T17:40:32.9819931+07:00 0HLI8HCTK4374:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:40:34.8680627+07:00 0HLI8HCTK4374:00000003 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:40:34.8726191+07:00 0HLI8HCTK4375:00000002 [INF] Request finished in 7914.8876ms 301  (791a596a)
+2018-11-12T17:40:34.8758501+07:00 0HLI8HCTK4374:00000003 [INF] Request finished in 1896.8848ms 301  (791a596a)
+2018-11-12T17:40:34.8812276+07:00 0HLI8HCTK4375:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:40:38.3726774+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:40:38.4447180+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:38.4511560+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:38.4551687+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:40:38.5078852+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:40:38.5150806+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:40:38.5536626+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:40:38.8585118+07:00 0HLI8HD4LLFS0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:40:38.8703141+07:00 0HLI8HD4LLFS0:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:40:38.8749550+07:00 0HLI8HD4LLFS0:00000001 [INF] Request finished in 17.0374ms 301  (791a596a)
+2018-11-12T17:41:29.7638166+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:41:29.9466132+07:00  [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:41:29.9552920+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:41:29.9618269+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:41:30.0468693+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:41:30.0593961+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:41:30.1744852+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:41:30.6986736+07:00 0HLI8HDK3KBRU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:41:30.6986737+07:00 0HLI8HDK3KBRT:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:41:32.3147692+07:00 0HLI8HDK3KBRT:00000001 [INF] Request finished in 1545.7303ms 200  (791a596a)
+2018-11-12T17:41:32.3147382+07:00 0HLI8HDK3KBRU:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:42:06.7334983+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:42:06.8294386+07:00  [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:06.8369555+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:06.8406496+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:42:06.9066630+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:06.9135746+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:42:06.9516726+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:42:07.1780908+07:00 0HLI8HDV03M3C:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:42:07.1917930+07:00 0HLI8HDV03M3C:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:42:07.1976219+07:00 0HLI8HDV03M3C:00000001 [INF] Request finished in 20.1267ms 301  (791a596a)
+2018-11-12T17:42:57.7098564+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:42:57.8758167+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:57.8834075+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:57.8893005+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:42:57.9595880+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:42:57.9694510+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:42:58.0947952+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:42:58.8035757+07:00 0HLI8HEEBM7LG:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:42:58.8035764+07:00 0HLI8HEEBM7LH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:43:00.5577249+07:00 0HLI8HEEBM7LH:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:43:00.5600867+07:00 0HLI8HEEBM7LG:00000001 [INF] Request finished in 1723.8519ms 200  (791a596a)
+2018-11-12T17:43:04.6930898+07:00 0HLI8HEEBM7LH:00000001 [INF] Request finished in 5898.465ms 301  (791a596a)
+2018-11-12T17:43:04.7010120+07:00 0HLI8HEEBM7LG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:06.9452543+07:00 0HLI8HEEBM7LG:00000002 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:06.9490504+07:00 0HLI8HEEBM7LG:00000002 [INF] Request finished in 2248.0435ms 301  (791a596a)
+2018-11-12T17:43:06.9551088+07:00 0HLI8HEEBM7LH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:10.0975654+07:00 0HLI8HEEBM7LH:00000002 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:10.1076714+07:00 0HLI8HEEBM7LH:00000002 [INF] Request finished in 3151.8781ms 302  (791a596a)
+2018-11-12T17:43:10.1152236+07:00 0HLI8HEEBM7LG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:11.6930414+07:00 0HLI8HEEBM7LG:00000003 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:11.6974860+07:00 0HLI8HEEBM7LG:00000003 [INF] Request finished in 1581.3974ms 302  (791a596a)
+2018-11-12T17:43:11.7101071+07:00 0HLI8HEEBM7LH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:12.6733715+07:00 0HLI8HEEBM7LH:00000003 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:12.6777091+07:00 0HLI8HEEBM7LH:00000003 [INF] Request finished in 966.7584ms 302  (791a596a)
+2018-11-12T17:43:12.6839631+07:00 0HLI8HEEBM7LG:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:13.4933097+07:00 0HLI8HEEBM7LG:00000004 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:13.4983763+07:00 0HLI8HEEBM7LG:00000004 [INF] Request finished in 813.4759ms 302  (791a596a)
+2018-11-12T17:43:13.5051186+07:00 0HLI8HEEBM7LH:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:43:18.3490138+07:00 0HLI8HEEBM7LH:00000004 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:43:23.8706800+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:43:23.9666110+07:00  [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:23.9730643+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:23.9770364+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:43:24.0420403+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:24.0493362+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:43:24.0969455+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:43:24.5899617+07:00 0HLI8HEM27JF1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:43:24.6025121+07:00 0HLI8HEM27JF1:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:43:24.6079304+07:00 0HLI8HEM27JF1:00000001 [INF] Request finished in 18.5324ms 301  (791a596a)
+2018-11-12T17:43:51.3536844+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:43:51.5267530+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:51.5371053+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:51.5431549+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:43:51.6072185+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:43:51.6170144+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:43:51.7495098+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:43:52.3017706+07:00 0HLI8HEUA14QM:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:49571/  0 (ca22a1cb)
+2018-11-12T17:43:52.3017711+07:00 0HLI8HEUA14QN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2018-11-12T17:43:53.7536325+07:00 0HLI8HEUA14QN:00000001 [INF] value of log info: / (170581f0)
+2018-11-12T17:43:54.1803760+07:00 0HLI8HEUA14QM:00000001 [INF] Request finished in 1425.8952ms 200  (791a596a)
+2018-11-12T17:44:05.3352462+07:00 0HLI8HEUA14QN:00000001 [INF] Request finished in 13038.857ms 302  (791a596a)
+2018-11-12T17:44:05.3434005+07:00 0HLI8HEUA14QM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:44:08.1361614+07:00 0HLI8HEUA14QM:00000002 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:44:17.9550409+07:00 0HLI8HEUA14QM:00000002 [INF] Request finished in 12611.6124ms 302  (791a596a)
+2018-11-12T17:44:17.9614316+07:00 0HLI8HEUA14QN:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Product/index   (ca22a1cb)
+2018-11-12T17:44:19.2537742+07:00 0HLI8HEUA14QN:00000002 [INF] value of log info: /Product/index (3fd43024)
+2018-11-12T17:44:25.1182390+07:00  [INF] Entity Framework Core "2.1.4-rtm-31024" initialized '"DatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite"' with options: "None" (9958f5bb)
+2018-11-12T17:44:25.1967756+07:00  [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:44:25.2030760+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:44:25.2070157+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2018-11-12T17:44:25.2751977+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""PRAGMA foreign_keys=ON;" (0723d8ff)
+2018-11-12T17:44:25.2823417+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM \"Category\" AS \"c\")
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-11-12T17:44:25.3278104+07:00  [INF] User profile is available. Using '"C:\Users\mengu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-12T17:44:25.6569275+07:00 0HLI8HF88KH5U:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2018-11-12T17:44:25.6702058+07:00 0HLI8HF88KH5U:00000001 [INF] value of log info: /favicon.ico (d80ba025)
+2018-11-12T17:44:25.6750876+07:00 0HLI8HF88KH5U:00000001 [INF] Request finished in 18.7628ms 302  (791a596a)

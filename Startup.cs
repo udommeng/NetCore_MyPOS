@@ -63,8 +63,10 @@ namespace MyPOS
             }
 
 
-            app.UseCustomMiddleware();
+
             app.UseHttpsRedirection();
+            app.UseCustomMiddleware();
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

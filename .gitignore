@@ -2,3 +2,9 @@ obj
 bin
 deploy_app
 mypos.tar
+.vs/MyPOS/v15/Server/sqlite3/storage.ide-shm
+.vs/MyPOS/v15/Server/sqlite3/storage.ide
+.vs/MyPOS/v15/Server/sqlite3/db.lock
+.vs/MyPOS/v15/Server/sqlite3/storage.ide-wal
+.vs/MyPOS/DesignTimeBuild/.dtbcache
+.vs/config/applicationhost.config
